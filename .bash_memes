@@ -1,0 +1,36 @@
+# -*- mode: sh -*-
+# MEmes bash setup
+#
+# Add to system provided .bashrc
+# [ -f ~/.bash_memes ] && . ~/.bash_memes
+
+# Aliases
+alias ll='ls -alF'
+alias q='emacsclient -c -n'
+alias tdmp='sudo /usr/sbin/tcpdump -ni eth0 -s 0 -w'
+alias trd='/usr/sbin/tcpdump -nevvvxXttttSr'
+alias assh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias diff="diff -x .git -x '*~' -x '*#'"
+
+# Setup node for REPL mode
+alias node="env NODE_NO_READLINE=1 rlwrap node"
+alias node_repl="node -e \"require('repl').start({ignoreUndefined: true})\""
+export NODE_DISABLE_COLORS=1
+
+# Show git status in prompt
+type -t __git_ps1 > /dev/null 2>/dev/null
+if [ $? -eq 0 ]; then
+   GIT_PS1_SHOWDIRTYSTATE=1
+   GIT_PS1_SHOWSTASHSTATE=1
+   GIT_PS1_SHOWUNTRACKEDFILES=
+   GIT_PS1_SHOWUPSTREAM="auto verbose"
+   GIT_PS1_SHOWCOLORHINTS=1
+   PROMPT_COMMAND="__git_ps1 '${PS1%\\\$ }' '\$ '"
+fi
+
+# Enable direnv if installed
+which direnv >/dev/null 2>/dev/null && eval "$(direnv hook bash)"
+
+# Source private file containing aliases or other settings that should
+# not be committed to repo
+[ -f ~/.bash_memes_private ] && . ~/.bash_memes_private

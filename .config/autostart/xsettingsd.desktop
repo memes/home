@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=XSettingsd
+GenericName=Settings daemon
+Exec=xsettingsd
+Terminal=false
+Type=Application
+Categories=
+StartupNotify=false

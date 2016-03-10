@@ -1,0 +1,7 @@
+Xft/Antialias 1
+Xft/Hinting 1
+Xft/HintStyle "hintfull"
+Xft/lcdfilter "lcddefault"
+Xft/RGBA "rgb"
+# HiDPI setting for ganymede
+Xft/DPI 240640

@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Toggle touchpad status
+
+SYNCLIENT=${SYNCLIENT:-$(which synclient)}
+AWK=${AWK:-$(which awk)}
+TOUCHPAD_VAR=${TOUCHPAD_VAR:-TouchpadOff}
+
+flag=$(${SYNCLIENT} -l 2>/dev/null | ${AWK} "/${TOUCHPAD_VAR}/ {print \$3}" 2>/dev/null )
+if [ "${flag}" = "1" ]; then
+    flag=0
+else
+    flag=1
+fi
+
+${SYNCLIENT} ${TOUCHPAD_VAR}=${flag}
+echo $flag

@@ -1,0 +1,91 @@
+# -*- mode: sh -*-
+# MEmes login environment setup
+#
+# Add to .profile
+# [ -f "${HOME}/.profile_memes" ] && . "${HOME}/.profile_memes"
+
+# Setup base environment
+export TZ="America/Los_Angeles"
+export EDITOR=$(which emacsclient 2>/dev/null)
+export VISUAL=${EDITOR}
+
+# Use system libvirt connections by default
+export LIBVIRT_DEFAULT_URI=qemu:///system
+
+# Outputs a string containing the new 'PATH'
+# $1 = directory to add
+# $2 = expanded path-like value
+_addToPath() {
+  if [ -n "$1" -a -d "${1}" ]; then
+    echo "${2}" | grep -q "${1}" 2>/dev/null
+    if [ $? -ne 0 ]; then
+      echo "${1}${2:+":${2}"}"
+    else
+      echo "${2}"
+    fi
+  else
+    echo "${2}"
+  fi
+}
+
+# Add .local/bin to path if necessary
+if [ -d "${HOME}/.local/bin" ]; then
+   export PATH="$(_addToPath "${HOME}/.local/bin" "${PATH}")"
+fi
+
+# Use a common user directory as root for locally installed packages
+# for nodejs, go, etc
+case "$(uname)" in
+    Darwin)
+	_LOCAL_LIB_ROOT="${HOME}/Library"
+	;;
+
+    Linux)
+	_LOCAL_LIB_ROOT="${HOME}/lib"
+	;;
+
+    MINGW*)
+	_LOCAL_LIB_ROOT="${HOME}/Documents/lib"
+	;;
+
+    *)
+	_LOCAL_LIB_ROOT="does/not/exist"
+	;;
+esac
+
+# Node.js
+_LOCAL_NODE_PATH="${_LOCAL_LIB_ROOT}/node"
+if [ -n "${_LOCAL_NODE_PATH}" -a -d "${_LOCAL_NODE_PATH}" ]; then
+   export NODE_PATH="$(_addToPath "${_LOCAL_NODE_PATH}" "${NODE_PATH}")"
+   export PATH="$(_addToPath "${_LOCAL_NODE_PATH}/bin" "${PATH}")"
+fi
+unset _LOCAL_NODE_PATH
+
+# Python path - deprecated, pip uses .local by default
+#_LOCAL_PYTHON_PATH="${_LOCAL_LIB_ROOT}/python"
+if [ -n "${_LOCAL_PYTHON_PATH}" -a -d "${_LOCAL_PYTHON_PATH}" ]; then
+    export PYTHONPATH="$(_addToPath "${_LOCAL_PYTHON_PATH}" "${PYTHON_PATH}")"
+    export PATH="$(_addToPath "${_LOCAL_PYTHON_PATH}/bin" "${PATH}")"
+fi
+unset _LOCAL_PYTHON_PATH
+
+# Setup GO
+_LOCAL_GO_PATH="${_LOCAL_LIB_ROOT}/go"
+if [ -n "${_LOCAL_GO_PATH}" -a -d "${_LOCAL_GO_PATH}" ]; then
+    export GOPATH="$(_addToPath "${_LOCAL_GO_PATH}" "${GOPATH}")"
+    export PATH="$(_addToPath "${_LOCAL_GO_PATH}/bin" "${PATH}")"
+fi
+unset _LOCAL_GO_PATH
+go version 2>/dev/null | grep -q 'go1.5' 2>/dev/null && export GO15VENDOREXPERIMENT=1
+
+# Android SDK support
+_LOCAL_ANDROID_ROOT="${_LOCAL_LIB_ROOT}/android-sdk-linux"
+if [ -n "${_LOCAL_ANDROID_ROOT}" -a -d "${_LOCAL_ANDROID_ROOT}" ]; then
+    export ANDROID_HOME="${_LOCAL_ANDROID_ROOT}"
+    export PATH="$(_addToPath "${_LOCAL_ANDROID_ROOT}/platform-tools" "${PATH}")"
+    export PATH="$(_addToPath "${_LOCAL_ANDROID_ROOT}/tools" "${PATH}")"    
+fi
+unset _LOCAL_ANDROID_ROOT
+
+# Source private profile file if it exists
+[ -f "${HOME}/.profile_memes_private" ] && . "${HOME}/.profile_memes_private"

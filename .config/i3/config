@@ -1,0 +1,187 @@
+# MEmes i3 configuration
+
+set $mod Mod4
+set $PRIMARY_MONITOR eDP1
+set $SECONDARY_MONITOR HDMI1
+# Using dongle to make DP1 work as HDMI
+#set $TERTIARY_MONITOR DP1
+set $TERTIARY_MONITOR HDMI2
+
+# Name workspaces
+set $PRIMARY_WS 1:Main
+set $SECONDARY_WS 2:Web
+set $TERTIARY_WS 3:IM
+set $MAIL_WS 4:Mail
+set $VIRT_WS 5:Virt
+
+font pango:Source Code Pro 8
+
+floating_modifier $mod
+
+# My short-cuts
+bindsym $mod+x exec i3-sensible-terminal
+bindsym $mod+l exec --no-startup-id /usr/bin/xscreensaver-command -lock
+bindsym $mod+space exec gmrun
+bindsym $mod+m exec --no-startup-id /home/memes/bin/monitor
+bindsym $mod+Print exec --no-startup-id /home/memes/bin/screenshot -w -d
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/memes/bin/pavolume.sh increase
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/memes/bin/pavolume.sh decrease
+bindsym XF86AudioMute exec --no-startup-id /home/memes/bin/pavolume.sh toggle
+bindsym $mod+t exec --no-startup-id /home/memes/bin/touchpad
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+Ctrl+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+c focus child
+
+# Show the scratchpad
+bindsym $mod+minus scratchpad show
+
+# switch to workspace
+bindsym $mod+F1 workspace $PRIMARY_WS
+bindsym $mod+F2 workspace $SECONDARY_WS
+bindsym $mod+F3 workspace $TERTIARY_WS
+bindsym $mod+F4 workspace $MAIL_WS
+bindsym $mod+F5 workspace $VIRT_WS
+bindsym $mod+F6 workspace 6
+bindsym $mod+F7 workspace 7
+bindsym $mod+F8 workspace 8
+bindsym $mod+F9 workspace 9
+bindsym $mod+F10 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+F1 move container to workspace $PRIMARY_WS
+bindsym $mod+Shift+F2 move container to workspace $SECONDARY_WS
+bindsym $mod+Shift+F3 move container to workspace $TERTIARY_WS
+bindsym $mod+Shift+F4 move container to workspace $MAIL_WS
+bindsym $mod+Shift+F5 move container to workspace $VIRT_WS
+bindsym $mod+Shift+F6 move container to workspace 6
+bindsym $mod+Shift+F7 move container to workspace 7
+bindsym $mod+Shift+F8 move container to workspace 8
+bindsym $mod+Shift+F9 move container to workspace 9
+bindsym $mod+Shift+F10 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exit
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Show bar on primary monitor
+bar {
+	id main-bar
+	output $PRIMARY_MONITOR
+	position top
+	font pango:FontAwesome 8, Source Code Pro 8
+	separator_symbol " "
+	status_command ${HOME}/.config/i3/primary_status.sh
+        tray_output $PRIMARY_MONITOR
+}
+
+bar {
+	id secondary-bar
+	output $SECONDARY_MONITOR
+	position top
+	font pango:FontAwesome 8, Source Code Pro 8
+	separator_symbol " "
+	status_command ${HOME}/.config/i3/secondary_status.sh
+	tray_output none
+}
+
+bar {
+	id tertiary-bar
+	output $TERTIARY_MONITOR
+	position top
+	font pango:FontAwesome 8, Source Code Pro 8
+	separator_symbol " "
+	status_command ${HOME}/.config/i3/tertiary_status.sh
+	tray_output none
+}
+
+# Scratchpad; force some windows to scratchpad
+for_window [title="mjemes - Skype™"] move to scratchpad
+for_window [title="Buddy List"] move to scratchpad
+for_window [class="Keepassx"] move to scratchpad
+for_window [title="IMAP Sync"] move to scratchpad
+
+# Assign some default workspaces for apps
+assign [class="^chromium(-browser)?$" instance="chromium\.mail"] $MAIL_WS
+assign [class="^chromium(-browser)?$"] $SECONDARY_WS
+assign [class="^Pidgin$" window_role="^conversation$"] $TERTIARY_WS
+assign [class="^Skype$" window_role="^ConversationsWindow$"] $TERTIARY_WS
+assign [class="^Virt-viewer$"] $VIRT_WS
+
+# Setup X
+exec --no-startup-id xrandr --output $PRIMARY_MONITOR -primary
+exec --no-startup-id setxkbmap -option compose:ralt
+exec --no-startup-id hsetroot -solid '#224477'
+
+# Autostart applications - moved to .desktop so standardised on all WMs
+exec --no-startup-id dex -a
+
+# Try to assign first three workspaces to attached monitors
+workspace "$PRIMARY_WS" output $PRIMARY_MONITOR
+workspace "$SECONDARY_WS" output $SECONDARY_MONITOR
+workspace "$TERTIARY_WS" output $TERTIARY_MONITOR
+# Prefer mail to go to higher-res screen
+workspace "$MAIL_WS" output $SECONDARY_MONITOR
+# Prefer virt to go to lower-res screen
+workspace "$VIRT_WS" output $TERTIARY_MONITOR

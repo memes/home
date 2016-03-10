@@ -1,0 +1,156 @@
+! MEmes updates
+.customization: -color
+
+! Xfs support
+Xft*antialias: true
+Xft*hinting: true
+Xft*hintstyle: hintfull
+Xft*lcdfilter: lcddefault
+Xft*rgba: rgb
+
+! Solarized dark colours
+!
+! http://ethanschooner*com/solarized
+#define S_yellow #b58900
+#define S_orange #cb4b16
+#define S_red #dc322f
+#define S_magenta #d33682
+#define S_violet #6c71c4
+#define S_blue #268bd2
+#define S_cyan #2aa198
+#define S_green #859900
+#define S_base03 #002b36
+#define S_base02 #073642
+#define S_base01 #586e75
+#define S_base00 #657b83
+#define S_base0 #839496
+#define S_base1 #93a1a1
+#define S_base2 #eee8d5
+#define S_base3 #fdf6e3
+
+! UXTerm/XTerm in Solarized Dark 80x45
+XTerm*background: S_base03
+XTerm*foreground: S_base0
+XTerm*fading: 40
+XTerm*fadeColor: S_base03
+XTerm*cursorColor: S_base1
+XTerm*pointerColorBackground: S_base01
+XTerm*pointerColorForeground: S_base1
+XTerm*color0: S_base02
+XTerm*color1: S_red
+XTerm*color2: S_green
+XTerm*color3: S_yellow
+XTerm*color4: S_blue
+XTerm*color5: S_magenta
+XTerm*color6: S_cyan
+XTerm*color7: S_base2
+XTerm*color9: S_orange
+XTerm*color8: S_base03
+XTerm*color10: S_base01
+XTerm*color11: S_base00
+XTerm*color12: S_base0
+XTerm*color13: S_violet
+XTerm*color14: S_base1
+XTerm*color15: S_base3
+XTerm*scrollBar: True
+XTerm*saveLines: 500
+XTerm*metaSendsEscape: true
+XTerm*faceName: Source Code Pro:style=Medium:size=6
+XTerm*sessionMgt: False
+XTerm*geometry: 80x45
+UXTerm*background: S_base03
+UXTerm*foreground: S_base0
+UXTerm*fading: 40
+UXTerm*fadeColor: S_base03
+UXTerm*cursorColor: S_base1
+UXTerm*pointerColorBackground: S_base01
+UXTerm*pointerColorForeground: S_base1
+UXTerm*color0: S_base02
+UXTerm*color1: S_red
+UXTerm*color2: S_green
+UXTerm*color3: S_yellow
+UXTerm*color4: S_blue
+UXTerm*color5: S_magenta
+UXTerm*color6: S_cyan
+UXTerm*color7: S_base2
+UXTerm*color9: S_orange
+UXTerm*color8: S_base03
+UXTerm*color10: S_base01
+UXTerm*color11: S_base00
+UXTerm*color12: S_base0
+UXTerm*color13: S_violet
+UXTerm*color14: S_base1
+UXTerm*color15: S_base3
+UXTerm*scrollBar: True
+UXTerm*saveLines: 500
+UXTerm*metaSendsEscape: true
+UXTerm*faceName: Source Code Pro:style=Medium:size=6
+UXTerm*sessionMgt: False
+UXTerm*geometry: 80x45
+
+! Rxvt using Solarized Dark, 80x45
+Rxvt*background: S_base03
+Rxvt*foreground: S_base0
+Rxvt*fading: 40
+Rxvt*fadeColor: S_base03
+Rxvt*cursorColor: S_base1
+Rxvt*pointerColorBackground: S_base01
+Rxvt*pointerColorForeground: S_base1
+Rxvt*color0: S_base02
+Rxvt*color1: S_red
+Rxvt*color2: S_green
+Rxvt*color3: S_yellow
+Rxvt*color4: S_blue
+Rxvt*color5: S_magenta
+Rxvt*color6: S_cyan
+Rxvt*color7: S_base2
+Rxvt*color9: S_orange
+Rxvt*color8: S_base03
+Rxvt*color10: S_base01
+Rxvt*color11: S_base00
+Rxvt*color12: S_base0
+Rxvt*color13: S_violet
+Rxvt*color14: S_base1
+Rxvt*color15: S_base3
+Rxvt*scrollBar: True
+Rxvt*saveLines: 500
+Rxvt*font: xft:Source Code Pro:style=Medium:size=6:antialias=true:hinting=true
+Rxvt*letterSpace: -1
+RXvt*geometry: 80x45
+URxvt*background: S_base03
+URxvt*foreground: S_base0
+URxvt*fading: 40
+URxvt*fadeColor: S_base03
+URxvt*cursorColor: S_base1
+URxvt*pointerColorBackground: S_base01
+URxvt*pointerColorForeground: S_base1
+URxvt*color0: S_base02
+URxvt*color1: S_red
+URxvt*color2: S_green
+URxvt*color3: S_yellow
+URxvt*color4: S_blue
+URxvt*color5: S_magenta
+URxvt*color6: S_cyan
+URxvt*color7: S_base2
+URxvt*color9: S_orange
+URxvt*color8: S_base03
+URxvt*color10: S_base01
+URxvt*color11: S_base00
+URxvt*color12: S_base0
+URxvt*color13: S_violet
+URxvt*color14: S_base1
+URxvt*color15: S_base3
+URxvt*scrollBar: True
+URxvt*saveLines: 500
+URxvt*font: xft:Source Code Pro:style=Medium:size=6:antialias=true:hinting=true
+URxvt*letterSpace: -1
+URXvt*geometry: 80x45
+
+! Emacs - most settings are in my *emacs
+Emacs*geometry: 80x50
+!Emacs*font: -misc-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
+!Emacs*font: -*-terminus-medium-r-*-*-*-120-*-*-*-*-iso10646-*
+Emacs*FontBackend: xft
+!Emacs*font: Liberation Mono-7.5
+!Emacs*font: Incosolata-7
+Emacs*font: Source Code Pro-6

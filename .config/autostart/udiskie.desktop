@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Udiskie
+GenericName=Udiskie
+Exec=udiskie
+Terminal=false
+Type=Application
+Categories=
+StartupNotify=false

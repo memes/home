@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Mount Public documents folder on server at mountpoint
+MNT_POINT=${MNT_POINT:-/mnt}
+
+[ -z "${1}" ] && echo "$0: need server name" >&2 && exit 1
+
+sudo mount ${FSTYPE:+"-type ${FSTYPE}"} //${1}/Users/Public/Documents ${MNT_POINT} -o uid=${MNT_UID:-"$(id -u)"},gid=${MNT_GID:-"$(id -g)"},rw${MNT_USER:+",username=${MNT_USER}${MNT_PASSWORD:+",password=${MNT_PASSWORD}"}"}${MNT_USER:-",guest"}

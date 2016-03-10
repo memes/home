@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Compton
+GenericName=Compton compostior
+Exec=compton -b --config /home/memes/.config/compton.conf
+Terminal=false
+Type=Application
+Categories=
+StartupNotify=false

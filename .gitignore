@@ -6,3 +6,29 @@
 !.gitignore
 !README.md
 !LICENSE
+!.Xresources
+!.bash_memes
+!.kernel-pkg.conf
+!.npmrc
+!.profile_memes
+!.xscreensaver
+!.xsettingsd
+
+# Autostart desktop files
+!.config/autostart
+
+# Share i3 configuration - probably needs to be customised for other
+# machines
+!.config/i3
+
+# Midnight commander
+!.config/mc
+
+# udiskie
+!.config/udiskie
+
+# compton
+!.config/compton.conf
+
+# Useful scripts
+!bin

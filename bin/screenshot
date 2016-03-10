@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# Take a screenshot and save into specified folder
+#
+OUTPUT_DIR=${OUTPUT_DIR:-~/tmp}
+
+takeScreenshot()
+{
+    local filename="$1"
+    shift
+    local arguments=""
+    [ "$1" != "window" ] && arguments="-window root"
+    /usr/bin/import ${arguments} "${filename}"
+}
+
+displayScreenshot()
+{
+    local filename="$1"
+    shift
+    [ -n "${filename}" ] && \
+        display "${filename}" $*
+}
+
+# Process arguments
+mode=""
+display=""
+while [ $# -gt 0 ]
+do
+    case "$1" in
+        -w|--window|-a|--area)
+            mode="window"
+	    ;;
+        -d|--display)
+            display="true"
+	    ;;
+        *)
+	    ;;
+    esac
+    shift
+done
+
+filename="${OUTPUT_DIR}/screenshot_$(date +%Y%m%d%H%M%S).png"
+takeScreenshot "${filename}" ${mode}
+[ -n "${display}" ] && displayScreenshot "${filename}"

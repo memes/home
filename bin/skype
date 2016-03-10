@@ -1,0 +1,2 @@
+#!/bin/sh
+env PULSE_LATENCY_MSEC=60 /usr/bin/skype $*

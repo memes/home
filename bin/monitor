@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# Script to automatically toggle external monitor on/off
+#
+# $Id: $
+
+XRANDR=${XRANDR:-`which xrandr`}
+GREP=${GREP:-`which egrep`}
+AWK=${AWK:-`which awk`}
+PKILL=${PKILL:-`which pkill`}
+LAPTOP=${LAPTOP:-`${XRANDR} | ${AWK} '/^eDP1/ {print $1}'`}
+#EXT_L=${EXT_L:-`${XRANDR} | ${AWK} '/^DP1 / {print $1}'`}
+EXT_L=${EXT_L:-`${XRANDR} | ${AWK} '/^HDMI2 / {print $1}'`}
+EXT_L_POS=${EXT_L_POS:-"left-of"}
+EXT_R=${EXT_R:-`${XRANDR} | ${AWK} '/^HDMI1 / {print $1}'`}
+EXT_R_POS=${EXT_R_POS:-"right-of"}
+
+toggleExt()
+{
+    local output=
+    [ $# -ge 1 ] || exit 1
+    output="$1"
+    local position=
+    [ $# -ge 2 ] && position="$2"
+    local scale=
+    [ $# -ge 3 ] && scale="$3"
+    local outputToggle=
+    ${XRANDR} -q | ${GREP} -q "${output} disconnected" 2>&1 > /dev/null
+    if [ $? -eq 0 ]; then
+	output_toggle="--output ${output} --off"
+    else
+	output_toggle="--output ${output} --auto --scale ${scale:-1x1} --${position} ${LAPTOP}"
+    fi
+    echo "${output_toggle}"
+}
+EXT=
+[ -n "${EXT_L}" ] && EXT="${EXT} $(toggleExt ${EXT_L} ${EXT_L_POS})"
+[ -n "${EXT_R}" ] && EXT="${EXT} $(toggleExt ${EXT_R} ${EXT_R_POS})"
+
+${XRANDR} --output ${LAPTOP} --auto --pos 0x0 ${EXT}
+${PKILL} -SIGUSR1 conky > /dev/null 2>/dev/null

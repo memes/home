@@ -1,0 +1,6 @@
+# Udiskie config for ganymede
+program_options:
+  tray: auto
+  notify: true
+  file_manager: /home/memes/bin/mc.wrapper.sh
+  udisks_version: 2
