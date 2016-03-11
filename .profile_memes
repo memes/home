@@ -58,6 +58,9 @@ _LOCAL_NODE_PATH="${_LOCAL_LIB_ROOT}/node"
 if [ -n "${_LOCAL_NODE_PATH}" -a -d "${_LOCAL_NODE_PATH}" ]; then
    export NODE_PATH="$(_addToPath "${_LOCAL_NODE_PATH}" "${NODE_PATH}")"
    export PATH="$(_addToPath "${_LOCAL_NODE_PATH}/bin" "${PATH}")"
+   cat >| ${HOME}/.npmrc <<EOF
+prefix=${_LOCAL_NODE_PATH}
+EOF
 fi
 unset _LOCAL_NODE_PATH
 
