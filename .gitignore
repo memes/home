@@ -14,7 +14,7 @@
 !.xsettingsd
 
 # Autostart desktop files
-!.config/autostart
+!.config/autostart/*
 
 # Share i3 configuration - probably needs to be customised for other
 # machines

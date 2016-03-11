@@ -168,6 +168,7 @@ assign [class="^chromium(-browser)?$"] $SECONDARY_WS
 assign [class="^Pidgin$" window_role="^conversation$"] $TERTIARY_WS
 assign [class="^Skype$" window_role="^ConversationsWindow$"] $TERTIARY_WS
 assign [class="^Virt-viewer$"] $VIRT_WS
+assign [class="^[Ss]cudcloud$"] $TERTIARY_WS
 
 # Setup X
 exec --no-startup-id xrandr --output $PRIMARY_MONITOR -primary
