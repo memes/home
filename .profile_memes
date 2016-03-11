@@ -79,12 +79,26 @@ unset _LOCAL_GO_PATH
 go version 2>/dev/null | grep -q 'go1.5' 2>/dev/null && export GO15VENDOREXPERIMENT=1
 
 # Android SDK support
-_LOCAL_ANDROID_ROOT="${_LOCAL_LIB_ROOT}/android-sdk-linux"
+case "$(uname)" in
+    Darwin)
+        _SDK_PLATFORM=macosx
+        ;;
+
+    Linux)
+        _SDK_PLATFORM=linux
+        ;;
+
+    *)
+        _SDK_PLATFORM=unknown
+        ;;
+esac
+_LOCAL_ANDROID_ROOT="${_LOCAL_LIB_ROOT}/android-sdk-${_SDK_PLATFORM}"
 if [ -n "${_LOCAL_ANDROID_ROOT}" -a -d "${_LOCAL_ANDROID_ROOT}" ]; then
     export ANDROID_HOME="${_LOCAL_ANDROID_ROOT}"
     export PATH="$(_addToPath "${_LOCAL_ANDROID_ROOT}/platform-tools" "${PATH}")"
     export PATH="$(_addToPath "${_LOCAL_ANDROID_ROOT}/tools" "${PATH}")"    
 fi
+unset _SDK_PLATFORM
 unset _LOCAL_ANDROID_ROOT
 
 # Source private profile file if it exists
