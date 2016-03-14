@@ -173,7 +173,7 @@ assign [class="^[Ss]cudcloud$"] $TERTIARY_WS
 # Setup X
 exec --no-startup-id xrandr --output $PRIMARY_MONITOR -primary
 exec --no-startup-id setxkbmap -option compose:ralt
-exec --no-startup-id hsetroot -solid '#224477'
+exec --no-startup-id hsetroot -solid '#212121'
 
 # Autostart applications - moved to .desktop so standardised on all WMs
 exec --no-startup-id dex -a
