@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=xautolock
+GenericName=xautolock
+Exec=sh -c 'xautolock -restart 2>/dev/null || xautolock &'
+Terminal=false
+Type=Application
+Categories=
+StartupNotify=false
