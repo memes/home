@@ -6,7 +6,8 @@
 
 # Aliases
 alias ll='ls -alF'
-alias q='emacsclient -c -n'
+# Disable q alias as using q shell script now
+#alias q='emacsclient -c -n'
 alias tdmp='sudo /usr/sbin/tcpdump -ni eth0 -s 0 -w'
 alias trd='/usr/sbin/tcpdump -nevvvxXttttSr'
 alias assh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"

@@ -30,4 +30,4 @@
 !.config/compton.conf
 
 # Useful scripts
-!bin
+!bin/*

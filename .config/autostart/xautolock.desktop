@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=xautolock
 GenericName=xautolock
-Exec=sh -c 'xautolock -restart 2>/dev/null || xautolock &'
+Exec=sh -c 'ps -ef | grep -q xautolock 2>/dev/null && xautolock -detectsleep &'
 Terminal=false
 Type=Application
 Categories=

@@ -3,8 +3,6 @@
 set $mod Mod4
 set $PRIMARY_MONITOR eDP1
 set $SECONDARY_MONITOR HDMI1
-# Using dongle to make DP1 work as HDMI
-#set $TERTIARY_MONITOR DP1
 set $TERTIARY_MONITOR HDMI2
 
 # Name workspaces
@@ -20,7 +18,7 @@ floating_modifier $mod
 
 # My short-cuts
 bindsym $mod+x exec i3-sensible-terminal
-bindsym $mod+l exec --no-startup-id /usr/bin/xscreensaver-command -lock
+bindsym $mod+l exec --no-startup-id xautolock -locknow
 bindsym $mod+space exec gmrun
 bindsym $mod+m exec --no-startup-id /home/memes/bin/monitor
 bindsym $mod+Print exec --no-startup-id /home/memes/bin/screenshot -w -d
