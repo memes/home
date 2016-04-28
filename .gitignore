@@ -3,6 +3,7 @@
 *
 
 # Add individual files/directories that should be in repo
+!.gitconfig
 !.gitignore
 !README.md
 !LICENSE
