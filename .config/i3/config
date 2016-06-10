@@ -173,6 +173,7 @@ assign [title="^plaidchat$"] $TERTIARY_WS
 exec --no-startup-id xrandr --output $PRIMARY_MONITOR -primary
 exec --no-startup-id setxkbmap -option compose:ralt
 exec --no-startup-id hsetroot -solid '#212121'
+exec --no-startup-id /home/memes/bin/monitor
 
 # Autostart applications - moved to .desktop so standardised on all WMs
 exec --no-startup-id dex -a
