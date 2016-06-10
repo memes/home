@@ -36,3 +36,5 @@
 # Pull in any configuration that can't be stored in public git repo
 [include]
 	path = ~/.gitconfig.private
+[gpg]
+	program = gpg2
