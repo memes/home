@@ -24,12 +24,14 @@
 [alias]
 	branches = branch -a
 	tags = tag
+	stashall = stash save --all
 	stashes = stash list
 	unstage = reset -q HEAD --
 	revert = checkout --
 	uncommit = reset --mixed HEAD~
 	amend = commit --amend
-	graph = log --graph --branches --remotes --tags --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order -10
+	graph = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
+	patch = add --patch
 	patches = log --patch --decorate -10
 	review = diff --cached --diff-algorithm=minimal -w
 
