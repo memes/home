@@ -32,3 +32,6 @@
 
 # Useful scripts
 !bin/*
+
+# Preferred go libs to install and refresh as needed
+!lib/go/refresh.sh
