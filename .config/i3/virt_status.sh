@@ -1,17 +1,31 @@
 #!/bin/sh
 
-[ -n "${BLOCK_BUTTON}" ] && notify-send "${BLOCK_BUTTON} ${BLOCK_NAME} ${BLOCK_INSTANCE}"
-
-echo '{"version":1,"click_events":true}'
-echo '[[],'
+echo '{"version":1,"click_events":false}'
+echo '[[]'
 while true; do
-    echo '['
-    docker ps --no-trunc 2>/dev/null | awk 'BEGIN {FS=" {2,}"} NR > 1 {if($NF > 1) {printf "{\"full_text\":\"%s: %s\",\"short_text\":\"%s\",\"name\":\"docker\",\"instance\":\"%s\"},", $NF, $(NF-2), $NF, $NF}}' 2>/dev/null
+    echo ',['
+    count=0
+    icon=""
+    docker ps --format="{{.Names}} {{.Status}}" 2>/dev/null | \
+	while read name status; do
+	    [ ${count} -eq 0 ] && icon=" " || icon=""
+	    count=$(($count+1))
+	    printf '{"full_text":"%s%s %s","short_text":"%s%s","name":"docker","instance":"%s"},' "${icon}" "${name}" "${status}" "${icon}" "${name}" "${count}" 2>/dev/null
+	done
+    count=0
+    icon=""
     for c in qemu:///system lxc; do
-        virsh -c ${c} list 2>/dev/null | awk 'BEGIN {FS=" {2,}"} NR > 2 {if($NF > 1) {printf "{\"full_text\":\"%s: %s\",\"short_text\":\"%s\",\"name\":\"kvm\",\"instance\":\"%s\"},", $(NF-1), $NF, $(NF-1), $(NF-1)}}' 2>/dev/null
+        virsh -c ${c} list --name 2>/dev/null | \
+	    while read name; do
+		if [ -n "${name}" ]; then
+		    [ ${count} -eq 0 ] && icon=" " || icon=""
+		    count=$(($count+1))
+		    printf '{"full_text":"%s%s","short_text":"%s%s","name":"libvirt","instance":"%s"},' "${icon}" "${name}" "${icon}" "${name}" "${count}" 2>/dev/null
+		fi
+	    done
     done
-    echo '{"full_text":""}],'
+    echo '{"full_text":""}]'
     sleep 5
 done
-echo '[]]'
+echo ',[]]'
 exit 0
