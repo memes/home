@@ -8,11 +8,10 @@ XRANDR=${XRANDR:-`which xrandr`}
 GREP=${GREP:-`which egrep`}
 AWK=${AWK:-`which awk`}
 PKILL=${PKILL:-`which pkill`}
-LAPTOP=${MEMES_PRIMARY_MONITOR:-`${XRANDR} | ${AWK} '/^eDP1/ {print $1}'`}
-#EXT_L=${EXT_L:-`${XRANDR} | ${AWK} '/^DP1 / {print $1}'`}
-EXT_L=${MEMES_TERTIARY_MONITOR:-`${XRANDR} | ${AWK} '/^HDMI2 / {print $1}'`}
+LAPTOP=$(${XRANDR} | ${AWK} '/^eDP-?1/ {print $1}')
+EXT_L=$(${XRANDR} | ${AWK} '/^HDMI-?1 / {print $1}')
 EXT_L_POS=${EXT_L_POS:-"left-of"}
-EXT_R=${MEMES_SECONDARY_MONITOR:-`${XRANDR} | ${AWK} '/^DP1 / {print $1}'`}
+EXT_R=$(${XRANDR} | ${AWK} '/^DP-?1 / {print $1}')
 EXT_R_POS=${EXT_R_POS:-"right-of"}
 
 toggleExt()
