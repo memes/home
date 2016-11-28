@@ -157,4 +157,4 @@ Emacs*font: Source Code Pro-6
 
 ! xautolock
 Xautolock.time: 5
-Xautolock.locker: i3lock --dpms --color 212121
+Xautolock.locker: i3lock --color 212121
