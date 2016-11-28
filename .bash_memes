@@ -32,6 +32,10 @@ fi
 # Enable direnv if installed
 which direnv >/dev/null 2>/dev/null && eval "$(direnv hook bash)"
 
+# Cassandra alias
+alias cassandra='id=$(docker ps -a --filter name=cassandra --format '{{.ID}}'); [ -z "${id}" ] && docker run -d -p 9042:9042 --name cassandra cassandra:3.0.8 || docker start ${id}'
+alias cqlsh='docker run -it --link cassandra:cassandra --rm --name cqlsh cassandra:3.0.8 cqlsh cassandra'
+
 # Source private file containing aliases or other settings that should
 # not be committed to repo
 [ -f ~/.bash_memes_private ] && . ~/.bash_memes_private
