@@ -97,6 +97,8 @@ case "$(uname)" in
 esac
 _LOCAL_ANDROID_ROOT="${_LOCAL_LIB_ROOT}/android-sdk-${_SDK_PLATFORM}"
 if [ -n "${_LOCAL_ANDROID_ROOT}" -a -d "${_LOCAL_ANDROID_ROOT}" ]; then
+    # Force use of system install libs
+    export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
     export ANDROID_HOME="${_LOCAL_ANDROID_ROOT}"
     export PATH="$(_addToPath "${_LOCAL_ANDROID_ROOT}/platform-tools" "${PATH}")"
     export PATH="$(_addToPath "${_LOCAL_ANDROID_ROOT}/tools" "${PATH}")"    
@@ -104,10 +106,22 @@ fi
 unset _SDK_PLATFORM
 unset _LOCAL_ANDROID_ROOT
 
+# Android studio support
+if [ -d "${HOME}/android-studio/bin" ]; then
+   export PATH="$(_addToPath "${HOME}/android-studio/bin" "${PATH}")"
+fi
+
 # Add local gems to PATH
 if which ruby > /dev/null && which gem > /dev/null; then
     export PATH="$(_addToPath "$(ruby -rubygems -e 'puts Gem.user_dir')/bin" "${PATH}")"
 fi
+
+# Set lein home to lib
+_LOCAL_LEIN_HOME="${_LOCAL_LIB_ROOT}/lein"
+if [ -n "${_LOCAL_LEIN_HOME}" -a -d "${_LOCAL_LEIN_HOME}" ]; then
+    export LEIN_HOME="${_LOCAL_LEIN_HOME}"
+fi
+unset _LOCAL_LEIN_HOME
 
 # Source private profile file if it exists
 [ -f "${HOME}/.profile_memes_private" ] && . "${HOME}/.profile_memes_private"
