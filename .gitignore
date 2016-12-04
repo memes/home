@@ -29,5 +29,7 @@
 # Useful scripts
 !bin/*
 
+# OS X Library files
+!Library/Developer/Xcode/UserData/FontAndColorThemes/*
 # Preferred go libs to install and refresh as needed
 !lib/go/refresh.sh
