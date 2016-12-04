@@ -5,20 +5,7 @@
 [push]
 	default = simple
 [credential]
-	helper = store
-
-# Most of these credentials/overrides are just for cloned repos prior
-# to universal switch to git w/ssh keys (see ~/.ssh/config)
-[credential "https://github.com"]
-	username = memes
-[credential "https://tenmedia.visualstudio.com"]
-	username = memes@matthewemes.com
-[credential "https://bitbucket.org"]
-	username = memes
-[credential "https://gitlab.com"]
-	username = memes
-[url "ssh://git@bitbucket.org"]
-	insteadOf = https://bitbucket.org
+	useHttpPath = true
 
 # Various shortcuts
 [alias]
@@ -35,8 +22,10 @@
 	patches = log --patch --decorate -10
 	review = diff --cached --diff-algorithm=minimal -w
 
-# Pull in any configuration that can't be stored in public git repo
-[include]
-	path = ~/.gitconfig.private
 [gpg]
 	program = gpg2
+
+# Pull in any configuration that can't be stored in public git repo
+#  - try to keep last configuration option in file
+[include]
+	path = ~/.gitconfig.private
