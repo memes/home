@@ -9,9 +9,9 @@ GREP=${GREP:-`which egrep`}
 AWK=${AWK:-`which awk`}
 PKILL=${PKILL:-`which pkill`}
 LAPTOP=$(${XRANDR} | ${AWK} '/^eDP-?1/ {print $1}')
-EXT_L=$(${XRANDR} | ${AWK} '/^HDMI-?1 / {print $1}')
+EXT_L=$(${XRANDR} | ${AWK} '/^DP-?1 / {print $1}')
 EXT_L_POS=${EXT_L_POS:-"left-of"}
-EXT_R=$(${XRANDR} | ${AWK} '/^DP-?1 / {print $1}')
+EXT_R=$(${XRANDR} | ${AWK} '/^HDMI-?1 / {print $1}')
 EXT_R_POS=${EXT_R_POS:-"right-of"}
 
 toggleExt()
