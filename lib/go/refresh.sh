@@ -2,7 +2,19 @@
 #
 
 # Install packages to same folder as this script
-_GOPATH=$(readlink -f `dirname $0`)
+case "$(uname)" in
+    Darwin)
+        _GOPATH="$(stat -f'%N' `dirname $0`)"
+        ;;
+
+    Linux)
+        _GOPATH="$(readlink -f `dirname $0`)"
+        ;;
+
+    *)
+        _GOPATH="does/not/exist"
+        ;;
+esac
 
 # Update packages
 while read p; do
