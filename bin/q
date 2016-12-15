@@ -1,8 +1,33 @@
 #!/bin/sh
 
-emacsclient -n -e "(if (> (length (frame-list)) 1) 't)" 2>/dev/null | grep -q t 2>/dev/null
-if [ $? -eq 1 ]; then
-    emacsclient -c -n "$@"
-else
-    emacsclient -n "$@"
+error()
+{
+    echo -e "$0: Error: $*" >&2
+    exit 1
+}
+
+case "$(uname)" in
+    Darwin)
+	_EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+	;;
+
+    Linux)
+	_EMACSCLIENT=$(which emacsclient)
+	_PREFER_SINGLE_FRAME=yes
+	;;
+
+esac
+
+[ -n "${_EMACSCLIENT}" ] || error "Couldn't figure out emacsclient to use"
+[ -x "${_EMACSCLIENT}" ] || error "${_EMACSCLIENT} is not executable"
+
+if [ -n "${_PREFER_SINGLE_FRAME}" ]; then
+    ${_EMACSCLIENT} -n -e "(if (> (length (frame-list)) 1) 't)" 2>/dev/null | grep -q t 2>/dev/null && _EMACSCLIENT_ARGS="-n"
 fi
+[ -z "${_EMACSCLIENT_ARGS}" ] && _EMACSCLIENT_ARGS="-c -n"
+
+${_EMACSCLIENT} ${_EMACSCLIENT_ARGS} "$@"
+
+unset _EMACSCLIENT_ARGS
+unset _EMACSCLIENT
+
