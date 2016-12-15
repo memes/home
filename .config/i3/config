@@ -26,6 +26,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id /home/memes/bin/pavolume.sh in
 bindsym XF86AudioLowerVolume exec --no-startup-id /home/memes/bin/pavolume.sh decrease
 bindsym XF86AudioMute exec --no-startup-id /home/memes/bin/pavolume.sh toggle
 bindsym $mod+t exec --no-startup-id /home/memes/bin/touchpad
+bindsym $mod+1 [urgent=latest] focus
 
 # Kill focused window
 bindsym $mod+Shift+q kill
