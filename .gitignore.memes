@@ -1,0 +1,19 @@
+# MEmes: standard files to ignore
+
+## Backup/working files
+.*~
+*~
+.\#*
+\#*
+.*.bak
+*.bak
+.*.swp
+*.swp
+
+## OS stuff
+.DS_Store
+.DS_Store
+._*
+.Spotlight-V100
+.Trash-*
+.Trashes

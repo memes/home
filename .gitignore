@@ -5,6 +5,7 @@
 # Add individual files/directories that should be in repo
 !.gitconfig
 !.gitignore
+!.gitignore.memes
 !README.md
 !LICENSE
 !.Xresources

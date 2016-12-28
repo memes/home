@@ -25,6 +25,9 @@
 [gpg]
 	program = gpg2
 
+[core]
+	excludesfile = ~/.gitignore.memes
+
 # Pull in any configuration that can't be stored in public git repo
 #  - try to keep last configuration option in file
 [include]
