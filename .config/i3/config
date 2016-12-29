@@ -181,8 +181,8 @@ for_window [title="^Steam Keyboard$"] floating enable
 for_window [title="^[Aa]ndroid [Ee]mulator"] floating enable
 
 # Assign some default workspaces for apps
-assign [class="^chromium(-browser)?$" instance="chromium\.(work|mail)"] $MAIL_WS
-assign [class="^chromium(-browser)?$"] $SECONDARY_WS
+assign [class="^[Cc]hromium(-browser)?$" instance="chromium\.(work|mail)"] $MAIL_WS
+assign [class="^[Cc]hromium(-browser)?$"] $SECONDARY_WS
 assign [class="^Pidgin$" window_role="^conversation$"] $TERTIARY_WS
 assign [class="^Skype$" window_role="^ConversationsWindow$"] $TERTIARY_WS
 assign [class="^Virt-viewer$"] $VIRT_WS
