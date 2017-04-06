@@ -123,5 +123,13 @@ if [ -n "${_LOCAL_LEIN_HOME}" -a -d "${_LOCAL_LEIN_HOME}" ]; then
 fi
 unset _LOCAL_LEIN_HOME
 
+# Have I installed GCP SDK manually on this device?
+_LOCAL_GCPSDK_HOME="${_LOCAL_LIB_ROOT}/google-cloud-sdk"
+if [ -n "${_LOCAL_GCPSDK_HOME}" -a -d "${_LOCAL_GCPSDK_HOME}" ]; then
+    [ -f "${_LOCAL_GCPSDK_HOME}/path.bash.inc" ] && . "${_LOCAL_GCPSDK_HOME}/path.bash.inc"
+    [ -f "${_LOCAL_GCPSDK_HOME}/completion.bash.inc" ] && . "${_LOCAL_GCPSDK_HOME}/completion.bash.inc"
+fi
+unset _LOCAL_GCPSDK_HOME
+
 # Source private profile file if it exists
 [ -f "${HOME}/.profile_memes_private" ] && . "${HOME}/.profile_memes_private"
