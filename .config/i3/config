@@ -6,11 +6,12 @@ set $SECONDARY_MONITOR DP-1
 set $TERTIARY_MONITOR HDMI-1
 
 # Name workspaces
-set $PRIMARY_WS 1:Main
-set $SECONDARY_WS 2:Web
-set $TERTIARY_WS 3:IM
+set $MAIN_WS 1:Main
+set $WEB_WS 2:Web
+set $IM_WS 3:IM
 set $MAIL_WS 4:Mail
 set $VIRT_WS 5:Virt
+set $SLACK_WS 6:Slack
 
 font pango:Source Code Pro 8
 
@@ -73,24 +74,24 @@ bindsym $mod+c focus child
 bindsym $mod+minus scratchpad show
 
 # switch to workspace
-bindsym $mod+F1 workspace $PRIMARY_WS
-bindsym $mod+F2 workspace $SECONDARY_WS
-bindsym $mod+F3 workspace $TERTIARY_WS
+bindsym $mod+F1 workspace $MAIN_WS
+bindsym $mod+F2 workspace $WEB_WS
+bindsym $mod+F3 workspace $IM_WS
 bindsym $mod+F4 workspace $MAIL_WS
 bindsym $mod+F5 workspace $VIRT_WS
-bindsym $mod+F6 workspace 6
+bindsym $mod+F6 workspace $SLACK_WS
 bindsym $mod+F7 workspace 7
 bindsym $mod+F8 workspace 8
 bindsym $mod+F9 workspace 9
 bindsym $mod+F10 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+F1 move container to workspace $PRIMARY_WS
-bindsym $mod+Shift+F2 move container to workspace $SECONDARY_WS
-bindsym $mod+Shift+F3 move container to workspace $TERTIARY_WS
+bindsym $mod+Shift+F1 move container to workspace $MAIN_WS
+bindsym $mod+Shift+F2 move container to workspace $WEB_WS
+bindsym $mod+Shift+F3 move container to workspace $IM_WS
 bindsym $mod+Shift+F4 move container to workspace $MAIL_WS
 bindsym $mod+Shift+F5 move container to workspace $VIRT_WS
-bindsym $mod+Shift+F6 move container to workspace 6
+bindsym $mod+Shift+F6 move container to workspace $SLACK_WS
 bindsym $mod+Shift+F7 move container to workspace 7
 bindsym $mod+Shift+F8 move container to workspace 8
 bindsym $mod+Shift+F9 move container to workspace 9
@@ -182,12 +183,12 @@ for_window [title="^[Aa]ndroid [Ee]mulator"] floating enable
 
 # Assign some default workspaces for apps
 assign [class="^[Cc]hromium(-browser)?$" instance="chromium\.(work|mail)"] $MAIL_WS
-assign [class="^[Cc]hromium(-browser)?$"] $SECONDARY_WS
-assign [class="^Pidgin$" window_role="^conversation$"] $TERTIARY_WS
-assign [class="^Skype$" window_role="^ConversationsWindow$"] $TERTIARY_WS
+assign [class="^[Cc]hromium(-browser)?$"] $WEB_WS
+assign [title="^irssi$"] $IM_WS
+assign [class="^Pidgin$" window_role="^conversation$"] $IM_WS
+assign [class="^Skype$" window_role="^ConversationsWindow$"] $IM_WS
 assign [class="^Virt-viewer$"] $VIRT_WS
-assign [class="^[Ss]cudcloud$"] $TERTIARY_WS
-assign [title="^plaidchat$"] $TERTIARY_WS
+assign [class="^[Ss]lack$"] $SLACK_WS
 
 # Setup X
 exec --no-startup-id xrandr --output $PRIMARY_MONITOR --primary
@@ -201,10 +202,12 @@ exec --no-startup-id xset s 300
 exec --no-startup-id dex -a
 
 # Try to assign first three workspaces to attached monitors
-workspace "$PRIMARY_WS" output $PRIMARY_MONITOR
-workspace "$SECONDARY_WS" output $SECONDARY_MONITOR
-workspace "$TERTIARY_WS" output $TERTIARY_MONITOR
+workspace "$MAIN_WS" output $PRIMARY_MONITOR
+workspace "$WEB_WS" output $SECONDARY_MONITOR
+workspace "$IM_WS" output $PRIMARY_MONITOR
 # Prefer mail to go to higher-res screen
 workspace "$MAIL_WS" output $SECONDARY_MONITOR
 # Prefer virt to go to lower-res screen
 workspace "$VIRT_WS" output $TERTIARY_MONITOR
+# Prefer slack to go to higher-res screen
+workspace "$SLACK_WS" output $SECONDARY_MONITOR
