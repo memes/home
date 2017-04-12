@@ -184,7 +184,7 @@ for_window [title="^[Aa]ndroid [Ee]mulator"] floating enable
 # Assign some default workspaces for apps
 assign [class="^[Cc]hromium(-browser)?$" instance="chromium\.(work|mail)"] $MAIL_WS
 assign [class="^[Cc]hromium(-browser)?$"] $WEB_WS
-assign [title="^irssi$"] $IM_WS
+assign [title="^[Ii]rssi"] $IM_WS
 assign [class="^Pidgin$" window_role="^conversation$"] $IM_WS
 assign [class="^Skype$" window_role="^ConversationsWindow$"] $IM_WS
 assign [class="^Virt-viewer$"] $VIRT_WS
