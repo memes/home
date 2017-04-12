@@ -4,15 +4,20 @@
 	signingkey = EE2664DD38F53BA6849E99B7757446333D3EC29A
 [push]
 	default = simple
+	followTags = true
+[status]
+	showUntrackedFiles = all
+[transfer]
+	fsckobjects = true
 [credential]
 	useHttpPath = true
-
 # Various shortcuts
 [alias]
 	branches = branch -a
 	tags = tag
 	stashall = stash save --all
 	stashes = stash list
+	undo = reset --soft HEAD^
 	unstage = reset -q HEAD --
 	revert = checkout --
 	uncommit = reset --mixed HEAD~
@@ -21,6 +26,7 @@
 	patch = add --patch
 	patches = log --patch --decorate -10
 	review = diff --cached --diff-algorithm=minimal -w
+	prune = fetch --prune
 
 [gpg]
 	program = gpg2
