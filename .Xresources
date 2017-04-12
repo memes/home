@@ -8,6 +8,32 @@ Xft*hintstyle: hintfull
 Xft*lcdfilter: lcddefault
 Xft*rgba: rgb
 
+! Base *term settings
+XTerm*locale: true
+XTerm*scrollBar: True
+XTerm*saveLines: 500
+XTerm*metaSendsEscape: true
+XTerm*faceName: Source Code Pro:style=Medium:size=6
+XTerm*sessionMgt: False
+XTerm*geometry: 80x45
+UXTerm*locale: true
+UXTerm*scrollBar: True
+UXTerm*saveLines: 500
+UXTerm*metaSendsEscape: true
+UXTerm*faceName: Source Code Pro:style=Medium:size=6
+UXTerm*sessionMgt: False
+UXTerm*geometry: 80x45
+Rxvt*scrollBar: True
+Rxvt*saveLines: 500
+Rxvt*font: xft:Source Code Pro:style=Medium:size=6:antialias=true:hinting=true
+Rxvt*letterSpace: -1
+Rxvt*geometry: 80x45
+URxvt*scrollBar: True
+URxvt*saveLines: 500
+URxvt*font: xft:Source Code Pro:style=Medium:size=6:antialias=true:hinting=true
+URxvt*letterSpace: -1
+URXvt*geometry: 80x45
+
 ! Solarized dark colours
 !
 ! http://ethanschooner*com/solarized
@@ -52,12 +78,6 @@ XTerm*color12: S_base0
 XTerm*color13: S_violet
 XTerm*color14: S_base1
 XTerm*color15: S_base3
-XTerm*scrollBar: True
-XTerm*saveLines: 500
-XTerm*metaSendsEscape: true
-XTerm*faceName: Source Code Pro:style=Medium:size=6
-XTerm*sessionMgt: False
-XTerm*geometry: 80x45
 UXTerm*background: S_base03
 UXTerm*foreground: S_base0
 UXTerm*fading: 40
@@ -81,12 +101,6 @@ UXTerm*color12: S_base0
 UXTerm*color13: S_violet
 UXTerm*color14: S_base1
 UXTerm*color15: S_base3
-UXTerm*scrollBar: True
-UXTerm*saveLines: 500
-UXTerm*metaSendsEscape: true
-UXTerm*faceName: Source Code Pro:style=Medium:size=6
-UXTerm*sessionMgt: False
-UXTerm*geometry: 80x45
 
 ! Rxvt using Solarized Dark, 80x45
 Rxvt*background: S_base03
@@ -112,11 +126,6 @@ Rxvt*color12: S_base0
 Rxvt*color13: S_violet
 Rxvt*color14: S_base1
 Rxvt*color15: S_base3
-Rxvt*scrollBar: True
-Rxvt*saveLines: 500
-Rxvt*font: xft:Source Code Pro:style=Medium:size=6:antialias=true:hinting=true
-Rxvt*letterSpace: -1
-RXvt*geometry: 80x45
 URxvt*background: S_base03
 URxvt*foreground: S_base0
 URxvt*fading: 40
@@ -140,11 +149,6 @@ URxvt*color12: S_base0
 URxvt*color13: S_violet
 URxvt*color14: S_base1
 URxvt*color15: S_base3
-URxvt*scrollBar: True
-URxvt*saveLines: 500
-URxvt*font: xft:Source Code Pro:style=Medium:size=6:antialias=true:hinting=true
-URxvt*letterSpace: -1
-URXvt*geometry: 80x45
 
 ! Emacs - most settings are in my *emacs
 Emacs*geometry: 80x50
