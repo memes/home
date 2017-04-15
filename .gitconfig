@@ -27,12 +27,14 @@
 	patches = log --patch --decorate -10
 	review = diff --cached --diff-algorithm=minimal -w
 	prune = fetch --prune
-
 [gpg]
 	program = gpg2
-
 [core]
 	excludesfile = ~/.gitignore.memes
+[color]
+	ui = auto
+[http]
+	cookiefile = /home/memes/.gitcookies
 
 # Pull in any configuration that can't be stored in public git repo
 #  - try to keep last configuration option in file
