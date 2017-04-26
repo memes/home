@@ -131,5 +131,16 @@ if [ -n "${_LOCAL_GCPSDK_HOME}" -a -d "${_LOCAL_GCPSDK_HOME}" ]; then
 fi
 unset _LOCAL_GCPSDK_HOME
 
+# Moved swift out of .local
+_LOCAL_SWIFT_HOME="${_LOCAL_LIB_ROOT=}/swift"
+if [ -n "${_LOCAL_SWIFT_HOME}" -a -d "${_LOCAL_SWIFT_HOME}" ]; then
+    export PATH="$(_addToPath "${_LOCAL_SWIFT_HOME}/bin" "${PATH}")"
+    export LD_LIBRARY_PATH="$(_addToPath "${_LOCAL_SWIFT_HOME}/lib" "${LD_LIBRARY_PATH}")"
+    export C_INCLUDE_PATH="$(_addToPath "${_LOCAL_SWIFT_HOME}/include" "${C_INCLUDE_PATH}")"
+    export CPLUS_INCLUDE_PATH="$(_addToPath "${_LOCAL_SWIFT_HOME}/include" "${C_INCLUDE_PATH}")"
+    export MANPATH="$(_addToPath "${_LOCAL_SWIFT_HOME}/share/man" "${MANPATH}")"
+fi
+unset _LOCAL_SWIFT_HOME
+
 # Source private profile file if it exists
 [ -f "${HOME}/.profile_memes_private" ] && . "${HOME}/.profile_memes_private"
