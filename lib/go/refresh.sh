@@ -22,12 +22,15 @@ while read p; do
     GOPATH=${_GOPATH} go get -u ${p} && echo "done"
 done <<EOF
 golang.org/x/tools/cmd/goimports
-github.com/constabulary/gb/...
-github.com/nsf/gocode
-github.com/tools/godep
-github.com/rogpeppe/godef
-github.com/kisielk/errcheck
+golang.org/x/tools/cmd/gorename
+golang.org/x/tools/cmd/guru
 github.com/cloudflare/cfssl/cmd/...
+github.com/constabulary/gb/...
+github.com/golang/dep/...
+github.com/kisielk/errcheck
+github.com/nsf/gocode
+github.com/rogpeppe/godef
+github.com/tools/godep
 EOF
 
 unset _GOPATH
