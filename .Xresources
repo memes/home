@@ -8,29 +8,38 @@ Xft*hintstyle: hintfull
 Xft*lcdfilter: lcddefault
 Xft*rgba: rgb
 
+! Emacs - most settings are in my *emacs
+Emacs*geometry: 80x50
+Emacs*FontBackend: xft
+Emacs*font: Source Code Pro-12
+
+! xautolock
+Xautolock.time: 5
+Xautolock.locker: i3lock --color 343d46
+
 ! Base *term settings
 XTerm*locale: true
 XTerm*scrollBar: True
 XTerm*saveLines: 500
 XTerm*metaSendsEscape: true
-XTerm*faceName: Source Code Pro:style=Medium:size=6
+XTerm*faceName: Source Code Pro:style=Medium:size=12
 XTerm*sessionMgt: False
 XTerm*geometry: 80x45
 UXTerm*locale: true
 UXTerm*scrollBar: True
 UXTerm*saveLines: 500
 UXTerm*metaSendsEscape: true
-UXTerm*faceName: Source Code Pro:style=Medium:size=6
+UXTerm*faceName: Source Code Pro:style=Medium:size=12
 UXTerm*sessionMgt: False
 UXTerm*geometry: 80x45
 Rxvt*scrollBar: True
 Rxvt*saveLines: 500
-Rxvt*font: xft:Source Code Pro:style=Medium:size=6:antialias=true:hinting=true
+Rxvt*font: xft:Source Code Pro:style=Medium:size=12:antialias=true:hinting=true
 Rxvt*letterSpace: -1
 Rxvt*geometry: 80x45
 URxvt*scrollBar: True
 URxvt*saveLines: 500
-URxvt*font: xft:Source Code Pro:style=Medium:size=6:antialias=true:hinting=true
+URxvt*font: xft:Source Code Pro:style=Medium:size=12:antialias=true:hinting=true
 URxvt*letterSpace: -1
 URXvt*geometry: 80x45
 
@@ -149,16 +158,3 @@ URxvt*color12: S_base0
 URxvt*color13: S_violet
 URxvt*color14: S_base1
 URxvt*color15: S_base3
-
-! Emacs - most settings are in my *emacs
-Emacs*geometry: 80x50
-!Emacs*font: -misc-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
-!Emacs*font: -*-terminus-medium-r-*-*-*-120-*-*-*-*-iso10646-*
-Emacs*FontBackend: xft
-!Emacs*font: Liberation Mono-7.5
-!Emacs*font: Incosolata-7
-Emacs*font: Source Code Pro-6
-
-! xautolock
-Xautolock.time: 5
-Xautolock.locker: i3lock --color 212121

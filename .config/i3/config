@@ -13,7 +13,7 @@ set $MAIL_WS 4:Mail
 set $VIRT_WS 5:Virt
 set $SLACK_WS 6:Slack
 
-font pango:Source Code Pro 8
+font pango:Source Code Pro 12
 
 floating_modifier $mod
 
@@ -129,35 +129,68 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Show bar on primary monitor
+# Configure windows and colours
+#                           border background text indicator
+client.focused              #96b5b4 #96b5b4 #ebdbb2 #96b5b4
+client.focused_inactive     #65737e #65737e #ebdbb2 #65737e
+client.unfocused            #65737e #65737e #ebdbb2 #65737e
+client.urgent               #bf616a #bf616a #ee0000 #bf616a
+
 bar {
 	id main-bar
 	output $PRIMARY_MONITOR
 	position top
-	font pango:FontAwesome 8, Source Code Pro 8
+	font pango:FontAwesome, Source Code Pro 12
 	separator_symbol " "
 	status_command ${HOME}/.config/i3/primary_status.sh
         tray_output $PRIMARY_MONITOR
+	colors {
+	       background #343d46
+	       statusline #eff1f5
+	       separator #323232
+	       focused_workspace #a3be8c #65737e #eff1f5
+	       active_workspace #4f5b66 #5f676a #eff1f5
+	       inactive_workspace #4f5b66 #4f5b66 #a7adba
+	       urgent_workspace #bf616a #65737e #eff1f5
+	}
 }
 
 bar {
 	id secondary-bar
 	output $SECONDARY_MONITOR
 	position top
-	font pango:FontAwesome 8, Source Code Pro 8
+	font pango:FontAwesome, Source Code Pro 12
 	separator_symbol " "
 	status_command ${HOME}/.config/i3/secondary_status.sh
 	tray_output none
+	colors {
+	       background #343d46
+	       statusline #eff1f5
+	       separator #323232
+	       focused_workspace #a3be8c #65737e #eff1f5
+	       active_workspace #4f5b66 #5f676a #eff1f5
+	       inactive_workspace #4f5b66 #4f5b66 #a7adba
+	       urgent_workspace #bf616a #65737e #eff1f5
+	}
 }
 
 bar {
 	id tertiary-bar
 	output $TERTIARY_MONITOR
 	position top
-	font pango:FontAwesome 8, Source Code Pro 8
+	font pango:FontAwesome, Source Code Pro 12
 	separator_symbol " "
 	status_command ${HOME}/.config/i3/tertiary_status.sh
 	tray_output none
+	colors {
+	       background #343d46
+	       statusline #eff1f5
+	       separator #323232
+	       focused_workspace #a3be8c #65737e #eff1f5
+	       active_workspace #4f5b66 #5f676a #eff1f5
+	       inactive_workspace #4f5b66 #4f5b66 #a7adba
+	       urgent_workspace #bf616a #65737e #eff1f5
+	}
 }
 
 # Scratchpad; force some windows to scratchpad
@@ -193,9 +226,9 @@ assign [class="^[Ss]lack$"] $SLACK_WS
 # Setup X
 exec --no-startup-id xrandr --output $PRIMARY_MONITOR --primary
 exec --no-startup-id setxkbmap -option compose:ralt
-exec --no-startup-id hsetroot -solid '#212121'
+exec --no-startup-id hsetroot -solid '#343d46'
 exec --no-startup-id /home/memes/bin/monitor
-exec --no-startup-id xss-lock -- i3lock -c 212121
+exec --no-startup-id xss-lock -- i3lock -c 343d46
 exec --no-startup-id xset s 300
 
 # Autostart applications - moved to .desktop so standardised on all WMs
