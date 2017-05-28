@@ -26,7 +26,8 @@ golang.org/x/tools/cmd/gorename
 golang.org/x/tools/cmd/guru
 github.com/cloudflare/cfssl/cmd/...
 github.com/constabulary/gb/...
-github.com/golang/dep/...
+github.com/derekparker/delve/cmd/dlv
+github.com/golang/dep/cmd/dep
 github.com/kisielk/errcheck
 github.com/nsf/gocode
 github.com/rogpeppe/godef
