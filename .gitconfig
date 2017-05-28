@@ -27,6 +27,9 @@
 	patches = log --patch --decorate -10
 	review = diff --cached --diff-algorithm=minimal -w
 	prune = fetch --prune
+	words = diff --word-diff
+	recent = for-each-ref --count=10 --sort=committerdate refs/heads/ --format="%(refname:short)"
+	upstream = "!git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
 [gpg]
 	program = gpg2
 [core]
