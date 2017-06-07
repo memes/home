@@ -13,7 +13,7 @@ set $MAIL_WS 4:Mail
 set $VIRT_WS 5:Virt
 set $SLACK_WS 6:Slack
 
-font pango:Source Code Pro 12
+font pango:Hack 12
 
 floating_modifier $mod
 
@@ -140,7 +140,7 @@ bar {
 	id main-bar
 	output $PRIMARY_MONITOR
 	position top
-	font pango:FontAwesome, Source Code Pro 12
+	font pango:FontAwesome, Hack 12
 	separator_symbol " "
 	status_command ${HOME}/.config/i3/primary_status.sh
         tray_output $PRIMARY_MONITOR
@@ -159,7 +159,7 @@ bar {
 	id secondary-bar
 	output $SECONDARY_MONITOR
 	position top
-	font pango:FontAwesome, Source Code Pro 12
+	font pango:FontAwesome, Hack 12
 	separator_symbol " "
 	status_command ${HOME}/.config/i3/secondary_status.sh
 	tray_output none
@@ -178,7 +178,7 @@ bar {
 	id tertiary-bar
 	output $TERTIARY_MONITOR
 	position top
-	font pango:FontAwesome, Source Code Pro 12
+	font pango:FontAwesome, Hack 12
 	separator_symbol " "
 	status_command ${HOME}/.config/i3/tertiary_status.sh
 	tray_output none
