@@ -2,16 +2,18 @@
 #
 # Toggle touchpad status
 
-SYNCLIENT=${SYNCLIENT:-$(which synclient)}
-AWK=${AWK:-$(which awk)}
-TOUCHPAD_VAR=${TOUCHPAD_VAR:-TouchpadOff}
+XINPUT=${XINPUT:-$(which xinput)}
+GAWK=${GAWK:-$(which gawk)}
 
-flag=$(${SYNCLIENT} -l 2>/dev/null | ${AWK} "/${TOUCHPAD_VAR}/ {print \$3}" 2>/dev/null )
+[ -n "${XINPUT}" -a -n "${GAWK}" ] || exit 1
+
+tpid=$(xinput --list --short 2>/dev/null | gawk 'match($0, /[Tt]ouch[Pp]ad\s+id=([0-9]+)/, m) {print m[1];}')
+flag=$(${XINPUT} list-props "${tpid}" | gawk 'match($0, /^\s+Device Enabled\s+\([0-9]+\):\s+([01])/, m){print m[1];}')
 if [ "${flag}" = "1" ]; then
     flag=0
 else
     flag=1
 fi
+${XINPUT} set-prop "${tpid}" "Device Enabled" ${flag}
+exit 0
 
-${SYNCLIENT} ${TOUCHPAD_VAR}=${flag}
-echo $flag
