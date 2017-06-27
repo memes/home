@@ -11,7 +11,7 @@ Xft*rgba: rgb
 ! Emacs - most settings are in my *emacs
 Emacs*geometry: 80x50
 Emacs*FontBackend: xft
-Emacs*font: Hack-12
+Emacs*font: Hack-9
 
 ! xautolock
 Xautolock.time: 5
@@ -22,24 +22,24 @@ XTerm*locale: true
 XTerm*scrollBar: True
 XTerm*saveLines: 500
 XTerm*metaSendsEscape: true
-XTerm*faceName: Hack:style=Medium:size=12
+XTerm*faceName: Hack:style=Medium:size=9
 XTerm*sessionMgt: False
 XTerm*geometry: 80x45
 UXTerm*locale: true
 UXTerm*scrollBar: True
 UXTerm*saveLines: 500
 UXTerm*metaSendsEscape: true
-UXTerm*faceName: Hack:style=Medium:size=12
+UXTerm*faceName: Hack:style=Medium:size=9
 UXTerm*sessionMgt: False
 UXTerm*geometry: 80x45
 Rxvt*scrollBar: True
 Rxvt*saveLines: 500
-Rxvt*font: xft:Hack:style=Medium:size=12:antialias=true:hinting=true
+Rxvt*font: xft:Hack:style=Medium:size=9:antialias=true:hinting=true
 Rxvt*letterSpace: -1
 Rxvt*geometry: 80x45
 URxvt*scrollBar: True
 URxvt*saveLines: 500
-URxvt*font: xft:Hack:style=Medium:size=12:antialias=true:hinting=true
+URxvt*font: xft:Hack:style=Medium:size=9:antialias=true:hinting=true
 URxvt*letterSpace: -1
 URXvt*geometry: 80x45
 
