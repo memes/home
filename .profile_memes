@@ -12,6 +12,9 @@ export VISUAL=${EDITOR}
 # Use system libvirt connections by default
 export LIBVIRT_DEFAULT_URI=qemu:///system
 
+# Make sure QT is using GTK theme
+export QT_QPA_PLATFORMTHEME=qgnomeplatform
+
 # Outputs a string containing the new 'PATH'
 # $1 = directory to add
 # $2 = expanded path-like value
