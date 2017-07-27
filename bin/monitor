@@ -11,8 +11,12 @@ PKILL=${PKILL:-`which pkill`}
 LAPTOP=$(${XRANDR} | ${AWK} '/^eDP-?1/ {print $1}')
 EXT_L=$(${XRANDR} | ${AWK} '/^DP-?1 / {print $1}')
 EXT_L_POS=${EXT_L_POS:-"left-of"}
+EXT_L_SCALE=${EXT_L_SCALE:-"1x1"}
 EXT_R=$(${XRANDR} | ${AWK} '/^HDMI-?1 / {print $1}')
 EXT_R_POS=${EXT_R_POS:-"right-of"}
+EXT_R_SCALE=${EXT_R_SCALE:-"1.66x1.66"}
+EXT_R_PANNING=${EXT_R_PANNING:-"3187x1793+3200+0"}
+
 
 toggleExt()
 {
@@ -23,18 +27,20 @@ toggleExt()
     [ $# -ge 2 ] && position="$2"
     local scale=
     [ $# -ge 3 ] && scale="$3"
+    local panning=
+    [ $# -ge 4 ] && panning="$4"
     local outputToggle=
     ${XRANDR} -q | ${GREP} -q "${output} disconnected" 2>&1 > /dev/null
     if [ $? -eq 0 ]; then
 	output_toggle="--output ${output} --off"
     else
-	output_toggle="--output ${output} --auto --scale ${scale:-1x1} --${position} ${LAPTOP}"
+	output_toggle="--output ${output} --auto --scale ${scale:-1x1} ${panning:+"--panning ${panning}"} --${position} ${LAPTOP}"
     fi
     echo "${output_toggle}"
 }
 EXT=
-[ -n "${EXT_L}" ] && EXT="${EXT} $(toggleExt ${EXT_L} ${EXT_L_POS})"
-[ -n "${EXT_R}" ] && EXT="${EXT} $(toggleExt ${EXT_R} ${EXT_R_POS})"
+[ -n "${EXT_L}" ] && EXT="${EXT} $(toggleExt ${EXT_L} ${EXT_L_POS} ${EXT_L_SCALE} ${EXT_L_PANNING})"
+[ -n "${EXT_R}" ] && EXT="${EXT} $(toggleExt ${EXT_R} ${EXT_R_POS} ${EXT_R_SCALE} ${EXT_R_PANNING})"
 
 ${XRANDR} --output ${LAPTOP} --auto --pos 0x0 ${EXT}
 ${PKILL} -SIGUSR1 conky > /dev/null 2>/dev/null
