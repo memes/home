@@ -155,5 +155,11 @@ if [ -n "${_LOCAL_DOTNET_HOME}" -a -d "${_LOCAL_DOTNET_HOME}" ]; then
 fi
 unset _LOCAL_DOTNET_HOME
 
+# intellij support
+if [ -d "${HOME}/intellij/bin" ]; then
+   export PATH="$(_addToPath "${HOME}/intellij/bin" "${PATH}")"
+fi
+
+
 # Source private profile file if it exists
 [ -f "${HOME}/.profile_memes_private" ] && . "${HOME}/.profile_memes_private"
