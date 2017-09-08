@@ -1,0 +1,19 @@
+# MEmes chromebook .screenrc
+startup_message off
+autodetach on
+deflogin on
+sorendition +b kG
+vbell off
+altscreen on
+nonblock on
+msgwait 10
+defutf8 on
+charset UTF-8
+bindkey "[^Od" prev # ctrl-left for previous window
+bindkey "[^Oc" next # ctrl-right for next window
+hardstatus off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+#screen -t shell 0
+#screen -t emacs emacs 1
+#screen -t irssi irssi 2
