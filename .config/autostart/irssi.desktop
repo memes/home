@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.1
-Name=irssi
-GenericName=IRC client
-Comment=Launch irssi in terminal
-TryExec=/usr/bin/irssi
-Exec=x-terminal-emulator -title irssi -e 'screen -D -RR -S irssi -t irssi irssi'
-Terminal=true
