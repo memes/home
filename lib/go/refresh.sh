@@ -36,6 +36,8 @@ github.com/nsf/gocode
 github.com/rogpeppe/godef
 github.com/tools/godep
 gopkg.in/alecthomas/gometalinter.v1
+google.golang.org/appengine
+google.golang.org/appengine/log
 google.golang.org/api/cloudiot/v1beta1
 EOF
 
