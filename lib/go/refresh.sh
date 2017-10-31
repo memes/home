@@ -21,6 +21,7 @@ while read p; do
     echo -n "Fetching/updating ${p} "
     GOPATH=${_GOPATH} go get -u ${p} && echo "done"
 done <<EOF
+golang.org/x/oauth2/google
 golang.org/x/tools/cmd/goimports
 golang.org/x/tools/cmd/gorename
 golang.org/x/tools/cmd/guru
@@ -35,6 +36,7 @@ github.com/nsf/gocode
 github.com/rogpeppe/godef
 github.com/tools/godep
 gopkg.in/alecthomas/gometalinter.v1
+google.golang.org/api/cloudiot/v1beta1
 EOF
 
 unset _GOPATH
