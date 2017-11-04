@@ -5,23 +5,23 @@
 	<key>DVTConsoleDebuggerInputTextColor</key>
 	<string>0.513725 0.580392 0.588235 1</string>
 	<key>DVTConsoleDebuggerInputTextFont</key>
-	<string>SourceCodePro-Regular - 11.0</string>
+	<string>Hack-Bold - 11.0</string>
 	<key>DVTConsoleDebuggerOutputTextColor</key>
 	<string>0.513725 0.580392 0.588235 1</string>
 	<key>DVTConsoleDebuggerOutputTextFont</key>
-	<string>SourceCodePro-Regular - 11.0</string>
+	<string>Hack-Regular - 11.0</string>
 	<key>DVTConsoleDebuggerPromptTextColor</key>
 	<string>0.14902 0.545098 0.823529 1</string>
 	<key>DVTConsoleDebuggerPromptTextFont</key>
-	<string>SourceCodePro-Bold - 11.0</string>
+	<string>Hack-Bold - 11.0</string>
 	<key>DVTConsoleExectuableInputTextColor</key>
 	<string>0.513725 0.580392 0.588235 1</string>
 	<key>DVTConsoleExectuableInputTextFont</key>
-	<string>SourceCodePro-Regular - 11.0</string>
+	<string>Hack-Regular - 11.0</string>
 	<key>DVTConsoleExectuableOutputTextColor</key>
 	<string>0.513725 0.580392 0.588235 1</string>
 	<key>DVTConsoleExectuableOutputTextFont</key>
-	<string>SourceCodePro-Regular - 11.0</string>
+	<string>Hack-Bold - 11.0</string>
 	<key>DVTConsoleTextBackgroundColor</key>
 	<string>0 0.168627 0.211765 1</string>
 	<key>DVTConsoleTextInsertionPointColor</key>
@@ -30,6 +30,8 @@
 	<string>0.027451 0.211765 0.258824 1</string>
 	<key>DVTDebuggerInstructionPointerColor</key>
 	<string>0.513725 0.580392 0.588235 1</string>
+	<key>DVTLineSpacing</key>
+	<real>1.1000000238418579</real>
 	<key>DVTMarkupTextBackgroundColor</key>
 	<string>0.08 0.235137 0.274824 1</string>
 	<key>DVTMarkupTextBorderColor</key>
@@ -130,51 +132,51 @@
 	<key>DVTSourceTextSyntaxFonts</key>
 	<dict>
 		<key>xcode.syntax.attribute</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.character</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.comment</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.comment.doc</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.comment.doc.keyword</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.class</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.class.system</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.constant</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.constant.system</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.function</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.function.system</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.macro</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.macro.system</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.type</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.type.system</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.variable</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.identifier.variable.system</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.keyword</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.number</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.plain</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.preprocessor</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.string</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 		<key>xcode.syntax.url</key>
-		<string>SourceCodePro-Regular - 11.0</string>
+		<string>Hack-Regular - 11.0</string>
 	</dict>
 </dict>
 </plist>
