@@ -160,6 +160,12 @@ if [ -d "${HOME}/intellij/bin" ]; then
    export PATH="$(_addToPath "${HOME}/intellij/bin" "${PATH}")"
 fi
 
+# istio support
+_LOCAL_ISTIO_HOME="${_LOCAL_LIB_ROOT}/istio"
+if [ -n "${_LOCAL_ISTIO_HOME}" -a -d "${_LOCAL_ISTIO_HOME}" ]; then
+    export PATH="$(_addToPath "${_LOCAL_ISTIO_HOME}/bin" "${PATH}")"
+fi
+unset _LOCAL_ISTIO_HOME
 
 # Source private profile file if it exists
 [ -f "${HOME}/.profile_memes_private" ] && . "${HOME}/.profile_memes_private"
