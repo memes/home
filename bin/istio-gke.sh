@@ -19,6 +19,7 @@ DISK_SIZE=${DISK_SIZE:-20}
 SCOPES=${SCOPES:-"default"}
 
 # Find a 'shuf' option
+which ruby && SHUF='ruby -e "puts STDIN.readlines.shuffle"'
 which gshuf && SHUF=gshuf
 which shuf && SHUF=shuf
 
