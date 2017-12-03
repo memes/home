@@ -17,6 +17,10 @@ MAX_NODES=${MAX_NODES:-100}
 DISK_SIZE=${DISK_SIZE:-20}
 # Comma-separated list of scopes, either aliases or full URIs
 SCOPES=${SCOPES:-"default"}
+# List of roles to add to service account
+ROLES=${ROLES:-"roles/logging.logWriter roles/monitoring.metricWriter roles/monitoring.viewer"}
+# Comma-separated list of Kubernetes addons to enable
+ADDONS=${ADDONS:-"HttpLoadBalancing,HorizontalPodAutoscaling"}
 
 # Find a 'shuf' option
 which ruby && SHUF='ruby -e "puts STDIN.readlines.shuffle"'
@@ -48,10 +52,25 @@ _MAX_NODES_PER_ZONE=$((${MAX_NODES} / ${_NUM_ZONES} ))
 [ -z "${_MAX_NODES_PER_ZONE}" -o "${_MAX_NODES_PER_ZONE}" = "0" ] && \
     _MAX_NODES_PER_ZONE="${_MIN_NODES_PER_ZONE}"
 
+# Create a new service account for the cluster
+gcloud iam service-accounts create ${CLUSTER_NAME} \
+    --display-name="${CLUSTER_NAME}" || \
+    error "Unable to create new service account for ${CLUSTER_NAME}"
+
+# Service account roles
+for role in ${ROLES}
+do 
+    [ -n "${role}" ] && gcloud projects add-iam-policy-binding ${PROJECT} \
+        --member "serviceAccount:${CLUSTER_NAME=}@${PROJECT}.iam.gserviceaccount.com" \
+        --role ${role} || \
+	error "Unable to bind role '${role}' to service account '${CLUSTER_NAME}'"
+done
+
 # Create a cluster to contain node-pools using pre-emptible instances
 gcloud beta container clusters create ${CLUSTER_NAME} \
     --quiet \
     --project ${PROJECT} \
+    --service-account="${CLUSTER_NAME}@${PROJECT}.iam.gserviceaccount.com" \
     --preemptible \
     --zone=${_MAIN_ZONE} \
     --node-locations=${_ZONES} \
@@ -70,7 +89,9 @@ gcloud beta container clusters create ${CLUSTER_NAME} \
     --enable-cloud-logging \
     --enable-cloud-monitoring \
     --enable-kubernetes-alpha \
-    --no-enable-legacy-authorization || \
+    --enable-network-policy \
+    --no-enable-legacy-authorization \
+    ${ADDONS:+"--addons=${ADDONS}"} || \
     error "Error creating cluster"
 
 # Get kubeconfig for this cluster
