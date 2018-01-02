@@ -60,8 +60,8 @@ gcloud iam service-accounts create ${CLUSTER_NAME} \
 # Service account roles
 for role in ${ROLES}
 do 
-    [ -n "${role}" ] && gcloud projects add-iam-policy-binding ${PROJECT} \
-        --member "serviceAccount:${CLUSTER_NAME=}@${PROJECT}.iam.gserviceaccount.com" \
+    gcloud projects add-iam-policy-binding ${PROJECT} \
+        --member "serviceAccount:${CLUSTER_NAME}@${PROJECT}.iam.gserviceaccount.com" \
         --role ${role} || \
 	error "Unable to bind role '${role}' to service account '${CLUSTER_NAME}'"
 done
