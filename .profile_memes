@@ -6,7 +6,11 @@
 
 # Setup base environment
 export TZ="America/Los_Angeles"
-export EDITOR=$(which emacsclient 2>/dev/null)
+if [ -f "${HOME}/bin/qw" ]; then
+    export EDITOR="${HOME}/bin/qw"
+else
+    export EDITOR=$(which emacsclient 2>/dev/null)
+fi
 export VISUAL=${EDITOR}
 
 # Use system libvirt connections by default

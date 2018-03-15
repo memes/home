@@ -6,6 +6,7 @@ error()
     exit 1
 }
 
+_PREFER_SINGLE_FRAME=yes
 case "$(uname)" in
     Darwin)
 	_EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
@@ -13,7 +14,6 @@ case "$(uname)" in
 
     Linux)
 	_EMACSCLIENT=$(which emacsclient)
-	_PREFER_SINGLE_FRAME=yes
 	;;
 
 esac
@@ -22,9 +22,11 @@ esac
 [ -x "${_EMACSCLIENT}" ] || error "${_EMACSCLIENT} is not executable"
 
 if [ -n "${_PREFER_SINGLE_FRAME}" ]; then
-    ${_EMACSCLIENT} -n -e "(if (> (length (frame-list)) 1) 't)" 2>/dev/null | grep -q t 2>/dev/null && _EMACSCLIENT_ARGS="-n"
+    ${_EMACSCLIENT} -n -e "(if (> (length (frame-list)) 1) 't)" 2>/dev/null | grep -q t 2>/dev/null && _EMACSCLIENT_ARGS=" "
 fi
-[ -z "${_EMACSCLIENT_ARGS}" ] && _EMACSCLIENT_ARGS="-c -n"
+[ -z "${_EMACSCLIENT_ARGS}" ] && _EMACSCLIENT_ARGS="-c"
+
+[ "${0##*/}" == "q" ] && _EMACSCLIENT_ARGS="${_EMACSCLIENT_ARGS} -n"
 
 ${_EMACSCLIENT} ${_EMACSCLIENT_ARGS} "$@"
 
