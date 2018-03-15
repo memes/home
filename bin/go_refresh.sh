@@ -1,14 +1,13 @@
 #!/bin/sh
 #
-
-# Install packages to same folder as this script
+# Install common go packages to local GOPATH
 case "$(uname)" in
     Darwin)
-        _GOPATH="$(stat -f'%N' `dirname $0`)"
+        _GOPATH="${HOME}/Library/go"
         ;;
 
     Linux)
-        _GOPATH="$(readlink -f `dirname $0`)"
+        _GOPATH="${HOME}/lib/go"
         ;;
 
     *)
@@ -16,10 +15,13 @@ case "$(uname)" in
         ;;
 esac
 
+mkdir -p ${_GOPATH}
+
+ECHO="$(which echo)" || "echo"
 # Update packages
 while read p; do
-    echo -n "Fetching/updating ${p} "
-    GOPATH=${_GOPATH} go get -u ${p} && echo "done"
+    ${ECHO} -n "Fetching/updating ${p} "
+    GOPATH=${_GOPATH} go get -u ${p} && ${ECHO} "done"
 done <<EOF
 golang.org/x/oauth2/google
 golang.org/x/tools/cmd/goimports
