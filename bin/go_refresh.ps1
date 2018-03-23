@@ -17,7 +17,7 @@ $pkgs =
   "gopkg.in/alecthomas/gometalinter.v1",
   "google.golang.org/appengine",
   "google.golang.org/appengine/log",
-  "google.golang.org/api/cloudiot/v1beta1";
+  "google.golang.org/api/cloudiot/v1";
 
 foreach ($pkg in $pkgs) {
   "Fetching/updating " + $pkg
