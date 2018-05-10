@@ -171,5 +171,12 @@ if [ -n "${_LOCAL_ISTIO_HOME}" -a -d "${_LOCAL_ISTIO_HOME}" ]; then
 fi
 unset _LOCAL_ISTIO_HOME
 
+# flutter support
+_LOCAL_FLUTTER_HOME="${_LOCAL_LIB_ROOT}/flutter"
+if [ -n "${_LOCAL_FLUTTER_HOME}" -a -d "${_LOCAL_FLUTTER_HOME}" ]; then
+    export PATH="$(_addToPath "${_LOCAL_FLUTTER_HOME}/bin" "${PATH}")"
+fi
+unset _LOCAL_FLUTTER_HOME
+
 # Source private profile file if it exists
 [ -f "${HOME}/.profile_memes_private" ] && . "${HOME}/.profile_memes_private"
