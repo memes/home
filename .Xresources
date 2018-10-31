@@ -8,11 +8,6 @@ Xft*hintstyle: hintfull
 Xft*lcdfilter: lcddefault
 Xft*rgba: rgb
 
-! Emacs - most settings are in my *emacs
-Emacs*geometry: 80x50
-Emacs*FontBackend: xft
-Emacs*font: Hack-12
-
 ! xautolock
 Xautolock.time: 5
 Xautolock.locker: i3lock --color 343d46
