@@ -29,15 +29,29 @@
 	prune = fetch --prune
 	words = diff --word-diff
 	recent = for-each-ref --count=10 --sort=committerdate refs/heads/ --format="%(refname:short)"
-	upstream = "!git log --oneline --no-merges ..origin/$(git rev-parse --abbrev-ref HEAD)"
+	upstream = "!git log --oneline --no-merges ..origin/$(git branch-name)"
+	pr = !"f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+	pr-clean = "!git checkout master ; git for-each-ref refs/heads/pr/* --format="%(refname)" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+	ours = !"f() { git checkout --ours $@ && git add $@; }; f"
+	theirs = !"f() { git checkout --theirs $@ && git add $@; }; f"
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	publish = "!git push -u origin $(git branch-name)"
+	unpublish = "!git push origin :$(git branch-name)"
+	is-clean = "!exit $(git status --porcelain 2>/dev/null | wc -l)"
+	sync-upstream = !"f() { git fetch --all && git is-clean && git pull upstream $(git branch-name) && git publish; }; f"
 [gpg]
-	program = gpg2
+	program = gpg
 [core]
 	excludesfile = ~/.gitignore.memes
+	# Clone from https://github.com/pivotal-cf/git-hooks-core and
+	# install cred-alert-cli
+	hooksPath = ~/projects/pivotal-cf/git-hooks-core
 [color]
 	ui = auto
 [http]
-	cookiefile = /home/memes/.gitcookies
+	cookiefile = ~/.gitcookies
+[github]
+	user = memes
 
 # Pull in any configuration that can't be stored in public git repo
 #  - try to keep last configuration option in file
