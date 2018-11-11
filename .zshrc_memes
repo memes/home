@@ -1,0 +1,56 @@
+# -*- mode: sh; eval: (sh-set-shell "zsh") -*-
+#
+typeset -U path
+
+# Add all first-level directories in ~/.profile.d/ to fpath
+for dir in ~/.profile.d/*
+do
+    [[ -d "${dir}" ]] && fpath=($dir $fpath)
+done
+
+# Autoload any functions defined
+autoload -U ~/.profile.d/functions/*(:t)
+
+# Grab all zsh files that will need to be sourced
+typeset -U profile_configs
+profile_configs=(~/.profile.d/*/*.zsh)
+
+# Update paths as specified in configuration files...
+for profile_config in ${(M)profile_configs:#*/path.zsh}
+do
+    source "${profile_config}"
+done
+
+# Load zsh plugins
+# `antibody bundle < ~/.zsh_plugins.txt > ~/.plugins.zsh`
+source ~/.plugins.zsh
+
+# Load platform specific plugins, if any
+[[ -f ~/.plugins.zsh.${$(uname):l} ]] && source ~/.plugins.zsh.${$(uname):l}
+
+# Load everything but the path/completion settings
+for profile_config in ${${profile_configs:#*/path.zsh}:#*/completion.zsh}
+do
+    source "${profile_config}"
+done
+
+# Autoload compinit and promptinit
+autoload -Uz compinit promptinit
+compinit
+promptinit
+
+
+# Load any completion configurations
+for profile_config in ${(M)profile_configs:#*/completion.zsh}
+do
+    source "${profile_config}"
+done
+
+# Clean-up
+unset profile_configs profile_config
+
+# Source private file containing aliases or other settings that should
+# not be committed to repo
+if [[ -f ~/.zsh_private ]]; then
+    source ~/.zsh_private
+fi

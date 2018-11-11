@@ -1,0 +1,31 @@
+# -*- mode: sh -*-
+#
+# Utility function to return a library path depending on the OS
+local_lib_path()
+{
+    local lpath=""
+    case "$(uname)" in
+        Darwin)
+            lpath="~/Library"
+            ;;
+
+        Linux)
+            lpath"~/lib"
+            ;;
+
+        MINGW*)
+            echo "~/Documents/lib"
+            ;;
+
+        *)
+            echo "does/not/exist"
+            ;;
+    esac
+
+    command -v realpath >/dev/null 2>/dev/null
+    local retval=$?
+    for p in $*; do
+        [[ ${retval} -eq 0 ]] && eval "realpath ${lpath}/${p}"
+        [[ ${retval} -eq 0 ]] || echo "${lpath}/${p}"
+    done
+}

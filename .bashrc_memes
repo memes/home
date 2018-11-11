@@ -1,0 +1,21 @@
+# -*- mode: sh -*-
+# MEmes bash setup
+#
+# Add to system provided .bashrc
+# [ -f ~/.bash_memes ] && . ~/.bash_memes
+
+
+# Load all sh files in ~/profile.d that are not path setting
+# (see .profile_memes for path...)
+for profile_config in $(find "${HOME}/.profile.d" -type f -name '*.sh' ! -name 'path.sh')
+do
+    . "${profile_config}"
+done
+
+# Load any private (machine local) configuration
+[ -f "${HOME}/.bashrc_private" ] && . "${HOME}/.bashrc_private"
+
+
+# Source private file containing aliases or other settings that should
+# not be committed to repo
+[ -f ~/.bash_memes_private ] && . ~/.bash_memes_private

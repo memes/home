@@ -9,11 +9,14 @@
 !README.md
 !LICENSE
 !.Xresources
-!.bash_memes
+!.bashrc_memes
 !.kernel-pkg.conf
 !.profile_memes
 !.screenrc
 !.xsettingsd
+!.zshrc_memes
+!.zsh_plugins.txt
+!.zsh_plugins.darwin.txt
 
 # Autostart desktop files
 !.config/autostart/*
@@ -28,11 +31,14 @@
 # udiskie
 !.config/udiskie
 
+# moving to a shared-directory approach for environment config
+!.profile.d
+
 # Useful scripts
 !bin/*
 
 # OS X Library files
 !Library/Developer/Xcode/UserData/FontAndColorThemes/*
-# Preferred go libs to install and refresh as needed
-!lib/go/refresh.sh
-!lib/go/refresh.ps1
+
+# Common launchagent settings (OS X)
+!Library/LaunchAgents/org.gnu.emacs.plist
