@@ -25,7 +25,7 @@ local_lib_path()
     command -v realpath >/dev/null 2>/dev/null
     local retval=$?
     for p in $*; do
-        [[ ${retval} -eq 0 ]] && eval "realpath ${lpath}/${p}"
+        [[ ${retval} -eq 0 ]] && eval "realpath -q ${lpath}/${p}"
         [[ ${retval} -eq 0 ]] || echo "${lpath}/${p}"
     done
 }

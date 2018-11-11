@@ -23,7 +23,8 @@ done
 
 # Load zsh plugins
 # `antibody bundle < ~/.zsh_plugins.txt > ~/.plugins.zsh`
-source ~/.plugins.zsh
+[[ -f ~/.plugins.zsh ]] && source ~/.plugins.zsh
+[[ -f ~/.plugins.zsh ]] || echo "You need to generate static plugins file"
 
 # Load platform specific plugins, if any
 [[ -f ~/.plugins.zsh.${$(uname):l} ]] && source ~/.plugins.zsh.${$(uname):l}
