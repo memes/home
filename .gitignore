@@ -32,7 +32,7 @@
 !.config/udiskie
 
 # moving to a shared-directory approach for environment config
-!.profile.d
+!.profile.d/**
 
 # Useful scripts
 !bin/*

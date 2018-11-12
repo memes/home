@@ -28,6 +28,7 @@ setopt LOCAL_TRAPS
 setopt PROMPT_SUBST
 setopt CORRECT
 setopt COMPLETE_IN_WORD
+setopt INTERACTIVE_COMMENTS
 export CLICOLOR=true
 
 # Setup a shared zsh history
@@ -47,3 +48,24 @@ setopt HIST_EXPIRE_DUPS_FIRST
 
 # Don't prompt me when I rm with * glob
 setopt RM_STAR_SILENT
+
+# Completion settings
+setopt AUTO_CD
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt ALWAYS_TO_END
+
+# forces zsh to realize new commands
+zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
+
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending
+
+# rehash if command not found (possibly recently installed)
+zstyle ':completion:*' rehash true
+
+# menu if nb items > 2
+zstyle ':completion:*' menu select=2

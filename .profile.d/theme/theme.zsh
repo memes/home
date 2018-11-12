@@ -34,3 +34,5 @@ SPACESHIP_PROMPT_ORDER=(
     exit_code     # Exit code section
     char          # Prompt character
 )
+
+SPACESHIP_PROMPT_ADD_NEWLINE=false
