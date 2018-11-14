@@ -55,6 +55,9 @@ setopt AUTO_LIST
 setopt AUTO_MENU
 setopt ALWAYS_TO_END
 
+# Emacs keybindings
+bindkey -e
+
 # forces zsh to realize new commands
 zstyle ':completion:*' completer _oldlist _expand _complete _match _ignored _approximate
 
