@@ -1,0 +1,16 @@
+# -*- mode: sh -*-
+#
+# Common alias definitions for sh/bash/zsh
+
+alias ll='ls -alF'
+# Disable q alias as using q shell script now
+#alias q='emacsclient -c -n'
+alias tdmp='sudo /usr/sbin/tcpdump -ni eth0 -s 0 -w'
+alias trd='/usr/sbin/tcpdump -nevvvxXttttSr'
+alias assh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias diff="diff -x .git -x '*~' -x '*#'"
+
+# Cassandra alias
+alias cassandra='id=$(docker ps -a --filter name=cassandra --format '{{.ID}}'); [ -z "${id}" ] && docker run -d -p 9042:9042 --name cassandra cassandra:3.0.8 || docker start ${id}'
+alias cqlsh='docker run -it --link cassandra:cassandra --rm --name cqlsh cassandra:3.0.8 cqlsh cassandra'
+
