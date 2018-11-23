@@ -3,6 +3,7 @@
 *
 
 # Add individual files/directories that should be in repo
+!.aliases
 !.gitconfig
 !.gitignore
 !.gitignore.memes
