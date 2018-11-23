@@ -10,22 +10,25 @@ local_lib_path()
             ;;
 
         Linux)
-            lpath"~/lib"
+            lpath="~/lib"
             ;;
 
         MINGW*)
-            echo "~/Documents/lib"
+            lpath="~/Documents/lib"
             ;;
 
         *)
-            echo "does/not/exist"
+            lpath="does/not/exist"
             ;;
     esac
 
     command -v realpath >/dev/null 2>/dev/null
     local retval=$?
     for p in $*; do
-        [[ ${retval} -eq 0 ]] && eval "realpath -q ${lpath}/${p}"
-        [[ ${retval} -eq 0 ]] || echo "${lpath}/${p}"
+        if test ${retval} -eq 0 ; then
+            eval "realpath -q ${lpath}/${p}"
+        else
+            echo "${lpath}/${p}"
+        fi
     done
 }
