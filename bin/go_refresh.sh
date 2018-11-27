@@ -36,7 +36,7 @@ github.com/derekparker/delve/cmd/dlv
 github.com/gohugoio/hugo
 github.com/golang/dep/cmd/dep
 github.com/josharian/impl
-github.com/nsf/gocode
+github.com/mdempsky/gocode
 github.com/rogpeppe/godef
 github.com/sourcegraph/go-langserver
 github.com/tools/godep
