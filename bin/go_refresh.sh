@@ -20,8 +20,10 @@ golang.org/x/tools/cmd/goimports
 golang.org/x/tools/cmd/gorename
 golang.org/x/tools/cmd/gotype
 golang.org/x/tools/cmd/guru
-#github.com/mdempsky/gocode
-github.com/stamblerre/gocode
+
+# Non-module support gocode - see last lines for module supported gocode
+github.com/mdempsky/gocode
+
 github.com/rogpeppe/godef
 github.com/cweill/gotests/...
 github.com/davidrjenni/reftools/cmd/fillstruct
@@ -35,8 +37,9 @@ github.com/josharian/impl
 github.com/zmb3/gogetdoc
 gopkg.in/check.v1
 
-# LSP implementation
+# LSP implementation(s)
 github.com/sourcegraph/go-langserver
+golang.org/x/tools/cmd/gopls
 
 # Utilities
 github.com/cloudflare/cfssl/cmd/... off
@@ -44,10 +47,14 @@ github.com/gohugoio/hugo
 github.com/golang/dep/cmd/dep off
 EOF
 
-while read p m; do
+while read p m f; do
     ${ECHO} "Fetching/updating ${p}"
-    env GOPATH=${_GOPATH} ${m:+"GO111MODULE=${m}"} go get -u ${p} && \
+    env GOPATH=${_GOPATH} ${m:+"GO111MODULE=${m}"} go get -u ${f} ${p} && \
         ${ECHO} "${p} done"
 done
+
+# Module-savvy gocode installed as gocode-gomod
+env GOPATH=${_GOPATH} go get -d -u github.com/stamblerre/gocode
+env GOPATH=${_GOPATH} go build -o ${_GOPATH}/bin/gocode-gomod github.com/stamblerre/gocode
 
 unset _GOPATH
