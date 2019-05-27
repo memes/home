@@ -45,6 +45,8 @@ golang.org/x/tools/cmd/gopls
 github.com/cloudflare/cfssl/cmd/... off
 github.com/gohugoio/hugo
 github.com/golang/dep/cmd/dep off
+github.com/golang/protobuf/protoc-gen-go
+github.com/ckaznocha/protoc-gen-lint
 EOF
 
 while read p m f; do
