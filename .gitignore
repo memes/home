@@ -43,3 +43,9 @@
 
 # Common launchagent settings (OS X)
 !Library/LaunchAgents/org.gnu.emacs.plist
+
+# GnuPG configuration
+!.gnupg/dirmngr.conf
+!.gnupg/gpg-agent.conf
+!.gnupg/gpg.conf
+!.gnupg/sks-keyservers.netCA.pem
