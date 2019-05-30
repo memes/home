@@ -14,3 +14,7 @@ if [ $? -eq 0 ]; then
     . "${_VIRTUALENVWRAPPER}"
 fi
 unset _VIRTUALENVWRAPPER
+
+# Support pipenv
+command -v pipenv >/dev/null 2>/dev/null && \
+    export PIPENV_VENV_IN_PROJECT=1
