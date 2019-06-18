@@ -21,9 +21,9 @@ do
     source "${profile_config}"
 done
 
-
 # Geometry config must happen before loading the plugin
-GEOMETRY_PROMPT_PLUGINS=(virtualenv kube jobs exec_time git hg)
+GEOMETRY_PROMPT_PATH="%2~"
+GEOMETRY_PROMPT_PLUGINS=(virtualenv jobs exec_time git hg)
 
 # Load zsh plugins
 # `antibody bundle < ~/.zsh_plugins.txt > ~/.plugins.zsh`
