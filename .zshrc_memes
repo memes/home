@@ -21,8 +21,14 @@ do
     source "${profile_config}"
 done
 
+# Set the maximum width of the cwd in prompt to 25% of terminal width
+function dynamic_width_path_prompt() {
+    echo "%$(( ${COLUMNS:-80} * 25 / 100 ))<…<%~"
+}
+current_path_prompt="$(dynamic_width_path_prompt)"
+
 # Geometry config must happen before loading the plugin
-GEOMETRY_PROMPT_PATH="%2~"
+GEOMETRY_PROMPT_PATH="${current_path_prompt}"
 GEOMETRY_PROMPT_PLUGINS=(virtualenv jobs exec_time git hg)
 
 # Load zsh plugins
