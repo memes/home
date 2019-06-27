@@ -1,0 +1,17 @@
+# -*- mode: sh -*-
+#
+# Utility to list my current identities
+wtfai()
+{
+    local __az_user=$(command -v az >/dev/null 2>/dev/null && command -v jq >/dev/null 2>/dev/null && az account show | jq -r '.user.name // empty')
+    local __gcp_user=$(command -v gcloud >/dev/null 2>/dev/null && gcloud config get-value core/account 2>/dev/null)
+    local __gcp_project=$(command -v gcloud >/dev/null 2>/dev/null && gcloud config get-value core/project 2>/dev/null)
+    local __git_user=$(command -v git >/dev/null 2>/dev/null && git config --get user.email 2>/dev/null)
+    local __git_origin=$(command -v git >/dev/null 2>/dev/null && git remote get-url origin 2>/dev/null)
+    cat <<EOF | sed '/^$/d'
+Who the flock am I?
+${__az_user:+"Azure: ${__az_user}"}
+${__gcp_user:+"GCP: ${__gcp_user}${__gcp_project:+" ${__gcp_project}"}"}
+${__git_user:+"Git: ${__git_user}${__git_origin:+" ${__git_origin}"}"}
+EOF
+}
