@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Install common go packages to local GOPATH
+# Install common go packages to local library
 set -e
 command -v local_lib_path >/dev/null 2>/dev/null || . ~/.profile.d/functions/local_lib_path
 
@@ -39,7 +39,7 @@ gopkg.in/check.v1
 
 # LSP implementation(s)
 github.com/sourcegraph/go-langserver
-golang.org/x/tools/cmd/gopls
+golang.org/x/tools/gopls@latest on
 
 # Utilities
 github.com/cloudflare/cfssl/cmd/... off
@@ -50,7 +50,7 @@ EOF
 
 while read p m f; do
     ${ECHO} "Fetching/updating ${p}"
-    env GOPATH=${_GOPATH} ${m:+"GO111MODULE=${m}"} go get -u ${f} ${p} && \
+    env GOPATH=${_GOPATH} ${m:+"GO111MODULE=${m}"} go get ${f} ${p} && \
         ${ECHO} "${p} done"
 done
 
