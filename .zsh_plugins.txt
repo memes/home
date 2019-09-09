@@ -6,8 +6,8 @@ zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 
 # Theme
-geometry-zsh/geometry
-memes/geometry-gcloud-account
+geometry-zsh/geometry branch:mnml
+memes/geometry-gcloud-account branch:v2
 
 # Load these last!
 #zsh-users/zsh-syntax-highlighting
