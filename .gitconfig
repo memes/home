@@ -45,13 +45,19 @@
 	excludesfile = ~/.gitignore.memes
 	# Clone from https://github.com/pivotal-cf/git-hooks-core and
 	# install cred-alert-cli
-	hooksPath = ~/projects/pivotal-cf/git-hooks-core
+	#hooksPath = ~/projects/pivotal-cf/git-hooks-core
 [color]
 	ui = auto
 [http]
 	cookiefile = ~/.gitcookies
 [github]
 	user = memes
+[merge]
+	conflictstyle = diff3
+	tool = ediff
+[mergetool "ediff"]
+	cmd = emacsclient -c -a \"\" --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\" (lambda (delete-frame (selected-frame))))\"
+	trustExitCode = true
 
 # Pull in any configuration that can't be stored in public git repo
 #  - try to keep last configuration option in file

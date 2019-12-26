@@ -36,6 +36,8 @@ github.com/uudashr/gopkgs/cmd/gopkgs
 github.com/josharian/impl
 github.com/zmb3/gogetdoc
 gopkg.in/check.v1
+github.com/ramya-rao-a/go-outline
+github.com/newhook/go-symbols
 
 # LSP implementation(s)
 github.com/sourcegraph/go-langserver
