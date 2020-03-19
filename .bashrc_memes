@@ -2,8 +2,10 @@
 # MEmes bash setup
 #
 # Add to system provided .bashrc
-# [ -f ~/.bash_memes ] && . ~/.bash_memes
+# [ -f ~/.bashrc_memes ] && . ~/.bashrc_memes
 
+# Load all functions
+for function_definition in ${HOME}/.profile.d/functions/*; do . "${function_definition}"; done
 
 # Load all sh files in ~/profile.d that are not path setting
 # (see .profile_memes for path...)
