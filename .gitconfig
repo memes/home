@@ -11,6 +11,7 @@
 	fsckobjects = true
 [credential]
 	useHttpPath = true
+	helper = osxkeychain
 # Various shortcuts
 [alias]
 	branches = branch -a
@@ -53,10 +54,11 @@
 [github]
 	user = memes
 [merge]
-	conflictstyle = diff3
-	tool = ediff
-[mergetool "ediff"]
-	cmd = emacsclient -c -a \"\" --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\" (lambda (delete-frame (selected-frame))))\"
+	tool = meld
+[mergetool]
+	prompt = false
+[mergetool "meld"]
+	cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
 	trustExitCode = true
 
 # Pull in any configuration that can't be stored in public git repo
