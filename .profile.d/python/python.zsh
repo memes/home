@@ -11,6 +11,7 @@ _VIRTUALENVWRAPPER=$(command -v virtualenvwrapper.sh)
 if [ $? -eq 0 ]; then
     export WORKON_HOME="~/.virtualenvs"
     export PROJECT_HOME="~/projects"
+    export VIRTUALENVWRAPPER_PYTHON=$(command -v python3)
     source "${_VIRTUALENVWRAPPER}"
 fi
 unset _VIRTUALENVWRAPPER
