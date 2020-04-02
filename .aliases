@@ -14,3 +14,5 @@ alias diff="diff -x .git -x '*~' -x '*#'"
 alias cassandra='id=$(docker ps -a --filter name=cassandra --format '{{.ID}}'); [ -z "${id}" ] && docker run -d -p 9042:9042 --name cassandra cassandra:3.0.8 || docker start ${id}'
 alias cqlsh='docker run -it --link cassandra:cassandra --rm --name cqlsh cassandra:3.0.8 cqlsh cassandra'
 
+# Cloudbees Jenkins
+alias jenkins='mkdir -p ~/tmp/jenkins-data; docker run --name jenkins -d -u root -p 8080:8080 -p 50000:50000 -v ~/tmp/jenkins-data:/var/cloudbees-jenkins-distribution -v /var/run/docker.sock:/var/run/docker.sock cloudbees/cloudbees-jenkins-distribution && docker exec -u root jenkins apt install -y docker.io'
