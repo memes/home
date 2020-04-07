@@ -11,10 +11,12 @@
 !LICENSE
 !.Xresources
 !.bashrc_memes
+!.direnvrc
 !.kernel-pkg.conf
 !.pre-commit-config.yaml
 !.profile_memes
 !.screenrc
+!.talismanrc
 !.xsettingsd
 !.zshrc_memes
 !.zsh_plugins.txt
