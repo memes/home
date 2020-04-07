@@ -6,10 +6,10 @@ zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 
 # Theme
-geometry-zsh/geometry
-memes/geometry-gcloud-account
+#geometry-zsh/geometry
+#memes/geometry-gcloud-account
 
 # Load these last!
+zsh-users/zsh-history-substring-search
 #zsh-users/zsh-syntax-highlighting
 zdharma/fast-syntax-highlighting
-zsh-users/zsh-history-substring-search

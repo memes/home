@@ -14,9 +14,11 @@ do
     . "${profile_config}"
 done
 
+# Load starship prompt if present
+command -v starship > /dev/null 2>/dev/null && eval "$(starship init bash)"
+
 # Load any private (machine local) configuration
 [ -f "${HOME}/.bashrc_private" ] && . "${HOME}/.bashrc_private"
-
 
 # Source private file containing aliases or other settings that should
 # not be committed to repo

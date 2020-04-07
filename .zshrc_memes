@@ -21,17 +21,6 @@ do
     source "${profile_config}"
 done
 
-# Set the maximum width of the cwd in prompt to 25% of terminal width
-function dynamic_width_path_prompt() {
-    echo "%$(( ${COLUMNS:-80} * 25 / 100 ))<…<%~"
-}
-current_path_prompt='$(dynamic_width_path_prompt)'
-
-# Geometry config must happen before loading the plugin
-GEOMETRY_PATH_SYMBOL_HOME="${current_path_prompt}"
-GEOMETRY_RPROMPT=(geometry_virtualenv geometry_exec_time geometry_git geometry_hg)
-GEOMETRY_INFO=(geometry_gcloud_account geometry_jobs)
-
 # Load zsh plugins
 # `antibody bundle < ~/.zsh_plugins.txt > ~/.plugins.zsh`
 [[ -f ~/.plugins.zsh ]] && source ~/.plugins.zsh
@@ -60,6 +49,9 @@ done
 
 # Clean-up
 unset profile_configs profile_config
+
+# Load starship prompt if present
+command -v starship > /dev/null 2>/dev/null && eval "$(starship init zsh)"
 
 # Source private file containing aliases or other settings that should
 # not be committed to repo
