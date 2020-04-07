@@ -12,6 +12,7 @@
 !.Xresources
 !.bashrc_memes
 !.kernel-pkg.conf
+!.pre-commit-config.yaml
 !.profile_memes
 !.screenrc
 !.xsettingsd
@@ -33,9 +34,11 @@
 !.config/udiskie
 
 # moving to a shared-directory approach for environment config
+!.profile.d/
 !.profile.d/**
 
 # Useful scripts
+!bin/
 !bin/*
 
 # OS X Library files
@@ -45,6 +48,7 @@
 !Library/LaunchAgents/org.gnu.emacs.plist
 
 # GnuPG configuration
+!.gnupg/
 !.gnupg/dirmngr.conf
 !.gnupg/gpg-agent.conf
 !.gnupg/gpg.conf

@@ -68,7 +68,7 @@ gcloud iam service-accounts create ${CLUSTER_NAME} \
 
 # Service account roles
 for role in ${ROLES}
-do 
+do
     gcloud projects add-iam-policy-binding ${PROJECT} \
         --member "serviceAccount:${CLUSTER_NAME}@${PROJECT}.iam.gserviceaccount.com" \
         --role ${role} || \

@@ -16,4 +16,3 @@ else
 fi
 ${XINPUT} set-prop "${tpid}" "Device Enabled" ${flag}
 exit 0
-

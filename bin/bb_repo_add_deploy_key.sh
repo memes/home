@@ -66,5 +66,5 @@ addKey()
 	echo "{\"key\": \"${KEY}\", \"label\": \"${BB_KEY_LABEL}\"}" | post 1.0/repositories/${BB_TEAM}/${repo}/deploy-keys
     done
 }
-	
+
 eachRepo | filterKey | tr '[:upper:]' '[:lower:]' | addKey

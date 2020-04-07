@@ -1,5 +1,5 @@
 # MEmes .screenrc
-defbce "on" 
+defbce "on"
 startup_message off
 autodetach on
 vbell off
