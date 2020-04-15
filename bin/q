@@ -1,34 +1,37 @@
 #!/bin/sh
+#
+# Open the file(s) in an Emacs instance, fallback to vi.
 
 error()
 {
-    echo -e "$0: Error: $*" >&2
+    echo "$0: Error: $*" >&2
     exit 1
 }
 
 _PREFER_SINGLE_FRAME=yes
 case "$(uname)" in
     Darwin)
-	_EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
-	;;
+	    _EMACSCLIENT=/Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+	    ;;
 
     Linux)
-	_EMACSCLIENT=$(which emacsclient)
-	;;
-
+	    _EMACSCLIENT=$(command -v emacsclient)
+	    ;;
 esac
 
-[ -n "${_EMACSCLIENT}" ] || error "Couldn't figure out emacsclient to use"
-[ -x "${_EMACSCLIENT}" ] || error "${_EMACSCLIENT} is not executable"
+if [ -n "${_EMACSCLIENT}" ] && [ -x "${_EMACSCLIENT}" ]; then
+    if [ -n "${_PREFER_SINGLE_FRAME}" ]; then
+        ${_EMACSCLIENT} -n -e "(if (> (length (frame-list)) 1) 't)" 2>/dev/null | grep -q t 2>/dev/null && _EMACSCLIENT_ARGS=" "
+    fi
+    [ -z "${_EMACSCLIENT_ARGS}" ] && _EMACSCLIENT_ARGS="-c"
 
-if [ -n "${_PREFER_SINGLE_FRAME}" ]; then
-    ${_EMACSCLIENT} -n -e "(if (> (length (frame-list)) 1) 't)" 2>/dev/null | grep -q t 2>/dev/null && _EMACSCLIENT_ARGS=" "
+    [ "${0##*/}" = "q" ] && _EMACSCLIENT_ARGS="${_EMACSCLIENT_ARGS} -n"
+
+    ${_EMACSCLIENT} ${_EMACSCLIENT_ARGS} "$@"
+else
+    command -v vi > /dev/null || error "Cannot fallback to vi"
+    vi "$@"
 fi
-[ -z "${_EMACSCLIENT_ARGS}" ] && _EMACSCLIENT_ARGS="-c"
-
-[ "${0##*/}" == "q" ] && _EMACSCLIENT_ARGS="${_EMACSCLIENT_ARGS} -n"
-
-${_EMACSCLIENT} ${_EMACSCLIENT_ARGS} "$@"
-
 unset _EMACSCLIENT_ARGS
 unset _EMACSCLIENT
+unset _PREFER_SINGLE_FRAME
