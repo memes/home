@@ -39,13 +39,6 @@ cask "meld"
 brew "pre-commit"
 brew "talisman"
 
-# Emacs
-cask "emacs"
-brew "aspell"
-tap "twlz0ne/ccls"
-brew "ccls"
-brew "pandoc"
-
 # Dev utils
 brew "automake"
 brew "cmake"
