@@ -129,3 +129,6 @@ cask "google-chrome"
 # Chat/conferencing
 cask "slack"
 cask "zoomus"
+
+# VS Code - make sure it is installed on Macs as I'm moving off of Emacs :(
+cask "visual-studio-code"
