@@ -1,5 +1,3 @@
-# F5 laptop
-
 # Base taps
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -28,7 +26,10 @@ brew "tmux"
 # gnupg/passwords
 brew "gnupg"
 brew "hopenpgp-tools"
+cask "keepassx"
 brew "pinentry-mac"
+brew "ykman"
+brew "yubico-piv-tool"
 
 # VCS
 brew "diffutils"
@@ -76,6 +77,11 @@ brew "pipenv"
 
 # Nodejs
 brew "node"
+
+# Publishing
+brew "hugo"
+tap "sass/sass"
+brew "sass/sass/sass"
 
 # Graphics/video
 cask "gimp"
