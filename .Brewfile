@@ -94,6 +94,7 @@ cask "deluge"
 cask "postman"
 brew "telnet"
 cask "wireshark"
+brew "termshark"
 
 # Cloud SDKs
 cask "google-cloud-sdk"
