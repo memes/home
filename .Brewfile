@@ -136,6 +136,11 @@ cask "google-chrome"
 # Chat/conferencing
 cask "slack"
 cask "zoomus"
+cask "discord"
 
 # VS Code - make sure it is installed on Macs as I'm moving off of Emacs :(
 cask "visual-studio-code"
+
+# RPM and BIG-IP testing on macOS
+brew "rpm"
+brew "xorriso"
