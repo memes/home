@@ -131,6 +131,7 @@ cask "google-chrome"
 cask "slack"
 cask "zoomus"
 cask "discord"
+brew "irssi"
 
 # VS Code - make sure it is installed on Macs as I'm moving off of Emacs :(
 cask "visual-studio-code"
