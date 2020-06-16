@@ -122,6 +122,7 @@ tap "txn2/tap"
 brew "txn2/tap/kubefwd"
 tap "wagoodman/dive"
 brew "dive"
+brew "jsonnet"
 
 # Browsers
 cask "firefox"
