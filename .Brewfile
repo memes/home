@@ -95,7 +95,6 @@ cask "postman"
 brew "telnet"
 cask "wireshark"
 brew "termshark"
-brew "ipmitool"
 
 # Cloud SDKs
 cask "google-cloud-sdk"
