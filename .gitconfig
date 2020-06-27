@@ -65,3 +65,5 @@
 #  - try to keep last configuration option in file
 [include]
 	path = ~/.gitconfig.private
+[pull]
+	rebase = false
