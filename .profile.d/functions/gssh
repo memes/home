@@ -1,0 +1,22 @@
+# -*- mode: sh -*-
+#
+# gcloud compute ssh wrapper which disables known hosts and strict key checking
+gssh()
+{
+	local set_known_hosts='--ssh-flag="-oUserKnownHostsFile=/dev/null"'
+	local set_key_checking='--strict-host-key-checking=no'
+	for arg in "$@"
+	do
+		case "${arg}" in
+			*UserKnownHostsFile*)
+				set_known_hosts=""
+				;;
+			--strict-host-key-checking|*StrictHostKeyChecking*)
+				set_key_checking=""
+				;;
+			*)
+				;;
+		esac
+	done
+	gcloud compute ssh "${set_known_hosts}" "${set_key_checking}" $@
+}
