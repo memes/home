@@ -123,6 +123,7 @@ brew "txn2/tap/kubefwd"
 tap "wagoodman/dive"
 brew "dive"
 brew "jsonnet"
+brew "podman"
 
 # Browsers
 cask "firefox"
