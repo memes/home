@@ -54,6 +54,7 @@ brew "watch"
 # Hashicorp and related
 brew "consul"
 brew "terraform"
+brew "terraform@0.12"
 brew "terraform-docs"
 brew "tflint"
 brew "vault"
@@ -132,6 +133,7 @@ brew "txn2/tap/kubefwd"
 tap "wagoodman/dive"
 brew "dive"
 brew "jsonnet"
+brew "podman"
 
 # Browsers
 cask "firefox"
