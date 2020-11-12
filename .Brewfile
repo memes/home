@@ -72,6 +72,7 @@ brew "maven"
 
 # Python
 brew "python"
+brew "python@3.8"
 brew "pipenv"
 
 # Nodejs
