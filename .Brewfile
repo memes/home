@@ -106,6 +106,7 @@ brew "telnet"
 cask "wireshark"
 brew "termshark"
 brew "ipmitool"
+brew "netcat"
 
 # Cloud SDKs
 cask "google-cloud-sdk"
