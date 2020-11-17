@@ -48,6 +48,9 @@ github.com/cloudflare/cfssl/cmd/... off
 github.com/golang/dep/cmd/dep off
 github.com/golang/protobuf/protoc-gen-go
 github.com/ckaznocha/protoc-gen-lint
+
+# gcrane
+github.com/google/go-containerregistry/cmd/gcrane on
 EOF
 
 while read p m f; do
