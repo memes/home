@@ -141,7 +141,7 @@ cask "google-chrome"
 
 # Chat/conferencing
 cask "slack"
-cask "zoomus"
+cask "zoom"
 cask "discord"
 brew "irssi"
 
