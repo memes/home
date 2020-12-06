@@ -79,6 +79,7 @@ brew "maven"
 
 # Python
 brew "python"
+brew "python@3.8"
 brew "pipenv"
 
 # Nodejs
@@ -121,8 +122,6 @@ brew "skaffold"
 brew "stern"
 tap "azure/draft"
 brew "azure/draft/draft"
-tap "ksonnet/tap"
-brew "ksonnet/tap/ks"
 tap "okteto/cli"
 brew "okteto"
 tap "solo-io/tap"
@@ -131,7 +130,8 @@ tap "txn2/tap"
 brew "txn2/tap/kubefwd"
 tap "wagoodman/dive"
 brew "dive"
-brew "jsonnet"
+brew "podman"
+brew "kustomize"
 
 # Browsers
 cask "firefox"

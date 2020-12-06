@@ -40,6 +40,9 @@ github.com/newhook/go-symbols
 
 # Utilities
 github.com/ckaznocha/protoc-gen-lint
+
+# gcrane
+github.com/google/go-containerregistry/cmd/gcrane on
 EOF
 
 while read p m f; do
