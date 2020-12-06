@@ -1,4 +1,5 @@
 # F5 Laptop
+# spell-checker: disable
 
 # Base taps
 tap "homebrew/bundle"
@@ -63,6 +64,12 @@ brew "elixir"
 brew "go"
 brew "gox"
 brew "protobuf"
+brew "protoc-gen-go"
+brew "protoc-gen-go-grpc"
+brew "dep"
+brew "gopls"
+brew "golangci-lint"
+brew "staticcheck"
 
 # Java and related
 brew "openjdk"
@@ -95,6 +102,8 @@ cask "postman"
 brew "telnet"
 cask "wireshark"
 brew "termshark"
+brew "netcat"
+brew "cfssl"
 
 # Cloud SDKs
 cask "google-cloud-sdk"
