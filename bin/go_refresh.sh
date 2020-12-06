@@ -30,7 +30,6 @@ github.com/davidrjenni/reftools/cmd/fillstruct
 github.com/derekparker/delve/cmd/dlv
 github.com/fatih/gomodifytags
 github.com/godoctor/godoctor
-github.com/golangci/golangci-lint/cmd/golangci-lint
 #github.com/haya14busa/gopkgs/cmd/gopkgs
 github.com/uudashr/gopkgs/cmd/gopkgs
 github.com/josharian/impl
@@ -39,14 +38,7 @@ gopkg.in/check.v1
 github.com/ramya-rao-a/go-outline
 github.com/newhook/go-symbols
 
-# LSP implementation(s)
-github.com/sourcegraph/go-langserver
-golang.org/x/tools/gopls@latest on
-
 # Utilities
-github.com/cloudflare/cfssl/cmd/... off
-github.com/golang/dep/cmd/dep off
-github.com/golang/protobuf/protoc-gen-go
 github.com/ckaznocha/protoc-gen-lint
 
 # gcrane
