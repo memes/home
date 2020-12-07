@@ -60,7 +60,6 @@ brew "terraform-docs"
 brew "tflint"
 brew "vault"
 cask "vagrant"
-brew "terraform@0.12"
 brew "terraform@0.13"
 
 # Elixir
