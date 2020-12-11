@@ -160,3 +160,6 @@ cask "visual-studio-code"
 # RPM and BIG-IP testing on macOS
 brew "rpm"
 brew "xorriso"
+
+# Ruby
+brew "ruby"
