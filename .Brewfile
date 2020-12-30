@@ -165,3 +165,5 @@ brew "xorriso"
 brew "ruby"
 brew "ruby@2.7"
 
+# ESXi & vSphere
+brew "govc"
