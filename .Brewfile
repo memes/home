@@ -154,3 +154,5 @@ brew "xorriso"
 
 # Ruby
 brew "ruby"
+brew "ruby@2.7"
+
