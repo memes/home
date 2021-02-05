@@ -8,6 +8,7 @@ alias ll='ls -alF'
 alias tdmp='sudo /usr/sbin/tcpdump -ni eth0 -s 0 -w'
 alias trd='/usr/sbin/tcpdump -nevvvxXttttSr'
 alias assh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias ascp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias diff="diff -x .git -x '*~' -x '*#'"
 
 # Cassandra alias
