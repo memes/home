@@ -82,9 +82,15 @@ brew "gradle"
 brew "groovy"
 brew "maven"
 
-# Python
-brew "python"
-brew "python@3.8"
+# Python - switch to pyenv for projects and use brew python@ just for linked
+# pyenv dependencies
+brew "openssl"
+brew "readline"
+brew "sqlite3"
+brew "xz"
+brew "zlib"
+#
+brew "pyenv"
 brew "pipenv"
 
 # Nodejs
