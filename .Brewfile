@@ -168,8 +168,7 @@ brew "rpm"
 brew "xorriso"
 
 # Ruby
-brew "ruby"
-brew "ruby@2.7"
+brew "rbenv"
 
 # ESXi & vSphere
 brew "govc"
