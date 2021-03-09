@@ -60,10 +60,11 @@
 [mergetool "meld"]
 	cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
 	trustExitCode = true
-
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
 # Pull in any configuration that can't be stored in public git repo
 #  - try to keep last configuration option in file
 [include]
 	path = ~/.gitconfig.private
-[pull]
-	rebase = false
