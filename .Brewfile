@@ -161,3 +161,6 @@ brew "xorriso"
 # Ruby
 brew "rbenv"
 
+# Text (asciidoc to other)
+brew "asciidoctor"
+brew "pandoc"
