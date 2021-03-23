@@ -173,3 +173,7 @@ brew "rbenv"
 
 # ESXi & vSphere
 brew "govc"
+
+# Text (asciidoc to other)
+brew "asciidoctor"
+brew "pandoc"
