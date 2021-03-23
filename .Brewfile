@@ -51,6 +51,7 @@ brew "make"
 brew "jq"
 brew "p7zip"
 brew "watch"
+brew "yq"
 
 # Hashicorp and related
 brew "consul"
