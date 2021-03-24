@@ -177,3 +177,4 @@ brew "govc"
 # Text (asciidoc to other)
 brew "asciidoctor"
 brew "pandoc"
+brew "tectonic"
