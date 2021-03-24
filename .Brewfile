@@ -165,3 +165,4 @@ brew "rbenv"
 # Text (asciidoc to other)
 brew "asciidoctor"
 brew "pandoc"
+brew "tectonic"
