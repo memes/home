@@ -76,6 +76,7 @@ brew "dep"
 brew "gopls"
 brew "golangci-lint"
 brew "staticcheck"
+brew "delve"
 
 # Java and related
 brew "openjdk"

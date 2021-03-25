@@ -27,7 +27,6 @@ github.com/mdempsky/gocode
 github.com/rogpeppe/godef
 github.com/cweill/gotests/...
 github.com/davidrjenni/reftools/cmd/fillstruct
-github.com/derekparker/delve/cmd/dlv
 github.com/fatih/gomodifytags
 github.com/godoctor/godoctor
 #github.com/haya14busa/gopkgs/cmd/gopkgs
@@ -37,11 +36,13 @@ github.com/zmb3/gogetdoc
 gopkg.in/check.v1
 github.com/ramya-rao-a/go-outline
 github.com/newhook/go-symbols
+github.com/haya14busa/goplay/cmd/goplay
 
 # Utilities
 github.com/ckaznocha/protoc-gen-lint
 
-# gcrane
+# crane and gcrane
+github.com/google/go-containerregistry/cmd/crane on
 github.com/google/go-containerregistry/cmd/gcrane on
 EOF
 
@@ -50,9 +51,5 @@ while read p m f; do
     env GOPATH=${_GOPATH} ${m:+"GO111MODULE=${m}"} go get ${f} ${p} && \
         ${ECHO} "${p} done"
 done
-
-# Module-savvy gocode installed as gocode-gomod
-env GOPATH=${_GOPATH} go get -d -u github.com/stamblerre/gocode
-env GOPATH=${_GOPATH} go build -o ${_GOPATH}/bin/gocode-gomod github.com/stamblerre/gocode
 
 unset _GOPATH
