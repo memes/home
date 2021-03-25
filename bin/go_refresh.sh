@@ -30,7 +30,7 @@ github.com/davidrjenni/reftools/cmd/fillstruct
 github.com/fatih/gomodifytags
 github.com/godoctor/godoctor
 #github.com/haya14busa/gopkgs/cmd/gopkgs
-github.com/uudashr/gopkgs/cmd/gopkgs
+github.com/uudashr/gopkgs/v2/cmd/gopkgs
 github.com/josharian/impl
 github.com/zmb3/gogetdoc
 gopkg.in/check.v1
