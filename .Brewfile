@@ -55,13 +55,11 @@ brew "yq"
 
 # Hashicorp and related
 brew "consul"
-brew "terraform"
-brew "terraform@0.12"
 brew "terraform-docs"
 brew "tflint"
 brew "vault"
 cask "vagrant"
-brew "terraform@0.13"
+brew "tfenv"
 
 # Elixir
 brew "elixir"
