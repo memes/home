@@ -149,6 +149,8 @@ tap "wagoodman/dive"
 brew "dive"
 brew "podman"
 brew "kustomize"
+tap "buildpacks/tap"
+brew "buildpacks/tap/pack"
 
 # Browsers
 cask "firefox"
