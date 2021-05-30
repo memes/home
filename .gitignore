@@ -56,6 +56,7 @@
 !.gnupg/gpg-agent.conf
 !.gnupg/gpg.conf
 !.gnupg/sks-keyservers.netCA.pem
+!.gnupg/scdaemon.conf
 
 # vesctl completion is generated, don't include in repo
 .profile.d/functions/_vesctl
