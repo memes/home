@@ -42,8 +42,8 @@ github.com/haya14busa/goplay/cmd/goplay
 github.com/ckaznocha/protoc-gen-lint
 
 # crane and gcrane
-github.com/google/go-containerregistry/cmd/crane on
-github.com/google/go-containerregistry/cmd/gcrane on
+github.com/google/go-containerregistry/cmd/crane
+github.com/google/go-containerregistry/cmd/gcrane
 EOF
 
 while read p m f; do
