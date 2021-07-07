@@ -64,12 +64,16 @@ brew "tfenv"
 # Elixir
 brew "elixir"
 
+# Protocol Buffers
+brew "protobuf"
+tap "bufbuild/buf"
+brew "buf"
+
 # Go
 brew "go"
 brew "gox"
-brew "protobuf"
-brew "protoc-gen-go"
-brew "protoc-gen-go-grpc"
+#brew "protoc-gen-go"
+#brew "protoc-gen-go-grpc"
 brew "dep"
 brew "gopls"
 brew "golangci-lint"
