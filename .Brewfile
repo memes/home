@@ -151,6 +151,7 @@ brew "podman"
 brew "kustomize"
 tap "buildpacks/tap"
 brew "buildpacks/tap/pack"
+brew "calicoctl"
 
 # Browsers
 cask "firefox"
