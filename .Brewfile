@@ -65,10 +65,11 @@ brew "tfenv"
 # Elixir
 brew "elixir"
 
-# Protocol Buffers
+# Protocol Buffers and gRPC
 brew "protobuf"
 tap "bufbuild/buf"
 brew "buf"
+brew "grpcurl"
 
 # Go
 brew "go"
