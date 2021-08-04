@@ -61,3 +61,4 @@
 # vesctl completion is generated, don't include in repo
 .profile.d/functions/_vesctl
 bin/vesctl
+!.volterra/Makefile
