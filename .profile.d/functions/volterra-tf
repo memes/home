@@ -1,0 +1,46 @@
+# -*- mode: sh -*-
+#
+# Implements a wrapper for Volterra Terraform container, passing variables from
+# current shell into the Volterra container with path munging as needed.
+# spell-checker: ignore volterra
+volterra-tf()
+{
+    # spell-checker: disable
+    local _VOLTERRA_HOME=${HOME}/.volterra
+    local _AWS_HOME=${HOME}/.aws
+    local _TARGET_VOLTERRA_HOME=/root/.volterra
+    local _TARGET_AWS_HOME=/root/.aws
+    local _VOLT_API_P12_FILE=${VOLT_API_P12_FILE//${_VOLTERRA_HOME}/${_TARGET_VOLTERRA_HOME}}
+    local _VOLT_API_CERT=${VOLT_API_CERT//${_VOLTERRA_HOME}/${_TARGET_VOLTERRA_HOME}}
+    local _VOLT_API_KEY=${VOLT_API_KEY//${_VOLTERRA_HOME}/${_TARGET_VOLTERRA_HOME}}
+    local _AWS_SHARED_CREDENTIALS_FILE=${AWS_SHARED_CREDENTIALS_FILE//${_AWS_HOME}/${_TARGET_AWS_HOME}}
+    local _env_file="$(mktemp)"
+    cat <<EOF > "${_env_file}"
+${_VOLT_API_P12_FILE:+VOLT_API_P12_FILE="${_VOLT_API_P12_FILE}"}
+${VES_P12_PASSWORD:+VES_P12_PASSWORD="${VES_P12_PASSWORD}"}
+${_VOLT_API_CERT:+VOLT_API_CERT="${_VOLT_API_CERT}"}
+${_VOLT_API_KEY:+VOLT_API_KEY="${_VOLT_API_KEY}"}
+${VOLT_API_URL:+VOLT_API_URL="${VOLT_API_URL}"}
+${VOLT_API_URL:+TF_VAR_akar_api_url="${VOLT_API_URL}"}
+${VOLT_API_TIMEOUT:+VOLT_API_TIMEOUT="${VOLT_API_TIMEOUT}"}
+${AWS_ACCESS_KEY_ID:+AWS_ACCESS_KEY_ID="${AWS_ACCESS_KEY_ID}"}
+${AWS_SECRET_ACCESS_KEY:+AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY}"}
+${AWS_SESSION_TOKEN:+AWS_SESSION_TOKEN="${AWS_SESSION_TOKEN}"}
+${_AWS_SHARED_CREDENTIALS_FILE:+AWS_SHARED_CREDENTIALS_FILE="${_AWS_SHARED_CREDENTIALS_FILE}"}
+${AWS_PROFILE:+AWS_PROFILE="${AWS_PROFILE}"}
+${AWS_DEFAULT_REGION:+AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}"}
+EOF
+    docker pull gcr.io/volterraio/volt-terraform:latest || true
+    docker run --rm -it \
+        -w /terraform/templates/views/assisted \
+        -v /Users/emes/.ssh:/root/.ssh:ro \
+        -v /Users/emes/.volterra:/root/.volterra:ro \
+        -v /Users/emes/.aws:/root/.aws:ro \
+        -v /Users/emes/.azure:/root/.azure:ro \
+        -v /Users/emes/.config/gcloud:/root/.config/gcloud:ro \
+        -v /Users/emes/Downloads:/var/tmp:ro \
+        --env-file "${_env_file}" \
+        --entrypoint sh \
+        gcr.io/volterraio/volt-terraform:latest
+    rm -f "${_env_file}"
+}

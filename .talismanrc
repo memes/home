@@ -3,3 +3,5 @@ fileignoreconfig:
   checksum: 43e0673f1d860e1a503ee1769735565e5db061f766923a44376d58d298c85309
 - filename: .volterra/Makefile
   checksum: 4e57cd5fac66b0bbf3bf27fcfeae061e2dab617674a4ba53b5211e5f8ccd3b88
+- filename: .profile.d/functions/volterra-tf
+  checksum: bfedf25e8ddcbfba7f70ae8cb05f7131e65dc3cf5fd266bf6a59174e507ae13f
