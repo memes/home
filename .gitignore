@@ -62,4 +62,3 @@
 .profile.d/functions/_vesctl
 bin/vesctl
 !.volterra/Makefile
-!.profile.d/functions/volterra-tf
