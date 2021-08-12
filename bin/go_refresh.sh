@@ -12,43 +12,25 @@ ECHO="$(which echo)" || "echo"
 awk '!/^($|#)/ {print}' <<EOF |
 # Format of list
 #
-# package [GO111MODULE flag]
+# package [flag]
 #
-# Coding tools
-golang.org/x/tools/cmd/godoc
-golang.org/x/tools/cmd/goimports
-golang.org/x/tools/cmd/gorename
-golang.org/x/tools/cmd/gotype
-golang.org/x/tools/cmd/guru
-
-# Non-module support gocode - see last lines for module supported gocode
-github.com/mdempsky/gocode
-
-github.com/rogpeppe/godef
-github.com/cweill/gotests/...
-github.com/davidrjenni/reftools/cmd/fillstruct
-github.com/fatih/gomodifytags
-github.com/godoctor/godoctor
-#github.com/haya14busa/gopkgs/cmd/gopkgs
-github.com/uudashr/gopkgs/v2/cmd/gopkgs
-github.com/josharian/impl
-github.com/zmb3/gogetdoc
-gopkg.in/check.v1
+# VS Code required extensions that aren't installed by ~/.Brewfile
+# See https://github.com/golang/vscode-go/blob/master/docs/tools.md
+github.com/uudashr/gopkgs/v2/cmd/gopkgs@latest
 github.com/ramya-rao-a/go-outline
-github.com/newhook/go-symbols
 github.com/haya14busa/goplay/cmd/goplay
-
-# Utilities
-github.com/ckaznocha/protoc-gen-lint
+github.com/fatih/gomodifytags
+github.com/josharian/impl
+github.com/cweill/gotests/...
 
 # crane and gcrane
 github.com/google/go-containerregistry/cmd/crane
 github.com/google/go-containerregistry/cmd/gcrane
 EOF
 
-while read p m f; do
+while read p f; do
     ${ECHO} "Fetching/updating ${p}"
-    env GOPATH=${_GOPATH} ${m:+"GO111MODULE=${m}"} go get ${f} ${p} && \
+    env GOPATH=${_GOPATH} go get ${f} ${p} && \
         ${ECHO} "${p} done"
 done
 

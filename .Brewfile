@@ -70,13 +70,11 @@ brew "protobuf"
 tap "bufbuild/buf"
 brew "buf"
 brew "grpcurl"
+cask "bloomrpc"
 
 # Go
 brew "go"
 brew "gox"
-#brew "protoc-gen-go"
-#brew "protoc-gen-go-grpc"
-brew "dep"
 brew "gopls"
 brew "golangci-lint"
 brew "staticcheck"
@@ -119,7 +117,6 @@ cask "virtualbox-extension-pack"
 
 # Networking
 brew "nmap"
-cask "bloomrpc"
 cask "deluge"
 cask "postman"
 brew "telnet"
@@ -167,7 +164,6 @@ cask "google-chrome"
 cask "slack"
 cask "zoom"
 cask "discord"
-brew "irssi"
 
 # VS Code - make sure it is installed on Macs as I'm moving off of Emacs :(
 cask "visual-studio-code"
