@@ -79,6 +79,7 @@ brew "gopls"
 brew "golangci-lint"
 brew "staticcheck"
 brew "delve"
+brew "goreleaser"
 
 # Java and related
 brew "openjdk"
