@@ -23,6 +23,9 @@ github.com/fatih/gomodifytags
 github.com/josharian/impl
 github.com/cweill/gotests/...
 
+# Still need to use this on occasion
+golang.org/x/tools/cmd/godoc
+
 # crane and gcrane
 github.com/google/go-containerregistry/cmd/crane
 github.com/google/go-containerregistry/cmd/gcrane
