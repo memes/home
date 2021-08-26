@@ -126,6 +126,7 @@ brew "termshark"
 brew "ipmitool"
 brew "netcat"
 brew "cfssl"
+brew "httpie"
 
 # Cloud SDKs
 cask "google-cloud-sdk"
