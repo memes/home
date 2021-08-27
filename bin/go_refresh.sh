@@ -17,23 +17,23 @@ awk '!/^($|#)/ {print}' <<EOF |
 # VS Code required extensions that aren't installed by ~/.Brewfile
 # See https://github.com/golang/vscode-go/blob/master/docs/tools.md
 github.com/uudashr/gopkgs/v2/cmd/gopkgs@latest
-github.com/ramya-rao-a/go-outline
-github.com/haya14busa/goplay/cmd/goplay
-github.com/fatih/gomodifytags
-github.com/josharian/impl
-github.com/cweill/gotests/...
+github.com/ramya-rao-a/go-outline@latest
+github.com/haya14busa/goplay/cmd/goplay@latest
+github.com/fatih/gomodifytags@latest
+github.com/josharian/impl@latest
+github.com/cweill/gotests/gotests@master
 
 # Still need to use this on occasion
-golang.org/x/tools/cmd/godoc
+golang.org/x/tools/cmd/godoc@latest
 
 # crane and gcrane
-github.com/google/go-containerregistry/cmd/crane
-github.com/google/go-containerregistry/cmd/gcrane
+github.com/google/go-containerregistry/cmd/crane@latest
+github.com/google/go-containerregistry/cmd/gcrane@latest
 EOF
 
 while read p f; do
     ${ECHO} "Fetching/updating ${p}"
-    env GOPATH=${_GOPATH} go get ${f} ${p} && \
+    env GOPATH=${_GOPATH} go install ${f} ${p} && \
         ${ECHO} "${p} done"
 done
 
