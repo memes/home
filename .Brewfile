@@ -157,6 +157,7 @@ brew "kustomize"
 tap "buildpacks/tap"
 brew "buildpacks/tap/pack"
 brew "calicoctl"
+brew "opa"
 
 # Browsers
 cask "firefox"
