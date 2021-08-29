@@ -185,3 +185,6 @@ brew "govc"
 brew "asciidoctor"
 brew "pandoc"
 brew "tectonic"
+
+# Flutter/Dart
+cask "flutter"
