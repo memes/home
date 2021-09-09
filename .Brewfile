@@ -103,8 +103,6 @@ brew "node"
 
 # Publishing
 brew "hugo"
-tap "sass/sass"
-brew "sass/sass/sass"
 
 # Graphics/video
 cask "gimp"
