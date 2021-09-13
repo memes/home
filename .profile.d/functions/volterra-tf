@@ -31,14 +31,14 @@ ${AWS_PROFILE:+AWS_PROFILE="${AWS_PROFILE}"}
 ${AWS_DEFAULT_REGION:+AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}"}
 EOF
     docker pull gcr.io/volterraio/volt-terraform:latest || true
-    docker run --rm -it \
+    docker run --rm -it --name volterra-tf \
         -w /terraform/templates/views/assisted \
-        -v /Users/emes/.ssh:/root/.ssh:ro \
-        -v /Users/emes/.volterra:/root/.volterra:ro \
-        -v /Users/emes/.aws:/root/.aws:ro \
-        -v /Users/emes/.azure:/root/.azure:ro \
-        -v /Users/emes/.config/gcloud:/root/.config/gcloud:ro \
-        -v /Users/emes/Downloads:/var/tmp:ro \
+        -v ${HOME}/.ssh:/root/.ssh:ro \
+        -v ${HOME}/.volterra:/root/.volterra:ro \
+        -v ${HOME}/.aws:/root/.aws:ro \
+        -v ${HOME}/.azure:/root/.azure:ro \
+        -v ${HOME}/.config/gcloud:/root/.config/gcloud:ro \
+        -v ${HOME}/Downloads:/var/tmp:ro \
         --env-file "${_env_file}" \
         --entrypoint sh \
         gcr.io/volterraio/volt-terraform:latest
