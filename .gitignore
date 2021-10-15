@@ -42,8 +42,14 @@
 !.profile.d/**
 
 # Useful scripts
-!bin/
-!bin/*
+!bin/*.sh
+!bin/monitor
+!bin/pavolume.sh
+!bin/q
+!bin/qw
+!bin/screenshot
+!bin/touchpad
+!bin/winmount
 
 # OS X Library files
 !Library/Developer/Xcode/UserData/FontAndColorThemes/*
