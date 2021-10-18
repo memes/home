@@ -61,6 +61,7 @@ brew "tflint"
 brew "vault"
 cask "vagrant"
 brew "tfenv"
+brew "packer"
 
 # Elixir
 brew "elixir"
