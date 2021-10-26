@@ -29,6 +29,9 @@ golang.org/x/tools/cmd/godoc@latest
 # crane and gcrane
 github.com/google/go-containerregistry/cmd/crane@latest
 github.com/google/go-containerregistry/cmd/gcrane@latest
+
+# kpt
+github.com/GoogleContainerTools/kpt@main
 EOF
 
 while read p f; do
