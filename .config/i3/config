@@ -1,7 +1,7 @@
 # MEmes i3 configuration
 
 set $mod Mod4
-set $PRIMARY_MONITOR eDP-1
+set $PRIMARY_MONITOR LVDS-1
 set $SECONDARY_MONITOR DP-1
 set $TERTIARY_MONITOR HDMI-1
 
