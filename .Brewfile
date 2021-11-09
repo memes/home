@@ -15,7 +15,8 @@ cask "spectacle"
 # Shell/integrations
 tap "getantibody/tap"
 brew "antibody"
-brew "direnv"
+# Using asdf for python, node, terraform, terraform-docs, ruby, etc
+brew "asdf"
 brew "doitlive"
 brew "fzf"
 brew "grep"
@@ -56,11 +57,9 @@ brew "yq"
 
 # Hashicorp and related
 brew "consul"
-brew "terraform-docs"
 brew "tflint"
 brew "vault"
 cask "vagrant"
-brew "tfenv"
 brew "packer"
 
 # Elixir
@@ -87,19 +86,6 @@ brew "openjdk"
 brew "gradle"
 brew "groovy"
 brew "maven"
-
-# Python - switch to pyenv for projects and use brew python@ just for linked
-# pyenv dependencies
-brew "openssl"
-brew "readline"
-brew "sqlite3"
-brew "xz"
-brew "zlib"
-brew "pyenv"
-brew "pipenv"
-
-# Nodejs
-brew "node"
 
 # Publishing
 brew "hugo"
@@ -170,9 +156,6 @@ cask "visual-studio-code"
 # RPM and BIG-IP testing on macOS
 brew "rpm"
 brew "xorriso"
-
-# Ruby
-brew "rbenv"
 
 # ESXi & vSphere
 brew "govc"
