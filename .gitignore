@@ -69,3 +69,6 @@
 .profile.d/functions/_vesctl
 bin/vesctl
 !.volterra/Makefile
+
+# Direnvrc
+!.config/direnv/direnvrc
