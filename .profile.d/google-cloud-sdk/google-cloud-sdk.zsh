@@ -1,6 +1,8 @@
 #-*- mode: sh; eval: (sh-set-shell "zsh") -*-
 #
-if command -v pyenv >/dev/null 2>/dev/null; then
+if command -v asdf >/dev/null 2>/dev/null; then
+    _PYTHON38="$(asdf which python3.8)"
+elif command -v pyenv >/dev/null 2>/dev/null; then
     _PYTHON38="$(pyenv prefix `pyenv whence python3.8 | sort -nr | head -n 1`)/bin/python"
 else
     _PYTHON38="$(which python3.8 2>/dev/null)"
