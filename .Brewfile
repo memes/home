@@ -75,10 +75,7 @@ cask "bloomrpc"
 # Go
 brew "go"
 brew "gox"
-brew "gopls"
 brew "golangci-lint"
-brew "staticcheck"
-brew "delve"
 brew "goreleaser"
 
 # Java and related

@@ -16,6 +16,9 @@ awk '!/^($|#)/ {print}' <<EOF |
 #
 # VS Code required extensions that aren't installed by ~/.Brewfile
 # See https://github.com/golang/vscode-go/blob/master/docs/tools.md
+golang.org/x/tools/gopls@latest
+github.com/go-delve/delve/cmd/dlv@latest
+honnef.co/go/tools/cmd/staticcheck@latest
 github.com/uudashr/gopkgs/v2/cmd/gopkgs@latest
 github.com/ramya-rao-a/go-outline@latest
 github.com/haya14busa/goplay/cmd/goplay@latest
