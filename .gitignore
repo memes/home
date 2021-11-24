@@ -56,6 +56,7 @@
 
 # Common launchagent settings (OS X)
 !Library/LaunchAgents/org.gnu.emacs.plist
+!Library/LaunchAgents/com.matthewemes.macos.plist
 
 # GnuPG configuration
 !.gnupg/
