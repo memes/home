@@ -165,3 +165,11 @@ brew "tectonic"
 
 # Flutter/Dart
 cask "flutter"
+
+# WASM
+brew "wabt"
+brew "emscripten"
+brew "wasm3"
+brew "wasmtime"
+brew "wasmer"
+
