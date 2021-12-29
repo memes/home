@@ -116,6 +116,8 @@ brew "azure-cli"
 
 # Container/k8s
 cask "docker"
+brew "kubernetes-cli"
+brew "helm"
 brew "minikube"
 brew "hadolint"
 brew "istioctl"
