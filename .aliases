@@ -11,9 +11,5 @@ alias assh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias ascp="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 alias diff="diff -x .git -x '*~' -x '*#'"
 
-# Cassandra alias
-alias cassandra='id=$(docker ps -a --filter name=cassandra --format '{{.ID}}'); [ -z "${id}" ] && docker run -d -p 9042:9042 --name cassandra cassandra:3.0.8 || docker start ${id}'
-alias cqlsh='docker run -it --link cassandra:cassandra --rm --name cqlsh cassandra:3.0.8 cqlsh cassandra'
-
 # Cloudbees Jenkins
-alias jenkins='mkdir -p ~/tmp/jenkins-data; docker run --name jenkins -d -u root -p 8080:8080 -p 50000:50000 -v ~/tmp/jenkins-data:/var/cloudbees-jenkins-distribution -v /var/run/docker.sock:/var/run/docker.sock cloudbees/cloudbees-jenkins-distribution && docker exec -u root jenkins apt install -y docker.io'
+alias jenkins='podman volume exists jenkins-data || podman volume create jenkins-data; id=$(podman ps -a --filter name=jenkins --format '{{.ID}}'); [ -z "${id}" ] && (podman run --name jenkins -d -u root -p 8080:8080 -p 50000:50000 --mount type=volume,src=jenkins-data,target=/var/cloudbees-jenkins-distribution --mount type=bind,src=/run/user/1000/podman/podman.sock,target=/var/run/docker.sock cloudbees/cloudbees-jenkins-distribution && podman exec -u root jenkins apt install -y --ignore-missing docker.io) || podman start ${id}'

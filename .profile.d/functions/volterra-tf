@@ -2,6 +2,9 @@
 #
 # Implements a wrapper for Volterra Terraform container, passing variables from
 # current shell into the Volterra container with path munging as needed.
+#
+# Arguments will be treated as file names and copied into a temporary volume
+# mounted at /var/tmp
 # spell-checker: ignore volterra
 volterra-tf()
 {
@@ -30,17 +33,30 @@ ${_AWS_SHARED_CREDENTIALS_FILE:+AWS_SHARED_CREDENTIALS_FILE="${_AWS_SHARED_CREDE
 ${AWS_PROFILE:+AWS_PROFILE="${AWS_PROFILE}"}
 ${AWS_DEFAULT_REGION:+AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}"}
 EOF
-    docker pull gcr.io/volterraio/volt-terraform:latest || true
-    docker run --rm -it --name volterra-tf \
+    local _nonce="$(date +%s)"
+    populate-container-volume ${_nonce}_ssh ${HOME}/.ssh
+    populate-container-volume ${_nonce}_volterra ${HOME}/.volterra
+    populate-container-volume ${_nonce}_aws ${HOME}/.aws
+    populate-container-volume ${_nonce}_azure ${HOME}/.azure
+    populate-container-volume ${_nonce}_gcloud ${HOME}/.config/gcloud
+    podman volume create ${_nonce}_tmp
+    tmp_container="$(podman create --mount type=volume,src=${_nonce}_tmp,target=/mnt busybox)"
+    for arg in $@; do
+        [ -e "${arg}" ] && podman cp -a "${arg}" "${tmp_container}:/mnt/"
+    done
+    podman rm ${tmp_container}
+    podman pull gcr.io/volterraio/volt-terraform:latest || true
+    podman run --rm -it --name volterra-tf \
         -w /terraform/templates/views/assisted \
-        -v ${HOME}/.ssh:/root/.ssh:ro \
-        -v ${HOME}/.volterra:/root/.volterra:ro \
-        -v ${HOME}/.aws:/root/.aws:ro \
-        -v ${HOME}/.azure:/root/.azure:ro \
-        -v ${HOME}/.config/gcloud:/root/.config/gcloud:ro \
-        -v ${HOME}/Downloads:/var/tmp:ro \
+        --mount type=volume,src=${_nonce}_ssh,target=/root/.ssh,ro \
+        --mount type=volume,src=${_nonce}_volterra,target=/root/.volterra,ro \
+        --mount type=volume,src=${_nonce}_aws,target=/root/.aws,ro \
+        --mount type=volume,src=${_nonce}_azure,target=/root/.azure,ro \
+        --mount type=volume,src=${_nonce}_gcloud,target=/root/.config/gcloud,ro \
+        --mount type=volume,src=${_nonce}_tmp,target=/var/tmp,ro \
         --env-file "${_env_file}" \
         --entrypoint sh \
         gcr.io/volterraio/volt-terraform:latest
     rm -f "${_env_file}"
+    podman volume rm ${_nonce}_ssh ${_nonce}_volterra ${_nonce}_aws ${_nonce}_azure ${_nonce}_gcloud ${_nonce}_tmp
 }

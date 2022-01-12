@@ -17,3 +17,5 @@ fileignoreconfig:
   checksum: 543f0a0768d5173d2a3e51327d200a6ea58c969ff95d778f4bb47cf230dcdca4
 - filename: .gnupg/dirmngr.conf
   checksum: 8d34a1023b093782fb55319f15af6e6303309008f56e18988242ea4cd03f46aa
+- filename: .aliases
+  checksum: 3a63569863bce346f80b19b1c282a0cbbdfefb5790e0d276df38669f29df15b2

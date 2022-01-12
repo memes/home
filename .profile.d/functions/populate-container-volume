@@ -1,0 +1,25 @@
+# -*- mode: sh -*-
+#
+# Utility to (re-)create OCI volumes with content of specified directory
+# $1 = name of volume
+# $2 = directory to copy
+populate-container-volume()
+{
+    if [ -z "$1" ]; then
+        echo "$0: need a volume name" >&2
+        return 1
+    fi
+    if [ -z "$2" ]; then
+        echo "$0: need a path to copy" >&2
+        return 1
+    fi
+    if [ ! -d "$2" ]; then
+        echo "$0: the path must be a directory" >&2
+        return 1
+    fi
+    podman volume exists $1 && podman volume rm $1
+    podman volume create $1
+    local _container="$(podman create --mount type=volume,src=$1,target=/mnt busybox)"
+    tar cf - -C $2 . | podman cp - ${_container}:/mnt/
+    podman rm ${_container}
+}
