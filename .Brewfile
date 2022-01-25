@@ -91,11 +91,6 @@ cask "gimp"
 cask "macsvg"
 cask "obs"
 
-# Virtualisation
-cask "intel-haxm"
-cask "virtualbox"
-cask "virtualbox-extension-pack"
-
 # Networking
 brew "nmap"
 cask "deluge"
