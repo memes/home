@@ -60,7 +60,6 @@ brew "consul"
 brew "tflint"
 brew "vault"
 cask "vagrant"
-brew "packer"
 
 # Elixir
 brew "elixir"
