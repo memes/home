@@ -64,6 +64,8 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[commit]
+	template = ~/.git-commit-template
 # Pull in any configuration that can't be stored in public git repo
 #  - try to keep last configuration option in file
 [include]
