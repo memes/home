@@ -74,3 +74,7 @@ bin/vesctl
 
 # Direnvrc
 !.config/direnv/direnvrc
+
+# .github actions and workflows
+!.github
+!.github/**/*
