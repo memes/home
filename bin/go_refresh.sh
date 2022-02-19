@@ -32,6 +32,9 @@ golang.org/x/tools/cmd/godoc@latest
 # crane and gcrane
 github.com/google/go-containerregistry/cmd/crane@latest
 github.com/google/go-containerregistry/cmd/gcrane@latest
+
+# gofumpt
+mvdan.cc/gofumpt@latest
 EOF
 
 while read p f; do
