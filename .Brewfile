@@ -109,7 +109,6 @@ brew "awscli"
 brew "azure-cli"
 
 # Container/k8s
-cask "docker"
 brew "kubernetes-cli"
 brew "helm"
 brew "minikube"
@@ -134,6 +133,7 @@ brew "buildpacks/tap/pack"
 brew "calicoctl"
 brew "opa"
 brew "cilium-cli"
+brew "hyperkit"
 
 # Browsers
 cask "firefox"
