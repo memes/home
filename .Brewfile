@@ -54,6 +54,7 @@ brew "jq"
 brew "p7zip"
 brew "watch"
 brew "yq"
+brew "gnu-tar"
 
 # Hashicorp and related
 brew "consul"
