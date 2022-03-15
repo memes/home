@@ -1,0 +1,26 @@
+# -*- mode: sh -*-
+#
+# Implements a wrapper for Google Cloud's mpdev container running in root Podman
+# with mounted podman socket to support mpdev's embedded docker commands.
+mpdev()
+{
+    local _root="$(podman system connection list --format='{{ .Name }}' | grep root | head -n 1)"
+    local _nonce="$(date +%s)"
+    populate-container-volume ${_nonce}_kube ${HOME}/.kube ${_root}
+    populate-container-volume ${_nonce}_gcloud ${HOME}/.config/gcloud ${_root}
+    podman --connection=${_root} pull gcr.io/cloud-marketplace-tools/k8s/dev:latest || true
+    podman \
+        --connection=${_root} \
+        run \
+        --mount type=bind,src=/run/podman/podman.sock,target=/run/podman/podman.sock,ro \
+        --mount type=volume,src=${_nonce}_kube,target=/mount/config/.kube,ro \
+        --mount type=volume,src=${_nonce}_gcloud,target=/mount/config/.config/gcloud,ro \
+        --env "GCLOUD_ORIGINAL_PATH=${HOME}/.config/gcloud" \
+        --env "DOCKER_HOST=unix:///run/podman/podman.sock" \
+        --security-opt label=disable \
+        -it \
+        --rm \
+        gcr.io/cloud-marketplace-tools/k8s/dev:latest \
+        "$@"
+    podman --connection=${_root} volume rm ${_nonce}_kube ${_nonce}_gcloud
+}
