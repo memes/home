@@ -135,6 +135,7 @@ brew "calicoctl"
 brew "opa"
 brew "cilium-cli"
 brew "hyperkit"
+brew "docker"
 
 # Browsers
 cask "firefox"
