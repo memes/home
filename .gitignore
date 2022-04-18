@@ -25,17 +25,13 @@
 !.zsh_plugins.txt
 !.zsh_plugins.darwin.txt
 
-# Autostart desktop files
+# local configurations
+!.config
 !.config/autostart/*
-
-# Share i3 configuration - probably needs to be customised for other
-# machines
+!.config/direnv/direnvrc
 !.config/i3
-
-# Midnight commander
 !.config/mc
-
-# udiskie
+!.config/starship.toml
 !.config/udiskie
 
 # moving to a shared-directory approach for environment config
@@ -73,9 +69,6 @@ bin/*
 .profile.d/functions/_vesctl
 bin/vesctl
 !.volterra/Makefile
-
-# Direnvrc
-!.config/direnv/direnvrc
 
 # .github actions and workflows
 !.github

@@ -1,0 +1,53 @@
+[aws]
+format='[A${symbol}(${profile} )]($style)'
+
+[azure]
+format='[${symbol}(${profile} )]($style)'
+
+[buf]
+disabled=true
+
+[dart]
+format='[$symbol(${version} )]($style)'
+
+[dotnet]
+format='[$symbol(${version} )(🎯 ${tfm})]($style)'
+
+[docker_context]
+disabled=true
+
+[elixir]
+format='[${symbol}(${version} )(\(OTP ${otp_version}\) )]($style)'
+
+[gcloud]
+format='[G${symbol}(${domain} )]($style)'
+
+[golang]
+format='[$symbol(${version} )]($style)'
+
+[helm]
+disabled=true
+
+[java]
+format='[${symbol}(${version} )]($style)'
+
+[kubernetes]
+disabled=true
+
+[nodejs]
+format='[${symbol}(${version} )]($style)'
+
+[python]
+format='[${symbol}(${pyenv_prefix} )(${version} )]($style)'
+
+[ruby]
+format='[${symbol}(${version} )]($style)'
+
+[rust]
+format='[${symbol}(${version} )]($style)'
+
+[swift]
+format='[${symbol}(${version} )]($style)'
+
+[terraform]
+format='[${symbol}(${version} )]($style)'
