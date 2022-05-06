@@ -136,6 +136,8 @@ brew "opa"
 brew "cilium-cli"
 brew "hyperkit"
 brew "docker"
+tap "fluxcd/tap"
+brew "fluxcd/tap/flux"
 
 # Browsers
 cask "firefox"
