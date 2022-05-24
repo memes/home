@@ -19,3 +19,5 @@ fileignoreconfig:
   checksum: 8d34a1023b093782fb55319f15af6e6303309008f56e18988242ea4cd03f46aa
 - filename: .aliases
   checksum: 3a63569863bce346f80b19b1c282a0cbbdfefb5790e0d276df38669f29df15b2
+- filename: .gitconfig
+  checksum: 27c850eeccf9270db61302ea92430ee627fdff3bd60cf6bd8bc89dd1c74f3e63
