@@ -20,4 +20,4 @@ fileignoreconfig:
 - filename: .aliases
   checksum: 3a63569863bce346f80b19b1c282a0cbbdfefb5790e0d276df38669f29df15b2
 - filename: .gitconfig
-  checksum: 27c850eeccf9270db61302ea92430ee627fdff3bd60cf6bd8bc89dd1c74f3e63
+  checksum: 300d09be93284b6504c3669ef2f948b67a33213265d2ffd40d88bf6a10a937ae

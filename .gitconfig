@@ -1,7 +1,7 @@
 [user]
 	email = memes@matthewemes.com
 	name = Matthew Emes
-	signingkey = 2D3908E2C952EC2DC2E55D2CCD7BA6484F5B5085
+	signingkey = 208EE736561DBC3D040B9454C612AC00AD36B1C3
 [push]
 	default = simple
 	followTags = true
