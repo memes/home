@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=IMAPSync
-GenericName=IMAP Sync terminal
-Exec=x-terminal-emulator -T "IMAP Sync" -e sh -c 'EXIT=100; while [ $EXIT -eq 100 ]; do sleep 60; offlineimap; EXIT=$?; done'
-Terminal=false
-Type=Application
-Categories=
-StartupNotify=false
