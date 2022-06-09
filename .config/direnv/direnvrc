@@ -3,4 +3,4 @@
 #  2. asdf plugin add direnv
 #  3. asdf install direnv latest
 # NOTE: issue with brew and asdf https://github.com/asdf-community/asdf-direnv/issues/74
-source "$(asdf direnv hook asdf)"
+#source "$(asdf direnv hook asdf)"
