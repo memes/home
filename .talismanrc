@@ -10,7 +10,7 @@ fileignoreconfig:
 - filename: .profile.d/direnv/direnv.sh
   checksum: 24f09b620aa4213e400e6785aad3107e76586c26f1c2fcc3c44d10bb57d235b4
 - filename: .profile.d/direnv/direnv.zsh
-  checksum: 0638d47d68bf40222d724fa6200772edda96d66229a7d3f4760a71f35b94be42
+  checksum: 0f01ea1dab65d0edd3059a4e7a3c133672fde59ab15b3271a607507b9b28caea
 - filename: .config/direnv/direnvrc
   checksum: f520bfec10408a038786045046bc5fbb85240eda6b3e0f1cfb35f357c6f63d23
 - filename: Library/LaunchAgents/com.matthewemes.macos.plist
