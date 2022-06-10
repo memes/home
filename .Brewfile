@@ -13,8 +13,6 @@ cask "font-jetbrains-mono"
 cask "spectacle"
 
 # Shell/integrations
-tap "getantibody/tap"
-brew "antibody"
 # Using asdf for python, node, terraform, terraform-docs, ruby, etc
 brew "asdf"
 brew "doitlive"

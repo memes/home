@@ -22,12 +22,19 @@ do
 done
 
 # Load zsh plugins
-# `antibody bundle < ~/.zsh_plugins.txt > ~/.plugins.zsh`
-[[ -f ~/.plugins.zsh ]] && source ~/.plugins.zsh
-[[ -f ~/.plugins.zsh ]] || echo "You need to generate static plugins file"
+plugins=(
+    romkatv/zsh-defer
+    mafredri/zsh-async
+    MichaelAquilina/zsh-you-should-use
+    rupa/z
+    zsh-users/zsh-completions
+    zsh-users/zsh-autosuggestions
 
-# Load platform specific plugins, if any
-[[ -f ~/.plugins.zsh.${$(uname):l} ]] && source ~/.plugins.zsh.${$(uname):l}
+    # Load these last!
+    zsh-users/zsh-history-substring-search
+    zsh-users/zsh-syntax-highlighting
+)
+plugin-load $plugins
 
 # Load everything but the path/completion settings
 for profile_config in ${${profile_configs:#*/path.zsh}:#*/completion.zsh}
@@ -48,7 +55,7 @@ do
 done
 
 # Clean-up
-unset profile_configs profile_config
+unset profile_configs profile_config plugins
 
 # Load starship prompt if present
 command -v starship > /dev/null 2>/dev/null && eval "$(starship init zsh)"
