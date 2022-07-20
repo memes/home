@@ -75,6 +75,11 @@ brew "go"
 brew "gox"
 brew "golangci-lint"
 brew "goreleaser"
+tap "tinygo-org/tools"
+brew "tinygo"
+brew "cosign"
+tap "anchore/syft"
+brew "syft"
 
 # Java and related
 brew "openjdk"
