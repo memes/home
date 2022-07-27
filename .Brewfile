@@ -11,6 +11,8 @@ tap "homebrew/core"
 cask "font-hack"
 cask "font-jetbrains-mono"
 cask "spectacle"
+cask "font-monoid"
+cask "font-fira-code"
 
 # Shell/integrations
 # Using asdf for python, node, terraform, terraform-docs, ruby, etc
