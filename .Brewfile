@@ -113,6 +113,7 @@ brew "httpie"
 cask "google-cloud-sdk"
 brew "awscli"
 brew "azure-cli"
+brew "oauth2l"
 
 # Container/k8s
 brew "kubernetes-cli"
@@ -150,7 +151,6 @@ cask "google-chrome"
 
 # Chat/conferencing
 cask "slack"
-cask "zoom"
 cask "discord"
 
 # VS Code - make sure it is installed on Macs as I'm moving off of Emacs :(
@@ -177,3 +177,4 @@ brew "emscripten"
 brew "wasm3"
 brew "wasmtime"
 brew "wasmer"
+brew "binaryen"

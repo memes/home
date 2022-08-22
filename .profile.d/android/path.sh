@@ -16,8 +16,8 @@ case "$(uname)" in
         ;;
 esac
 
-if [ -d "${_LOCAL_SDK}" ]; then
-    export PATH="${_LOCAL_SDK}/platform-tools:${_LOCAL_SDK}/tools${PATH:+":${PATH}"}"
+if [ -d "${_LOCAL_SDK}/cmdline-tools" ]; then
+    export PATH="${_LOCAL_SDK}/cmdline-tools/latest/bin:${_LOCAL_SDK}/platform-tools:${_LOCAL_SDK}/tools${PATH:+":${PATH}"}"
     # Not strictly a path setting, but no point in repeating this in .bashrc
     export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
     export ANDROID_HOME="${_LOCAL_SDK}"

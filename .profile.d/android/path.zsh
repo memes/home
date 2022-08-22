@@ -16,11 +16,11 @@ case "$(uname)" in
         ;;
 esac
 
-if [[ -d "${_LOCAL_SDK}" ]]; then
-    path=(${_LOCAL_SDK}/platform-tools ${_LOCAL_SDK}/tools $path)
+if [[ -d "${_LOCAL_SDK}/cmdline-tools" ]]; then
+    path=(${_LOCAL_SDK}/cmdline-tools/latest/bin ${_LOCAL_SDK}/platform-tools ${_LOCAL_SDK}/tools $path)
     # Not strictly speaking a 'path' assignment, but do it here anyway
-    export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
-    export ADROID_HOME="${_LOCAL_SDK}"
+    # export ANDROID_EMULATOR_USE_SYSTEM_LIBS=1
+    export ANDROID_HOME="${_LOCAL_SDK}"
 fi
 unset _LOCAL_SDK
 
