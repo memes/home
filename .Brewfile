@@ -17,6 +17,7 @@ cask "font-fira-code"
 # Shell/integrations
 # Using asdf for python, node, terraform, terraform-docs, ruby, etc
 brew "asdf"
+brew "node-build"
 brew "doitlive"
 brew "fzf"
 brew "grep"
