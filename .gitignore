@@ -37,6 +37,9 @@
 # moving to a shared-directory approach for environment config
 !.profile.d/
 !.profile.d/**
+# Except kpt completion scripts, since these are updated frequently via tool_updates.sh
+.profile.d/functions.zsh/_kpt
+.profile.d/kpt/completion.sh
 
 # Useful scripts
 !bin
