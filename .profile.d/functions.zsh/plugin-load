@@ -6,7 +6,8 @@
 function plugin-load {
     [[ -z "${ZSH_VERSION}" ]] && return
     local repo plugin_name plugin_dir initfile initfiles
-    ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+    ZPLUGINDIR=${ZPLUGINDIR:-$HOME/.config/zsh/plugins}
+    mkdir -p ${ZPLUGINDIR}
     for repo in $@; do
         plugin_name=${repo:t}
         plugin_dir=$ZPLUGINDIR/$plugin_name
