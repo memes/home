@@ -69,7 +69,7 @@ bin/*
 !.gnupg/scdaemon.conf
 
 # vesctl completion is generated, don't include in repo
-.profile.d/functions/_vesctl
+.profile.d/functions.zsh/_vesctl
 bin/vesctl
 !.volterra/Makefile
 
