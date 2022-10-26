@@ -145,6 +145,7 @@ brew "hyperkit"
 brew "docker"
 tap "fluxcd/tap"
 brew "fluxcd/tap/flux"
+brew "kind"
 
 # Browsers
 cask "firefox"
@@ -179,3 +180,6 @@ brew "wasm3"
 brew "wasmtime"
 brew "wasmer"
 brew "binaryen"
+
+# Pulumi
+brew "pulumi"
