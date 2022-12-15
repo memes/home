@@ -8,7 +8,7 @@ KEYS := $(SOURCES:.p12=.key)
 all: $(PEMS) $(KEYS)
 
 %.pem: %.p12
-	openssl pkcs12 -in $< -out $@ -clcerts -nokeys
+	openssl pkcs12 -in $< -out $@ -nodes -nokeys
 
 %.key: %.p12
-	openssl pkcs12 -in $< -out $@ -nocerts -nodes
+	openssl pkcs12 -in $< -out $@ -nodes -nocerts
