@@ -183,3 +183,7 @@ brew "binaryen"
 
 # Pulumi
 brew "pulumi"
+
+# NGINX Unit
+tap "nginx/unit"
+brew "nginx/unit/unit"
