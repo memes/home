@@ -1,7 +1,12 @@
-# Title: Summary, imperative, start upper case, don't end with a period
+# type[(scope)][!]: Summary, imperative, start upper case, don't end with a period
+# fix/feat/chore (or build/ci/docs/style/refactor/perf/test)
+# ! after type for breaking change
 # No more than 50 chars. #### 50 chars is here:  #
 
 # Remember blank line between title and body.
 
-# Body: Explain *what* and *why* (not *how*). Include task ID (Jira issue).
+# Body: Explain *what* and *why* (not *how*).
 # Wrap at 72 chars. ################################## which is here:  #
+
+# Footer material: Links to issue or PR, if applicable.
+# BREAKING CHANGE: explanation of why major will be bumped
