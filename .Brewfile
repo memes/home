@@ -36,6 +36,7 @@ cask "keepassx"
 brew "pinentry-mac"
 brew "ykman"
 brew "yubico-piv-tool"
+brew "sops"
 
 # VCS
 brew "diffutils"
@@ -187,3 +188,6 @@ brew "pulumi"
 # NGINX Unit
 tap "nginx/unit"
 brew "nginx/unit/unit"
+
+# Terragrunt
+brew "terragrunt"
