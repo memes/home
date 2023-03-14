@@ -188,6 +188,3 @@ brew "pulumi"
 # NGINX Unit
 tap "nginx/unit"
 brew "nginx/unit/unit"
-
-# Terragrunt
-brew "terragrunt"
