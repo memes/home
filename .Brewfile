@@ -110,6 +110,7 @@ brew "ipmitool"
 brew "netcat"
 brew "cfssl"
 brew "httpie"
+brew "websocat"
 
 # Cloud SDKs
 cask "google-cloud-sdk"
@@ -188,3 +189,7 @@ brew "pulumi"
 # NGINX Unit
 tap "nginx/unit"
 brew "nginx/unit/unit"
+
+# OpenAPI/swagger
+tap "daveshanley/vacuum"
+brew "daveshanley/vacuum/vacuum"
