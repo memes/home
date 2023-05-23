@@ -35,6 +35,9 @@ github.com/google/go-containerregistry/cmd/gcrane@latest
 
 # gofumpt
 mvdan.cc/gofumpt@latest
+
+# Codelabs/claat
+github.com/googlecodelabs/tools/claat@latest
 EOF
 
 while read p f; do
