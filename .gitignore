@@ -76,3 +76,7 @@ bin/vesctl
 # .github actions and workflows
 !.github
 !.github/**/*
+
+# jq modules
+!.jq
+!.jq/**/*

@@ -21,3 +21,5 @@ fileignoreconfig:
   checksum: 3a63569863bce346f80b19b1c282a0cbbdfefb5790e0d276df38669f29df15b2
 - filename: .gitconfig
   checksum: 300d09be93284b6504c3669ef2f948b67a33213265d2ffd40d88bf6a10a937ae
+- filename: .jq/gcp/audit_log.jq
+  checksum: 1c068705e07460e2d76496f0492b3f8bba48e0d705364b981cb1a40e969d1e77
