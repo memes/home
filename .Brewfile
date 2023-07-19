@@ -12,6 +12,7 @@ cask "font-hack"
 cask "font-jetbrains-mono"
 cask "font-monoid"
 cask "font-fira-code"
+cask "font-iosevka"
 
 # Shell/integrations
 # Using asdf for python, node, terraform, terraform-docs, ruby, etc
