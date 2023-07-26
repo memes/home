@@ -38,6 +38,9 @@ mvdan.cc/gofumpt@latest
 
 # Codelabs/claat
 github.com/googlecodelabs/tools/claat@latest
+
+# Vulnerability checker
+golang.org/x/vuln/cmd/govulncheck@latest
 EOF
 
 while read p f; do
