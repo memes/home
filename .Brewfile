@@ -189,6 +189,8 @@ brew "pulumi"
 # NGINX Unit
 tap "nginx/unit"
 brew "nginx/unit/unit"
+brew "nginx/unit/unit-wasm"
+brew "nginx/unit/unit-php"
 
 # OpenAPI/swagger
 tap "daveshanley/vacuum"
