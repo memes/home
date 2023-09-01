@@ -116,6 +116,7 @@ cask "google-cloud-sdk"
 brew "awscli"
 brew "azure-cli"
 brew "oauth2l"
+brew "eksctl"
 
 # Container/k8s
 brew "kubernetes-cli"
