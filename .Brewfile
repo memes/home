@@ -91,9 +91,6 @@ brew "gradle"
 brew "groovy"
 brew "maven"
 
-# Publishing
-brew "hugo"
-
 # Graphics/video
 cask "gimp"
 cask "macsvg"
