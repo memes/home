@@ -1,0 +1,8 @@
+# Lists the NGINX+ images published by F5 in reverse chronological order of publishing,
+# along with the fully-qualified self-link of the image.
+nginximages() {
+    gcloud compute images list --project nginx-public \
+            --format 'value(creationTimestamp, name, format("https://www.googleapis.com/compute/v1/projects/{0}", selfLink.scope(projects)))' \
+            --filter selfLink:nginx-public | \
+        sort -nr
+}

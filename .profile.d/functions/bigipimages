@@ -1,0 +1,8 @@
+# Lists the BIG-IP images published by F5 in reverse chronological order of publishing,
+# along with the fully-qualified self-link of the image.
+bigipimages() {
+    gcloud compute images list --project f5-7626-networks-public \
+            --format 'value(creationTimestamp, name, format("https://www.googleapis.com/compute/v1/projects/{0}", selfLink.scope(projects)))' \
+            --filter selfLink:f5-7626-networks-public | \
+        sort -nr
+}
