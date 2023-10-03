@@ -108,6 +108,7 @@ brew "netcat"
 brew "cfssl"
 brew "httpie"
 brew "websocat"
+brew "hey"
 
 # Cloud SDKs
 cask "google-cloud-sdk"
