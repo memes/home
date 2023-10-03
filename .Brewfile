@@ -158,13 +158,6 @@ cask "discord"
 # VS Code - make sure it is installed on Macs as I'm moving off of Emacs :(
 cask "visual-studio-code"
 
-# RPM and BIG-IP testing on macOS
-brew "rpm"
-brew "xorriso"
-
-# ESXi & vSphere
-brew "govc"
-
 # Text (asciidoc to other)
 brew "asciidoctor"
 brew "pandoc"
