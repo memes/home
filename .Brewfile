@@ -58,12 +58,7 @@ brew "p7zip"
 brew "watch"
 brew "yq"
 brew "gnu-tar"
-
-# Hashicorp and related
-brew "consul"
-brew "tflint"
-brew "vault"
-cask "vagrant"
+cask "devpod"
 
 # Elixir
 brew "elixir"
