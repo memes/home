@@ -60,19 +60,14 @@ brew "yq"
 brew "gnu-tar"
 cask "devpod"
 
-# Elixir
-brew "elixir"
-
 # Protocol Buffers and gRPC
 brew "protobuf"
 tap "bufbuild/buf"
 brew "buf"
 brew "grpcurl"
-cask "bloomrpc"
 
 # Go
 brew "go"
-brew "gox"
 brew "golangci-lint"
 brew "goreleaser"
 tap "tinygo-org/tools"
@@ -80,12 +75,6 @@ brew "tinygo"
 brew "cosign"
 tap "anchore/syft"
 brew "syft"
-
-# Java and related
-brew "openjdk"
-brew "gradle"
-brew "groovy"
-brew "maven"
 
 # Graphics/video
 cask "gimp"
@@ -158,9 +147,6 @@ cask "visual-studio-code"
 brew "asciidoctor"
 brew "pandoc"
 brew "tectonic"
-
-# Flutter/Dart
-cask "flutter"
 
 # WASM
 brew "wabt"
