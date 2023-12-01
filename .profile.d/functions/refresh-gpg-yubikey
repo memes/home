@@ -1,0 +1,4 @@
+# Tell GPG to rescan for a change of Yubikey
+refresh-gpg-yubikey() {
+    gpg-connect-agent "scd serialno" "learn --force" /bye
+}
