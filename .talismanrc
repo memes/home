@@ -6,7 +6,7 @@ fileignoreconfig:
 - filename: .profile.d/functions/volterra-tf
   checksum: bfedf25e8ddcbfba7f70ae8cb05f7131e65dc3cf5fd266bf6a59174e507ae13f
 - filename: .gnupg/gpg.conf
-  checksum: aec3582e4c3d8f43a82cfe267b8ab2247985d4a54e33be82e644c3525eb965c3
+  checksum: 84e83c03965d8619493eb830cb4c92a2aa00bd0b89b6d41c2db1fdb76e254855
 - filename: .profile.d/direnv/direnv.sh
   checksum: 24f09b620aa4213e400e6785aad3107e76586c26f1c2fcc3c44d10bb57d235b4
 - filename: .profile.d/direnv/direnv.zsh
