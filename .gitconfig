@@ -53,13 +53,6 @@
 	cookiefile = ~/.gitcookies
 [github]
 	user = memes
-[merge]
-	tool = meld
-[mergetool]
-	prompt = false
-[mergetool "meld"]
-	cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
-	trustExitCode = true
 [pull]
 	rebase = false
 [init]

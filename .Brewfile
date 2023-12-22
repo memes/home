@@ -43,7 +43,6 @@ brew "sops"
 brew "diffutils"
 brew "git"
 brew "mercurial"
-cask "meld"
 brew "pre-commit"
 brew "talisman"
 
