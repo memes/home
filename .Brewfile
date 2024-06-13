@@ -4,7 +4,6 @@
 # Base taps
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 tap "homebrew/core"
 
 # Desktop
@@ -92,6 +91,7 @@ brew "cfssl"
 brew "httpie"
 brew "websocat"
 brew "hey"
+brew "k6"
 
 # Cloud SDKs
 cask "google-cloud-sdk"
@@ -125,7 +125,6 @@ brew "buildpacks/tap/pack"
 brew "calicoctl"
 brew "opa"
 brew "cilium-cli"
-brew "hyperkit"
 brew "docker"
 tap "fluxcd/tap"
 brew "fluxcd/tap/flux"
