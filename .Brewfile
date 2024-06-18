@@ -32,7 +32,6 @@ brew "tmux"
 # gnupg/passwords
 brew "gnupg"
 brew "hopenpgp-tools"
-cask "keepassx"
 brew "pinentry-mac"
 brew "ykman"
 brew "yubico-piv-tool"
@@ -56,7 +55,6 @@ brew "p7zip"
 brew "watch"
 brew "yq"
 brew "gnu-tar"
-cask "devpod"
 
 # Protocol Buffers and gRPC
 brew "protobuf"
@@ -77,12 +75,9 @@ brew "syft"
 # Graphics/video
 cask "gimp"
 cask "macsvg"
-cask "obs"
 
 # Networking
 brew "nmap"
-cask "deluge"
-cask "postman"
 brew "telnet"
 cask "wireshark"
 brew "termshark"
@@ -133,10 +128,6 @@ brew "kind"
 # Browsers
 cask "firefox"
 cask "google-chrome"
-
-# Chat/conferencing
-cask "slack"
-cask "discord"
 
 # VS Code - make sure it is installed on Macs as I'm moving off of Emacs :(
 cask "visual-studio-code"
