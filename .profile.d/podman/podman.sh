@@ -1,9 +1,12 @@
 #-*- mode: sh -*-
 #
-# Load direnv support
+# Setup podman
 
 if command -v podman >/dev/null 2>/dev/null; then
-    export DOCKER_HOST=unix://${HOME}/.local/share/containers/podman/machine/qemu/podman.sock
+    _socket="$(podman machine inspect --format '{{ .ConnectionInfo.PodmanSocket.Path }}' 2>/dev/null)"
+    if [ -n "${_socket}" ]; then
+        export DOCKER_HOST="unix://${_socket}"
+    fi
     export KPT_FN_RUNTIME=podman
     export KIND_EXPERIMENTAL_PROVIDER=podman
 fi
