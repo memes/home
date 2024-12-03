@@ -41,6 +41,7 @@ github.com/googlecodelabs/tools/claat@latest
 
 # Vulnerability checker
 golang.org/x/vuln/cmd/govulncheck@latest
+golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@latest
 EOF
 
 while read p f; do
