@@ -5,8 +5,10 @@
 [push]
 	default = simple
 	followTags = true
+	recurseSubmodules = check
 [status]
 	showUntrackedFiles = all
+	submodulessummary = 1
 [transfer]
 	fsckobjects = true
 [credential]
@@ -26,7 +28,7 @@
 	graph = log --graph --topo-order --abbrev-commit --date=short --decorate --all --boundary --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset'
 	patch = add --patch
 	patches = log --patch --decorate -10
-	review = diff --cached --diff-algorithm=minimal -w
+	review = !"git diff --cached --diff-algorithm=minimal -w && git submodule foreach 'git diff --cached --diff-algorithm=minimal -w'"
 	prune = fetch --prune
 	words = diff --word-diff
 	recent = for-each-ref --count=10 --sort=committerdate refs/heads/ --format="%(refname:short)"
@@ -40,13 +42,13 @@
 	unpublish = "!git push origin :$(git branch-name)"
 	is-clean = "!exit $(git status --porcelain 2>/dev/null | wc -l)"
 	sync-upstream = !"f() { git fetch --all && git is-clean && git pull upstream $(git branch-name) && git publish; }; f"
+	subdiff = "!git diff && git submodule foreach 'git diff'"
+	subpublish = "!git push --recurse-submodules=on-demand -u origin $(git branch-name)"
+	subpull = submodule update --remote --merge
 [gpg]
 	program = gpg
 [core]
 	excludesfile = ~/.gitignore.memes
-	# Clone from https://github.com/pivotal-cf/git-hooks-core and
-	# install cred-alert-cli
-	#hooksPath = ~/projects/pivotal-cf/git-hooks-core
 [color]
 	ui = auto
 [http]
@@ -59,6 +61,11 @@
 	defaultBranch = main
 [commit]
 	template = ~/.git-commit-template
+[diff]
+	submodule = log
+[submodule]
+	recurse = true
+
 # Pull in any configuration that can't be stored in public git repo
 #  - try to keep last configuration option in file
 [include]

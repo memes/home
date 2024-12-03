@@ -17,3 +17,8 @@
 .Spotlight-V100
 .Trash-*
 .Trashes
+
+# asdf/direnv/etc
+.direnv
+.envrc
+.tool-versions
