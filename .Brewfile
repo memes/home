@@ -7,12 +7,7 @@ tap "homebrew/cask"
 tap "homebrew/core"
 
 # Desktop
-cask "font-hack"
-cask "font-jetbrains-mono"
-cask "font-monoid"
 cask "font-fira-code"
-cask "font-iosevka"
-cask "font-intel-one-mono"
 
 # Shell/integrations
 # Using asdf for python, node, terraform, terraform-docs, ruby, etc
@@ -40,6 +35,7 @@ brew "sops"
 # VCS
 brew "diffutils"
 brew "git"
+brew "gh"
 brew "mercurial"
 brew "pre-commit"
 brew "talisman"
@@ -157,3 +153,7 @@ brew "nginx/unit/unit-php"
 # OpenAPI/swagger
 tap "daveshanley/vacuum"
 brew "daveshanley/vacuum/vacuum"
+
+# Dagger testing
+tap "dagger/tap"
+brew "dagger/tap/dagger"
