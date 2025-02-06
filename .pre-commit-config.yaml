@@ -5,7 +5,7 @@ repos:
     rev: v1.35.1
     hooks:
       - id: yamllint
-        enty: yamllint --strict
+        entry: yamllint --strict
   - repo: https://github.com/compilerla/conventional-pre-commit
     rev: v4.0.0
     hooks:
