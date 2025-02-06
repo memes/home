@@ -1,0 +1,6 @@
+---
+extends: default
+
+ignore:
+  # TODO @memes - if/when I use udiskie again come back to this
+  - .config/udiskie/config.yml
