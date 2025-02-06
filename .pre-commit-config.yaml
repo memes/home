@@ -5,8 +5,15 @@ repos:
     rev: v1.35.1
     hooks:
       - id: yamllint
+        enty: yamllint --strict
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v4.0.0
+    hooks:
+      - id: conventional-pre-commit
+        stages:
+          - commit-msg
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: check-executables-have-shebangs
       - id: check-json
@@ -15,10 +22,15 @@ repos:
       - id: check-yaml
       - id: detect-private-key
       - id: end-of-file-fixer
-      - id: pretty-format-json
-        args: [--autofix]
-      - id: sort-simple-yaml
+      - id: no-commit-to-branch
+        args:
+          - -b
+          - main
       - id: trailing-whitespace
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
   - repo: https://github.com/thoughtworks/talisman
     rev: v1.32.0
     hooks:
