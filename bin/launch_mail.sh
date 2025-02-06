@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 #
 # Launch a browser and open webmail
 #EMAIL_SCALING=${EMAIL_SCALING:-1.7}

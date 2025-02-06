@@ -8,7 +8,7 @@ fileignoreconfig:
 - filename: .gnupg/gpg.conf
   checksum: 84e83c03965d8619493eb830cb4c92a2aa00bd0b89b6d41c2db1fdb76e254855
 - filename: .profile.d/direnv/direnv.sh
-  checksum: 24f09b620aa4213e400e6785aad3107e76586c26f1c2fcc3c44d10bb57d235b4
+  checksum: b6f25e978ebb01c32e5bc0b1eb01f4c09df256e9400d5bf90c84875234900c90
 - filename: .profile.d/direnv/direnv.zsh
   checksum: 0f01ea1dab65d0edd3059a4e7a3c133672fde59ab15b3271a607507b9b28caea
 - filename: .config/direnv/direnvrc

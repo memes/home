@@ -1,4 +1,5 @@
 # -*- mode: sh; eval: (sh-set-shell "zsh") -*-
+# shellcheck shell=bash
 #
 tf_clean()
 {

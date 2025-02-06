@@ -1,4 +1,5 @@
 # -*- mode: sh -*-
+# shellcheck shell=bash
 #
 # Implements a wrapper for Volterra Terraform container, passing variables from
 # current shell into the Volterra container with path munging as needed.

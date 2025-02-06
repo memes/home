@@ -1,4 +1,5 @@
 #-*- mode: sh -*-
+# shellcheck shell=bash disable=SC1091
 #
 # If homebrew is on PATH, enable bash completion
 

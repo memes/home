@@ -1,4 +1,5 @@
 #-*- mode: sh -*-
+# shellcheck shell=bash disable=SC1090
 #
 # If kubectl is installed, enable completion
 

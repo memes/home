@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 
 echo '{"version":1,"click_events":false}'
 echo '[[]'

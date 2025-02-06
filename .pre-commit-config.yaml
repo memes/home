@@ -35,6 +35,7 @@ repos:
     rev: v0.10.0.1
     hooks:
       - id: shellcheck
+        exclude: (.profile.d/functions.zsh|\.zsh$)
   - repo: https://github.com/thoughtworks/talisman
     rev: v1.32.0
     hooks:

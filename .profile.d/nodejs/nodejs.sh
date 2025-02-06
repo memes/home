@@ -1,4 +1,5 @@
 #-*- mode: sh -*-
+# shellcheck shell=bash
 #
 # Setup node for REPL mode with rlwrap
 if command -v rlwrap > /dev/null 2> /dev/null; then

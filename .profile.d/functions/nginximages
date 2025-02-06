@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Lists the NGINX+ images published by F5 in reverse chronological order of publishing,
 # along with the fully-qualified self-link of the image.
 nginximages() {

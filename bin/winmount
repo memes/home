@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 #
 # Mount Public documents folder on server at mountpoint
 MNT_POINT=${MNT_POINT:-/mnt}

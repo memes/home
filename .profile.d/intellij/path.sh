@@ -1,4 +1,5 @@
 # -*- mode: sh -*-
+# shellcheck shell=bash
 #
 # IntelliJ path
 

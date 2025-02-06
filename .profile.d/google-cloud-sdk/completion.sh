@@ -1,4 +1,5 @@
 # -*- mode: sh -*-
+# shellcheck shell=bash disable=SC1091
 #
 # Google Cloud SDK setup
 

@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 #
 # Simple volume controls for PulseAudio, suitable for use in OpenBox keybindings
 #

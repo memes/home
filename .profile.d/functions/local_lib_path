@@ -1,4 +1,5 @@
 # -*- mode: sh -*-
+# shellcheck shell=bash
 #
 # Utility function to return a library path depending on the OS
 local_lib_path()

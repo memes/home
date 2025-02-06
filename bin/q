@@ -27,7 +27,7 @@ if [ -n "${_EMACSCLIENT}" ] && [ -x "${_EMACSCLIENT}" ]; then
 
     [ "${0##*/}" = "q" ] && _EMACSCLIENT_ARGS="${_EMACSCLIENT_ARGS} -n"
 
-    ${_EMACSCLIENT} ${_EMACSCLIENT_ARGS} "$@"
+    "${_EMACSCLIENT}" "${_EMACSCLIENT_ARGS}" "$@"
 else
     command -v vi > /dev/null || error "Cannot fallback to vi"
     vi "$@"
