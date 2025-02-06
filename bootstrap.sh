@@ -24,6 +24,7 @@ rsync -avh \
     --exclude ".gitignore" \
     --exclude ".pre-commit-config.yaml" \
     --exclude ".talismanrc" \
+    --exclude ".yamllint.yaml" \
     "${SOURCE_DIR}/" "${TARGET_DIR}/"
 
 if ! grep -q .zshrc_memes "${TARGET_DIR}/.zshrc" 2>/dev/null; then
