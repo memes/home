@@ -15,7 +15,8 @@ error()
 [ -d "${TARGET_DIR}" ] || error "Target is not a directory: ${TARGET_DIR}"
 
 rsync -avh \
-    --exclude ".git/" \
+    --exclude ".git" \
+    --exclude ".github" \
     --exclude ".DS_Store" \
     --exclude "bootstrap.sh" \
     --exclude "LICENSE" \
