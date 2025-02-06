@@ -1,4 +1,5 @@
 # -*- mode: sh -*-
+# shellcheck shell=bash
 #
 # Add personal bin to path
 if [[ -d "${HOME}/bin" ]]; then

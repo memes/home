@@ -1,4 +1,5 @@
 #-*- mode: sh -*-
+# shellcheck shell=bash disable=SC1091
 #
 # Source ~/.fzf.bash if present
 if [ -n "${BASH_VERSION}" ] && [ -f "${HOME}/.fzf.bash" ]; then

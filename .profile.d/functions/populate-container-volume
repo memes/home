@@ -1,4 +1,5 @@
 # -*- mode: sh -*-
+# shellcheck shell=bash
 #
 # Utility to (re-)create OCI volumes with content of specified directory
 # $1 = name of volume

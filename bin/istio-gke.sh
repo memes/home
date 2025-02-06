@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 #
 # Start a GKE cluster with istio and kubernetes alpha features enabled
 

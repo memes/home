@@ -1,4 +1,5 @@
 #!/bin/sh
+# shellcheck disable=all
 #
 # Take a screenshot and save into specified folder
 #

@@ -2,10 +2,11 @@
 #
 # Install common go packages to local library
 set -e
+# shellcheck disable=SC1090
 command -v local_lib_path >/dev/null 2>/dev/null || . ~/.profile.d/functions/local_lib_path
 
-_GOPATH=$(local_lib_path go)
-mkdir -p ${_GOPATH}
+_GOPATH="$(local_lib_path go)"
+mkdir -p "${_GOPATH}"
 
 ECHO="$(which echo)" || "echo"
 # Install/update packages
@@ -44,9 +45,9 @@ golang.org/x/vuln/cmd/govulncheck@latest
 golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment@latest
 EOF
 
-while read p f; do
+while read -r p f; do
     ${ECHO} "Fetching/updating ${p}"
-    env GOPATH=${_GOPATH} go install ${f} ${p} && \
+    env GOPATH="${_GOPATH}" go install "${f}" "${p}" && \
         ${ECHO} "${p} done"
 done
 

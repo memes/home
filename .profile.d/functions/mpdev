@@ -1,4 +1,5 @@
 # -*- mode: sh -*-
+# shellcheck shell=bash
 #
 # Implements a wrapper for Google Cloud's mpdev container running in root Podman
 # with mounted podman socket to support mpdev's embedded docker commands.

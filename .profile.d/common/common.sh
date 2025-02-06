@@ -1,4 +1,5 @@
 # -*- mode: sh -*-
+# shellcheck shell=bash disable=SC1090
 #
 # Common environment setup
 
@@ -6,6 +7,7 @@
 export TZ="America/Los_Angeles"
 
 # Prefer emacs, but fallback on vi(m) if needed
+# shellcheck disable=SC2155
 export EDITOR="$(command -v qw 2>/dev/null || command -v emacsclient 2>/dev/null || command -v vi)"
 export VISUAL="${EDITOR}"
 
@@ -19,8 +21,8 @@ if [ "$(uname)" = "Linux" ]; then
 fi
 
 # Show git status in prompt if git prompt has been added to system
-type -t __git_ps1 > /dev/null 2>/dev/null
-if [ $? -eq 0 ]; then
+# shellcheck disable=SC2034
+if type -t __git_ps1 > /dev/null 2>/dev/null; then
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=
