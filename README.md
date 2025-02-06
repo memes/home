@@ -8,6 +8,13 @@ directly checked out to ``$HOME`` if feeling adventurous.
 ### Moving to HTTPS authentication
 For new installs, prefer use of HTTPS authentication over SSH where possible. Need to use a persistent keystore where safe to do so.
 
+### Dotfiles in devcontainer
+
+Should be automatic; just source this repo as a dotfiles repo and it should be
+bootstrapped automatically via `bootstrap.sh`.
+
+### Manual installation
+
 #### Linux
 
 Only use on encrypted filesystems
@@ -31,5 +38,5 @@ cd
 git init
 git remote add origin https://github.com/memes/home.git
 git fetch origin
-git checkout -b master --track origin/master
+git checkout -b main --track origin/main
 ```

@@ -24,6 +24,7 @@
 !.zshrc_memes
 !.zsh_plugins.txt
 !.zsh_plugins.darwin.txt
+!bootstrap.sh
 !requirements-dev.txt
 !requirements.txt
 
