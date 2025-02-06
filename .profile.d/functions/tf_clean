@@ -1,0 +1,13 @@
+# -*- mode: sh; eval: (sh-set-shell "zsh") -*-
+#
+tf_clean()
+{
+    find . -type d -name .terraform -exec rm -rf {} +
+	find . -type d -name terraform.tfstate.d -exec rm -rf {} +
+	find . -type d -name .terragrunt-cache -exec rm -rf {} +
+	find . -type f -name terraform.tfstate -exec rm -rf {} +
+	find . -type f -name terraform.tfstate.backup -exec rm -rf {} +
+	find . -type f -name .terraform.lock.hcl -exec rm -rf {} +
+	find . -type f -name _backend.tf -exec rm -rf {} +
+	find . -type f -name _providers.tf -exec rm -rf {} +
+}
