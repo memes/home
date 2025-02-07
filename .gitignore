@@ -32,6 +32,8 @@
 # local configurations
 !.config
 !.config/autostart/*
+!.config/direnv
+!.config/direnv/direnv.toml
 !.config/direnv/direnvrc
 !.config/i3
 !.config/mc
