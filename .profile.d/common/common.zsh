@@ -18,6 +18,10 @@ if [[ "$(uname)" = "Linux" ]]; then
     export QT_QPA_PLATFORMTHEME=qgnomeplatform
 fi
 
+# Set a default prompt in case it is not overridden anywhere else
+# '<fg green>user@host<reset>:<fg red>pwd<reset>(#|$) '
+prompt='%F{green}%n@%m%f:%F{red}%-1~%f%(!.#.$)'
+
 # Load my shared aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
