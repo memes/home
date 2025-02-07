@@ -1,3 +1,8 @@
+"$schema" = "https://starship.rs/config-schema.json"
+add_newline = true
+
+# Override default formats and/or disable modules
+
 [aws]
 format='[A${symbol}(${profile} )]($style)'
 
