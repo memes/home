@@ -20,6 +20,10 @@ if [ "$(uname)" = "Linux" ]; then
     export QT_QPA_PLATFORMTHEME=qgnomeplatform
 fi
 
+# Set a default prompt in case it is not overridden anywhere else
+# '<fg green>user@host<reset>:<fg red>pwd<reset>(#|$) '
+PS1='\[\033[0;32m\]\u@\h\[\033[0m\]:\[\033[0;31m\]\w\[\033[00m\]\$ '
+
 # Show git status in prompt if git prompt has been added to system
 # shellcheck disable=SC2034
 if type -t __git_ps1 > /dev/null 2>/dev/null; then
