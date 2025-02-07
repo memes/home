@@ -77,11 +77,11 @@ if [ -f /usr/local/etc/vscode-dev-containers/meta.env ] || [ -f /usr/local/etc/d
     # shellcheck disable=SC2016
     sed -i.dotfiles \
             -e 's/^export ZSH=/# export ZSH=/g' \
-            -e '/^ZSH_THEME/# ZSH_THEME/g' \
-            -e "/^zstyle ':omz:/# zstyle ':omz:/g" \
-            -e '/^ZSH_CUSTOM=/# ZSH_CUSTOM=/g' \
-            -e '/^plugins=/# plugins=/g' \
-            -e '/^source $ZSH\//# source $ZSH\//g' \
+            -e 's/^ZSH_THEME/# ZSH_THEME/g' \
+            -e "s/^zstyle ':omz:/# zstyle ':omz:/g" \
+            -e 's/^ZSH_CUSTOM=/# ZSH_CUSTOM=/g' \
+            -e 's/^plugins=/# plugins=/g' \
+            -e 's/^source $ZSH\//# source $ZSH\//g' \
         "${TARGET_DIR}/.zshrc"
 else
     info "Installing default git credential.helper"
