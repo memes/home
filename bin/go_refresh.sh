@@ -47,7 +47,8 @@ EOF
 
 while read -r p f; do
     ${ECHO} "Fetching/updating ${p}"
-    env GOPATH="${_GOPATH}" go install "${f}" "${p}" && \
+    # shellcheck disable=SC2086
+    env GOPATH="${_GOPATH}" go install ${f} ${p} && \
         ${ECHO} "${p} done"
 done
 
