@@ -1,0 +1,24 @@
+# shellcheck shell=bash
+
+# If this looks like a poetry installation activate the environment but do not
+# create init files or a venv, unlike the solution in direnv wiki.
+# Based on https://github.com/direnv/direnv/wiki/Python#poetry
+layout_maybe_poetry() {
+    PYPROJECT_TOML="${PYPROJECT_TOML:-pyproject.toml}"
+    if [[ ! -f "${PYPROJECT_TOML}" ]]; then
+        log_status "${PYPROJECT_TOML} not found. Skipping initialisation"
+        return
+    fi
+    if ! grep -q '^\[tool.poetry' "${PYPROJECT_TOML}"; then
+        log_status "${PYPROJECT_TOML} did not contain poetry stanza"
+        return
+    fi
+    VIRTUAL_ENV="$(poetry env info --path 2>/dev/null || true)"
+    if [[ -z "${VIRTUAL_ENV}" ]] || [[ ! -d "${VIRTUAL_ENV}" ]]; then
+        log_status "A poetry managed virtual environment not found"
+        return
+    fi
+    PATH_add "${VIRTUAL_ENV}/bin"
+    export POETRY_ACTIVE=1
+    export VIRTUAL_ENV
+}
