@@ -14,7 +14,7 @@ fileignoreconfig:
 - filename: .profile.d/direnv/direnv.zsh
   checksum: 0f01ea1dab65d0edd3059a4e7a3c133672fde59ab15b3271a607507b9b28caea
 - filename: .config/direnv/direnvrc
-  checksum: f520bfec10408a038786045046bc5fbb85240eda6b3e0f1cfb35f357c6f63d23
+  checksum: 830a9368caf0eb2593f5695722a5492152f9d8c5d571960dbefb98e8f24c7391
 - filename: Library/LaunchAgents/com.matthewemes.macos.plist
   checksum: 543f0a0768d5173d2a3e51327d200a6ea58c969ff95d778f4bb47cf230dcdca4
 - filename: .gnupg/dirmngr.conf
