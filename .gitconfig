@@ -6,6 +6,7 @@
 	default = simple
 	followTags = true
 	recurseSubmodules = check
+	autoSetupRemote = true
 [status]
 	showUntrackedFiles = all
 	submodulessummary = 1
@@ -45,6 +46,7 @@
 	subdiff = "!git diff && git submodule foreach 'git diff'"
 	subpublish = "!git push --recurse-submodules=on-demand -u origin $(git branch-name)"
 	subpull = submodule update --remote --merge
+	out = "log @{u}.."
 [gpg]
 	program = gpg
 [core]
@@ -61,11 +63,31 @@
 	defaultBranch = main
 [commit]
 	template = ~/.git-commit-template
+	verbose = true
 [diff]
 	submodule = log
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [submodule]
 	recurse = true
-
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[help]
+	autocorrect = prompt
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
 # Pull in any configuration that can't be stored in public git repo
 #  - try to keep last configuration option in file
 [include]
