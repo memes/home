@@ -71,6 +71,11 @@ if ! grep -q .bashrc_memes "${TARGET_DIR}/.bashrc" 2>/dev/null; then
 BASHRC
 fi
 
+# Is go binary installed?
+if go version | grep -E 'go version go1(\.[[:digit:]]+){1,2}' 2>/dev/null; then
+    sh ~/bin/go_refresh.sh
+fi
+
 # Try to customise for specific environments
 if [ -f /usr/local/etc/vscode-dev-containers/meta.env ] || [ -f /usr/local/etc/dev-containers/meta.env ]; then
     info "Disabling oh-my-zsh in devcontainer"
