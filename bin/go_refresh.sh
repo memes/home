@@ -3,6 +3,11 @@
 # Install common go packages to local library
 set -e
 
+if ! go version | grep -E 'go version go1(\.[[:digit:]]+){1,2}' 2>/dev/null; then
+    echo "Go not installed, skipping"
+    exit
+fi
+
 _GOPATH="${HOME}/go"
 mkdir -p "${_GOPATH}"
 
