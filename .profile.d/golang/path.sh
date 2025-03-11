@@ -3,10 +3,8 @@
 #
 # Go path
 
-_LOCAL_GOPATH="$(local_lib_path go)"
-if [ -d "${_LOCAL_GOPATH}" ]; then
-    export GOPATH="${_LOCAL_GOPATH}${GOPATH:+":${GOPATH}"}"
-    export GOBIN="${_LOCAL_SDK}/bin"
-    export PATH="${_LOCAL_GOPATH}/bin${PATH:+":${PATH}"}"
+if [ -d "${HOME}/go" ]; then
+    export GOPATH="${HOME}/go${GOPATH:+":${GOPATH}"}"
+    export GOBIN="${HOME}/go/bin"
+    export PATH="${HOME}/go/bin${PATH:+":${PATH}"}"
 fi
-unset _LOCAL_GOPATH

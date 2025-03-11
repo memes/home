@@ -2,10 +2,8 @@
 #
 # Install common go packages to local library
 set -e
-# shellcheck disable=SC1090
-command -v local_lib_path >/dev/null 2>/dev/null || . ~/.profile.d/functions/local_lib_path
 
-_GOPATH="$(local_lib_path go)"
+_GOPATH="${HOME}/go"
 mkdir -p "${_GOPATH}"
 
 ECHO="$(which echo)" || "echo"
