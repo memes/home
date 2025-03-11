@@ -2,10 +2,8 @@
 #
 # Go path
 
-_LOCAL_SDK="$(local_lib_path go)"
-if [[ -d "${_LOCAL_SDK}" ]]; then
-    export GOPATH="${_LOCAL_SDK}${GOPATH:+":${GOPATH}"}"
-    export GOBIN="${_LOCAL_SDK}/bin"
-    path=(${_LOCAL_SDK}/bin $path)
+if [[ -d "${HOME}/go" ]]; then
+    export GOPATH="${HOME}/go${GOPATH:+":${GOPATH}"}"
+    export GOBIN="${HOME}/go/bin"
+    path=(${HOME}/go/bin $path)
 fi
-unset _LOCAL_SDK
