@@ -2,7 +2,7 @@
 ---
 repos:
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
+    rev: v1.37.1
     hooks:
       - id: yamllint
         files: \.(yml|yaml|talismanrc)$
@@ -11,13 +11,13 @@ repos:
           - yaml
         entry: yamllint --strict
   - repo: https://github.com/compilerla/conventional-pre-commit
-    rev: v4.0.0
+    rev: v4.2.0
     hooks:
       - id: conventional-pre-commit
         stages:
           - commit-msg
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-executables-have-shebangs
       - id: check-json
@@ -32,11 +32,11 @@ repos:
           - main
       - id: trailing-whitespace
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.10.0.1
+    rev: v0.11.0.1
     hooks:
       - id: shellcheck
         exclude: (.profile.d/functions.zsh|\.zsh$)
   - repo: https://github.com/thoughtworks/talisman
-    rev: v1.32.0
+    rev: v1.37.0
     hooks:
       - id: talisman-commit

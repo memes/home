@@ -1,5 +1,6 @@
 # spell-checker: disable
 ---
+version: "1.0"
 fileignoreconfig:
 - filename: .direnvrc
   checksum: 43e0673f1d860e1a503ee1769735565e5db061f766923a44376d58d298c85309
