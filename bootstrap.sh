@@ -21,10 +21,13 @@ info()
 
 info "Copying/updating files in ${TARGET_DIR}"
 rsync -avh \
+        --exclude ".devcontainer" \
         --exclude ".git" \
         --exclude ".github" \
         --exclude ".DS_Store" \
+        --exclude ".vscode" \
         --exclude "bootstrap.sh" \
+        --exclude "CODEOWNERS" \
         --exclude "LICENSE" \
         --exclude "README.md" \
         --exclude "cloudshell.md" \
@@ -32,6 +35,7 @@ rsync -avh \
         --exclude ".pre-commit-config.yaml" \
         --exclude ".talismanrc" \
         --exclude ".yamllint.yaml" \
+        --exclude "requirements*.txt" \
         "${SOURCE_DIR}/" "${TARGET_DIR}/" || \
     error "Failed to copy/update files in ${TARGET_DIR}: exit code: $?"
 
