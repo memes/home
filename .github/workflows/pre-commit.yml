@@ -17,13 +17,20 @@ permissions:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
+    env:
+      TALISMAN_VERSION: 1.37.0
     steps:
       - uses: actions/checkout@v5
       - name: install talisman
         run: |
-          sudo curl -sLo /usr/local/bin/talisman https://github.com/thoughtworks/talisman/releases/download/v1.32.0/talisman_linux_amd64
+          sudo curl -sLo /usr/local/bin/talisman https://github.com/thoughtworks/talisman/releases/download/v${{ env.TALISMAN_VERSION }}/talisman_linux_amd64
           sudo chmod 0755 /usr/local/bin/talisman
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+          cache: pip
+          cache-dependency-path: |
+            requirements-dev.txt
+            requirements.txt
+          pip-install: -r requirements-dev.txt
       - uses: pre-commit/action@v3.0.1

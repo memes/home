@@ -28,6 +28,7 @@
 !bootstrap.sh
 !requirements-dev.txt
 !requirements.txt
+!CODEOWNERS
 
 # local configurations
 !.config
@@ -87,3 +88,9 @@ bin/vesctl
 # jq modules
 !.jq
 !.jq/**/*
+
+# devcontainer & vscode
+!.devcontainer
+!.devcontainer/devcontainer.json
+!.vscode
+!.vscode/*json
