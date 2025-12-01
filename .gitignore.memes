@@ -21,4 +21,6 @@
 # asdf/direnv/etc
 .direnv
 .envrc
+.env
+!.env.example
 .tool-versions
