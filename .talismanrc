@@ -28,3 +28,5 @@ fileignoreconfig:
   checksum: 1c068705e07460e2d76496f0492b3f8bba48e0d705364b981cb1a40e969d1e77
 - filename: .config/direnv/direnv.toml
   checksum: 97703016f68c0d67388e66e79bef05b2d895ead87206716c05eaf258a70f19be
+- filename: uv.lock
+  checksum: 553836bdef6d548b770ce5f00a44b4f7ea5121529a0dc554cc710bcc4ce3ab0c

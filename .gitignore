@@ -16,8 +16,10 @@
 !.bashrc_memes
 !.direnvrc
 !.kernel-pkg.conf
+!.markdownlint-cli2.yaml
 !.pre-commit-config.yaml
 !.profile_memes
+!.python-version
 !.screenrc
 !.talismanrc
 !.xsettingsd
@@ -26,8 +28,8 @@
 !.zsh_plugins.txt
 !.zsh_plugins.darwin.txt
 !bootstrap.sh
-!requirements-dev.txt
-!requirements.txt
+!pyproject.toml
+!uv.lock
 !CODEOWNERS
 
 # local configurations
