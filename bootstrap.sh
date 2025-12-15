@@ -25,6 +25,7 @@ rsync -avh \
         --exclude ".git" \
         --exclude ".github" \
         --exclude ".DS_Store" \
+        --exclude ".venv" \
         --exclude ".vscode" \
         --exclude "bootstrap.sh" \
         --exclude "CODEOWNERS" \
@@ -39,11 +40,13 @@ rsync -avh \
         "${SOURCE_DIR}/" "${TARGET_DIR}/" || \
     error "Failed to copy/update files in ${TARGET_DIR}: exit code: $?"
 
+[ -d "${TARGET_DIR}/.gnupg" ] && chmod 0700 "${TARGET_DIR}/.gnupg"
+
 if ! grep -q .zshrc_memes "${TARGET_DIR}/.zshrc" 2>/dev/null; then
         info "Updating ${TARGET_DIR}/.zshrc"
     cat <<'ZSHRC' >>"${TARGET_DIR}/.zshrc" || error "Failed to update ${TARGET_DIR}/.zshrc: exit code: $?"
 
-# Load memes customisations
+# Load memes customizations
 [[ -f ~/.zshrc_memes ]] && source ~/.zshrc_memes
 ZSHRC
 fi
@@ -52,7 +55,7 @@ if ! grep -q .profile_memes "${TARGET_DIR}/.profile" 2>/dev/null; then
     info "Updating ${TARGET_DIR}/.profile"
     cat <<'PROFILE' >>"${TARGET_DIR}/.profile" || error "Failed to update ${TARGET_DIR}/.profile: exit code: $?"
 
-# Load memes customisations
+# Load memes customizations
 if [ -f "${HOME}/.profile_memes" ]; then
     . "${HOME}/.profile_memes"
 fi
@@ -70,17 +73,12 @@ if ! grep -q .bashrc_memes "${TARGET_DIR}/.bashrc" 2>/dev/null; then
         info "Updating ${TARGET_DIR}/.bashrc"
     cat <<'BASHRC' >>"${TARGET_DIR}/.bashrc" || error "Failed to update ${TARGET_DIR}/.bashrc: exit code: $?"
 
-# Load memes customisations
+# Load memes customizations
 [ -f "${HOME}/.bashrc_memes" ] && . "${HOME}/.bashrc_memes"
 BASHRC
 fi
 
-# Is go binary installed?
-if go version | grep -E 'go version go1(\.[[:digit:]]+){1,2}' 2>/dev/null; then
-    sh ~/bin/go_refresh.sh
-fi
-
-# Try to customise for specific environments
+# Try to customize for specific environments
 if [ -f /usr/local/etc/vscode-dev-containers/meta.env ] || [ -f /usr/local/etc/dev-containers/meta.env ]; then
     info "Disabling oh-my-zsh in devcontainer"
     # shellcheck disable=SC2016
@@ -93,6 +91,10 @@ if [ -f /usr/local/etc/vscode-dev-containers/meta.env ] || [ -f /usr/local/etc/d
             -e 's/^source $ZSH\//# source $ZSH\//g' \
         "${TARGET_DIR}/.zshrc"
 else
+    # Is go binary installed?
+    if go version | grep -Eq 'go version go1(\.[[:digit:]]+){1,2}' 2>/dev/null; then
+        sh ~/bin/go_refresh.sh
+    fi
     info "Installing default git credential.helper"
     case "$(uname)" in
         Darwin)
@@ -104,7 +106,7 @@ else
                 error "Failed to update ${TARGET_DIR}/.gitconfig.private: exit code: $?"
             ;;
         *)
-            info "Unrecognised OS; not setting a default git credential helper"
+            info "Unrecognized OS; not setting a default git credential helper"
             ;;
     esac
 fi

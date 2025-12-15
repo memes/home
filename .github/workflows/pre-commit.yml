@@ -17,8 +17,6 @@ permissions:
 jobs:
   pre-commit:
     runs-on: ubuntu-latest
-    env:
-      TALISMAN_VERSION: 1.37.0
     steps:
       - uses: actions/checkout@v6
       - name: install talisman

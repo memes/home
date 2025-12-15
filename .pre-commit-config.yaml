@@ -12,7 +12,7 @@ repos:
           - yaml
         entry: yamllint --strict
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.14.7
+    rev: v0.14.9
     hooks:
       - id: ruff-check
         args:
@@ -20,7 +20,7 @@ repos:
           - --exit-non-zero-on-fix
       - id: ruff-format
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.19.1
+    rev: v0.20.0
     hooks:
       - id: markdownlint-cli2
   - repo: https://github.com/compilerla/conventional-pre-commit
