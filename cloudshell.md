@@ -23,6 +23,7 @@ Make sure my `.profile_memes` is sourced before `.bashrc`; add this line to `.pr
 
 ## Install binaries to `~/bin`
 
+<!-- markdownlint-disable line-length -->
 ```shell
 sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes --bin-dir ${HOME}/bin
 curl -sL --output - https://github.com/junegunn/fzf/releases/download/0.34.0/fzf-0.34.0-linux_amd64.tar.gz | tar xzf - -C ~/bin
@@ -31,6 +32,7 @@ curl -sL --output - https://github.com/terraform-docs/terraform-docs/releases/do
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2
 exit
 ```
+<!-- markdownlint-enable line-length -->
 
 ## Install asdf plugins
 
