@@ -1,13 +1,11 @@
 {
     "name": "memes-home",
-    "image": "mcr.microsoft.com/devcontainers/base:debian",
+    "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
     "features": {
         "ghcr.io/memes/devcontainers-features/direnv:1": {},
         "ghcr.io/memes/devcontainers-features/google-cloud-cli:1": {},
         "ghcr.io/memes/devcontainers-features/starship:1": {},
-        "ghcr.io/memes/devcontainers-features/talisman:1": {
-            "version": "1.37.0"
-        }
+        "ghcr.io/memes/devcontainers-features/talisman:1": {}
     },
     "customizations": {
         "vscode": {
@@ -22,10 +20,15 @@
         }
     },
     "onCreateCommand": {
-        "install-deps": "sudo sh -c 'apt update && apt install -y --no-install-recommends pipx && rm -rf /var/lib/apt/lists/*' && pipx install pre-commit"
+        "install-deps": "sudo sh -c 'apt update && apt install -y --no-install-recommends shellcheck && rm -rf /var/lib/apt/lists/*'",
+        "install-uv": ["/usr/local/py-utils/bin/pipx", "install", "uv"],
+        "modify-default-omz-plugins": ["/usr/bin/sed", "-i.onCreateCommand" , "-e", "/^plugins=/c\\plugins=(git dotenv)", "/home/vscode/.zshrc"]
     },
     "updateContentCommand": {
-        "pre-commit": "pre-commit install --hook-type commit-msg --hook-type pre-commit"
+        "uv-sync": "uv sync --link-mode=copy --all-extras --all-packages"
+    },
+    "postCreateCommand": {
+        "pre-commit": "uv run pre-commit install --hook-type commit-msg --hook-type pre-commit"
     },
     "containerUser": "vscode",
     "updateRemoteUserUID": true,
