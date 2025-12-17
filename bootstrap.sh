@@ -33,10 +33,14 @@ rsync -avh \
         --exclude "README.md" \
         --exclude "cloudshell.md" \
         --exclude ".gitignore" \
+        --exclude ".markdownlint-cli2.yaml" \
         --exclude ".pre-commit-config.yaml" \
+        --exclude ".python-version" \
         --exclude ".talismanrc" \
         --exclude ".yamllint.yaml" \
         --exclude "requirements*.txt" \
+        --exclude "pyproject.toml" \
+        --exclude "uv.lock" \
         "${SOURCE_DIR}/" "${TARGET_DIR}/" || \
     error "Failed to copy/update files in ${TARGET_DIR}: exit code: $?"
 
@@ -92,7 +96,7 @@ if [ -f /usr/local/etc/vscode-dev-containers/meta.env ] || [ -f /usr/local/etc/d
         "${TARGET_DIR}/.zshrc"
 else
     # Is go binary installed?
-    if go version | grep -Eq 'go version go1(\.[[:digit:]]+){1,2}' 2>/dev/null; then
+    if command -v go >/dev/null 2>/dev/null && go version | grep -Eq 'go version go1(\.[[:digit:]]+){1,2}' 2>/dev/null; then
         sh ~/bin/go_refresh.sh
     fi
     info "Installing default git credential.helper"
