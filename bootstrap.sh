@@ -46,6 +46,8 @@ rsync -avh \
 
 [ -d "${TARGET_DIR}/.gnupg" ] && chmod 0700 "${TARGET_DIR}/.gnupg"
 
+command -v gemini 2>/dev/null >/dev/null && sh ~/bin/gemini-cli-extensions.sh
+
 if ! grep -q .zshrc_memes "${TARGET_DIR}/.zshrc" 2>/dev/null; then
         info "Updating ${TARGET_DIR}/.zshrc"
     cat <<'ZSHRC' >>"${TARGET_DIR}/.zshrc" || error "Failed to update ${TARGET_DIR}/.zshrc: exit code: $?"
