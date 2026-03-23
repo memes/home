@@ -2,6 +2,7 @@
     "name": "memes-home",
     "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
     "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/memes/devcontainers-features/direnv:1": {},
         "ghcr.io/memes/devcontainers-features/google-cloud-cli:1": {},
         "ghcr.io/memes/devcontainers-features/starship:1": {},
