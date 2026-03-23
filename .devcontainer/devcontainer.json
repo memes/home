@@ -2,6 +2,7 @@
     "name": "memes-home",
     "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
     "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/memes/devcontainers-features/direnv:1": {},
         "ghcr.io/memes/devcontainers-features/google-cloud-cli:1": {},
         "ghcr.io/memes/devcontainers-features/starship:1": {},
@@ -31,6 +32,9 @@
         "pre-commit": "uv run pre-commit install --hook-type commit-msg --hook-type pre-commit"
     },
     "containerUser": "vscode",
+    "containerEnv": {
+        "UV_LINK_MODE": "copy"
+    },
     "updateRemoteUserUID": true,
     "mounts": [
         "source=${localEnv:HOME}/.config/gcloud,target=/home/vscode/.config/gcloud,type=bind,consistency=cached"
