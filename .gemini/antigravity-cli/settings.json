@@ -1,0 +1,9 @@
+{
+  "enableTelemetry": false,
+  "showFeedbackSurvey": false,
+  "statusLine": {
+    "type": "command",
+    "command": "jq -r 'include \"agy/status_line\"; status_line'",
+    "enabled": true
+  }
+}
