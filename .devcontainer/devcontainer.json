@@ -3,6 +3,7 @@
     "image": "mcr.microsoft.com/devcontainers/python:3.13-bookworm",
     "features": {
         "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/node:2": {},
         "ghcr.io/memes/devcontainers-features/direnv:1": {},
         "ghcr.io/memes/devcontainers-features/google-cloud-cli:1": {},
         "ghcr.io/memes/devcontainers-features/starship:1": {},
@@ -11,7 +12,6 @@
     "customizations": {
         "vscode": {
             "extensions": [
-                "Gruntfuggly.todo-tree",
                 "redhat.vscode-yaml",
                 "streetsidesoftware.code-spell-checker",
                 "esbenp.prettier-vscode",
@@ -21,6 +21,7 @@
         }
     },
     "onCreateCommand": {
+        "install-antigravity": "curl -fsSL https://antigravity.google/cli/install.sh | bash",
         "install-deps": "sudo sh -c 'apt update && apt install -y --no-install-recommends shellcheck && rm -rf /var/lib/apt/lists/*'",
         "install-uv": ["/usr/local/py-utils/bin/pipx", "install", "uv"],
         "modify-default-omz-plugins": ["/usr/bin/sed", "-i.onCreateCommand" , "-e", "/^plugins=/c\\plugins=(git dotenv)", "/home/vscode/.zshrc"]
@@ -37,6 +38,8 @@
     },
     "updateRemoteUserUID": true,
     "mounts": [
-        "source=${localEnv:HOME}/.config/gcloud,target=/home/vscode/.config/gcloud,type=bind,consistency=cached"
+        "source=${localEnv:HOME}/.config/gcloud,target=/home/vscode/.config/gcloud,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.agents,target=/home/vscode/.agents,type=bind,consistency=cached",
+        "source=${localEnv:HOME}/.gemini,target=/home/vscode/.gemini,type=bind,consistency=cached"
     ]
 }

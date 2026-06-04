@@ -31,4 +31,4 @@ fileignoreconfig:
 - filename: uv.lock
   checksum: cd032b1a839f09e08e6f17ffce0fc00ad1cb3afc1c2fdb5d5ffdc4e80bde53fb
 - filename: .devcontainer/devcontainer-lock.json
-  checksum: e9c481c07e3f6c56bae92bbafe76d2696c906191142bab802c8b562c8f126edc
+  checksum: 94afe56f8748e0e245f7fc08248bb0b024c672aef23bf65c023cc21e08f52813
