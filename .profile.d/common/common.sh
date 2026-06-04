@@ -6,9 +6,14 @@
 # Default to LA timezone
 export TZ="America/Los_Angeles"
 
-# Prefer emacs, but fallback on vi(m) if needed
-# shellcheck disable=SC2155
-export EDITOR="$(command -v qw 2>/dev/null || command -v emacsclient 2>/dev/null || command -v vi)"
+# If running in a devcontainer, set the default editor to code with fallback to vim
+if [ -f /usr/local/etc/vscode-dev-containers/meta.env ] || [ -f /usr/local/etc/dev-containers/meta.env ]; then
+    EDITOR="$(command -v code 2>/dev/null || command -v vi)"
+else
+    # Prefer emacs, but fallback on vi(m) if needed
+    EDITOR="$(command -v qw 2>/dev/null || command -v emacsclient 2>/dev/null || command -v vi)"
+fi
+export EDITOR="${EDITOR}"
 export VISUAL="${EDITOR}"
 
 # If this is Linux, set some properties
