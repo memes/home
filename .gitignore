@@ -97,3 +97,9 @@ bin/vesctl
 !.devcontainer/devcontainer-lock.json
 !.vscode
 !.vscode/*json
+
+# Gemini, Antigravity, and other agents
+!.gemini
+!.gemini/antigravity-cli
+!.gemini/antigravity-cli/settings.json
+!.agents

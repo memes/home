@@ -5,10 +5,12 @@
     "words": [
         "cloudshell",
         "CODEOWNERS",
+        "elif",
         "jaxxstorm",
         "osxkeychain",
         "talismanrc",
         "thoughtworks",
+        "tostring",
         "venv"
     ],
     "ignorePaths": [

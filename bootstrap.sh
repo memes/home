@@ -41,12 +41,14 @@ rsync -avh \
         --exclude "requirements*.txt" \
         --exclude "pyproject.toml" \
         --exclude "uv.lock" \
+        --exclude ".gemini" \
         "${SOURCE_DIR}/" "${TARGET_DIR}/" || \
     error "Failed to copy/update files in ${TARGET_DIR}: exit code: $?"
 
 [ -d "${TARGET_DIR}/.gnupg" ] && chmod 0700 "${TARGET_DIR}/.gnupg"
 
 command -v gemini 2>/dev/null >/dev/null && sh ~/bin/gemini-cli-extensions.sh
+command -v agy 2>/dev/null >/dev/null && sh ~/bin/antigravity-cli-setup.sh "${SOURCE_DIR}" "${TARGET_DIR}"
 
 if ! grep -q .zshrc_memes "${TARGET_DIR}/.zshrc" 2>/dev/null; then
         info "Updating ${TARGET_DIR}/.zshrc"
