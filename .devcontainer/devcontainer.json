@@ -22,7 +22,7 @@
     },
     "onCreateCommand": {
         "install-antigravity": "curl -fsSL https://antigravity.google/cli/install.sh | bash",
-        "install-deps": "sudo sh -c 'apt update && apt install -y --no-install-recommends shellcheck && rm -rf /var/lib/apt/lists/*'",
+        "install-deps": "sudo sh -c 'apt update && apt install -y --no-install-recommends fzf shellcheck && rm -rf /var/lib/apt/lists/*'",
         "install-uv": ["/usr/local/py-utils/bin/pipx", "install", "uv"],
         "modify-default-omz-plugins": ["/usr/bin/sed", "-i.onCreateCommand" , "-e", "/^plugins=/c\\plugins=(git dotenv)", "/home/vscode/.zshrc"]
     },
