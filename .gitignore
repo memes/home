@@ -95,6 +95,7 @@ bin/vesctl
 !.devcontainer
 !.devcontainer/devcontainer.json
 !.devcontainer/devcontainer-lock.json
+!.devcontainer/Dockerfile
 !.vscode
 !.vscode/*json
 
