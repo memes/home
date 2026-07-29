@@ -25,16 +25,25 @@ def _percentage(exp):
 def _capitalize(exp):
     exp | split(" ") | map((.[:1] | ascii_upcase) + .[1:]) | join (" ");
 
-def _array_count(exp):
-    if exp | type == "array" then (exp | length) else 0 end;
+def _count(exp):
+    if exp | type == "array" then
+        (exp | length)
+    elif exp | type == "number" then
+        (exp | nearbyint)
+    else
+        0
+    end;
+
+def _remove_snake(exp):
+    exp | split("_") | join(" ");
 
 def status_line:
     {
-        status: _capitalize(.agent_state),
-        # model: (.model.display_name // "N/A"),
+        status: _capitalize(_remove_snake(.agent_state)),
+        model: (.model.display_name // "N/A"),
         "Context Usage": _percentage(.context_window.used_percentage // 0),
-        "Input Queue": _array_count(.pending_input_count),
-        artifacts: _array_count(.artifacts),
-        "Background Tasks": _array_count(.background_tasks),
-        subagents: _array_count(.subagents),
+        "Input Queue": _count(.pending_input_count),
+        artifacts: _count(.artifact_count),
+        "Background Tasks": _count(.task_count),
+        # subagents: _count(.subagents),
     } | to_entries | map([_bold(_capitalize(.key)), .value] | join(": ")) | join(" | ");

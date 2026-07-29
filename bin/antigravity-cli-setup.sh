@@ -18,6 +18,7 @@ if [ -r "${BOOTSTRAP_SOURCE_DIR}/.gemini/antigravity-cli/settings.json" ]; then
             "${TARGET_DIR}/.gemini/antigravity-cli/settings.json" > "${merged_settings}" && \
         mv -f "${merged_settings}" "${TARGET_DIR}/.gemini/antigravity-cli/settings.json"
     else
+        mkdir -p "${TARGET_DIR}/.gemini/antigravity-cli"
         cp "${BOOTSTRAP_SOURCE_DIR}/.gemini/antigravity-cli/settings.json" "${TARGET_DIR}/.gemini/antigravity-cli/settings.json"
     fi
 fi
