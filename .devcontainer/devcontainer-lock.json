@@ -1,5 +1,10 @@
 {
   "features": {
+    "ghcr.io/devcontainers-extra/features/direnv": {
+      "version": "1.0.3",
+      "resolved": "ghcr.io/devcontainers-extra/features/direnv@sha256:cd4c07352fb75cadcdde6f8cabba49224341eb4d5348870a7434b0ad15128a48",
+      "integrity": "sha256:cd4c07352fb75cadcdde6f8cabba49224341eb4d5348870a7434b0ad15128a48"
+    },
     "ghcr.io/devcontainers/features/github-cli:1": {
       "version": "1.1.1",
       "resolved": "ghcr.io/devcontainers/features/github-cli@sha256:94879eebb6a0e4e2f197de9f12db7427cb4a25b82d93c55239ce8c8fc394a1b4",
@@ -10,20 +15,10 @@
       "resolved": "ghcr.io/devcontainers/features/node@sha256:586c9a6f7dd40bd3ba2cd41e7f2f88dcc31fbe5d1442afcbf07ffbc66b686857",
       "integrity": "sha256:586c9a6f7dd40bd3ba2cd41e7f2f88dcc31fbe5d1442afcbf07ffbc66b686857"
     },
-    "ghcr.io/memes/devcontainers-features/direnv:1": {
-      "version": "1.1.1",
-      "resolved": "ghcr.io/memes/devcontainers-features/direnv@sha256:5805278468f5403e2ffbd0aa0f4ce59bf3fc54acc7fe754908d203a6a43704b6",
-      "integrity": "sha256:5805278468f5403e2ffbd0aa0f4ce59bf3fc54acc7fe754908d203a6a43704b6"
-    },
     "ghcr.io/memes/devcontainers-features/google-cloud-cli:1": {
       "version": "1.1.1",
       "resolved": "ghcr.io/memes/devcontainers-features/google-cloud-cli@sha256:7869b755bb656bfa43c8d887d3bc4931b3bfed36c5fe6d79afe41a96893534d8",
       "integrity": "sha256:7869b755bb656bfa43c8d887d3bc4931b3bfed36c5fe6d79afe41a96893534d8"
-    },
-    "ghcr.io/memes/devcontainers-features/starship:1": {
-      "version": "1.1.1",
-      "resolved": "ghcr.io/memes/devcontainers-features/starship@sha256:bd7bca02af0d5237ca12002890ba34ad973bcac267dba1d22def32496db07d1b",
-      "integrity": "sha256:bd7bca02af0d5237ca12002890ba34ad973bcac267dba1d22def32496db07d1b"
     },
     "ghcr.io/memes/devcontainers-features/talisman:1": {
       "version": "1.1.1",

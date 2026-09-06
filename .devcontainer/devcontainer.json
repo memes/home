@@ -4,9 +4,8 @@
     "features": {
         "ghcr.io/devcontainers/features/github-cli:1": {},
         "ghcr.io/devcontainers/features/node:2": {},
-        "ghcr.io/memes/devcontainers-features/direnv:1": {},
+        "ghcr.io/devcontainers-extra/features/direnv": {},
         "ghcr.io/memes/devcontainers-features/google-cloud-cli:1": {},
-        "ghcr.io/memes/devcontainers-features/starship:1": {},
         "ghcr.io/memes/devcontainers-features/talisman:1": {}
     },
     "customizations": {
