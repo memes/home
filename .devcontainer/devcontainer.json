@@ -26,14 +26,13 @@
         "modify-default-omz-plugins": ["/usr/bin/sed", "-i.onCreateCommand" , "-e", "/^plugins=/c\\plugins=(git dotenv)", "/home/vscode/.zshrc"]
     },
     "updateContentCommand": {
-        "uv-sync": "uv sync --link-mode=copy --all-extras --all-packages"
-    },
-    "postCreateCommand": {
-        "pre-commit": "uv run pre-commit install --hook-type commit-msg --hook-type pre-commit"
+        "uv-sync": "uv sync --all-extras --all-packages && uv run pre-commit install --hook-type commit-msg --hook-type pre-commit"
     },
     "containerUser": "vscode",
     "containerEnv": {
-        "UV_LINK_MODE": "copy"
+        // TODO(@memes): Work around broken uv on virtiofs/docker/workspace
+        "UV_PROJECT_ENVIRONMENT": "/home/vscode/.venv"
+        //"UV_LINK_MODE": "copy"
     },
     "updateRemoteUserUID": true,
     "mounts": [
