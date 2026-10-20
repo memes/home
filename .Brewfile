@@ -1,6 +1,5 @@
 # spell-checker: disable
 brew "awscli"
-brew "azure-cli"
 brew "eksctl"
 brew "fzf"
 brew "gnupg"
@@ -13,5 +12,6 @@ brew "ripgrep"
 brew "ykman"
 brew "yq"
 brew "yubico-piv-tool"
+cask "azure-cli"
 cask "font-fira-code"
 cask "gcloud-cli"
